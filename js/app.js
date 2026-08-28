@@ -116,12 +116,12 @@
   /* ---------- Terminal typing, safe text rendering ---------- */
   const terminal = $("#terminalBody");
   const terminalLines = [
-    ["initializing secure shell...", "normal"],
-    ["authenticating via ed25519 key...", "normal"],
-    ["✓ access granted (2FA verified)", "ok"],
-    ["mounting distributed filesystem...", "normal"],
-    ["✓ 42 nodes connected", "ok"],
-    ["system ready. welcome, rizu.", "gold"]
+    ["whoami → Rizu Zaman", "ok"],
+    ["nmap -sV localhost → 22/ssh · 80/http · 443/https", "cyan"],
+    ["sudo apt-get install security-tools → installation complete", "ok"],
+    ["systemctl status firewall → active (running)", "ok"],
+    ["python3 exploit-check.py → scanning vulnerabilities...", "warn"],
+    ["git push origin master → pushed successfully", "gold"]
   ];
   if (terminal) {
     let li=0, ci=0, timer=0;
@@ -140,10 +140,13 @@
       terminal.appendChild(cursor);
       ci++;
       if(ci > terminalLines[li][0].length){li++;ci=0;timer=setTimeout(type,260)}
-      else timer=setTimeout(type, reduced?8:18);
+      else timer=setTimeout(type, reduced?8:68);
     };
     type();
+    document.querySelector("#terminalRun")?.addEventListener("click",()=>{ terminal.textContent=""; li=0; ci=0; clearTimeout(timer); type(); });
   }
+
+  if(window.lucide){ window.lucide.createIcons({attrs:{"stroke-width":1.7}}); }
 
   /* ---------- Threat level simulation ---------- */
   const threat = $("#threatValue"), bar=$("#threatBar"), score=$("#threatScore");
