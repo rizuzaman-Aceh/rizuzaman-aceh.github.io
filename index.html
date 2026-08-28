@@ -1,585 +1,1261 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R2 Nusantara - Distributor Rokok Grosir Resmi Malang</title>
-    <meta name="description" content="Distributor Rokok Grosir Resmi Malang — 233 Merek Ready Stock. Gudang di Pakisaji, Malang. JNE, JNT, SiCepat, Indah Cargo.">
-    <meta name="keywords" content="grosir rokok malang, distributor r2 nusantara, rokok grosir pakisaji, r2 nusantara malang">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="R2 Nusantara - Distributor Rokok Grosir">
-    <meta property="og:description" content="233 Merek Ready Stock. Gudang Distributor di Pakisaji, Malang.">
-    <meta property="og:image" content="assets/logo/preview.jpg">
-    <meta property="og:url" content="https://cigarettetobaccoshop.github.io/id.com/">
-    
-    <!-- PWA -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0F3D6E">
-    <link rel="apple-touch-icon" href="assets/logo/logo.png">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: { DEFAULT: '#0F3D6E', light: '#1E5A8E', dark: '#0A2A50' },
-                        secondary: '#64748B', muted: '#94A3B8',
-                        gold: { DEFAULT: '#C8962E', light: '#D4A84B', dark: '#A67D22' },
-                        surface: '#F8FAFC', border: '#E2E8F0'
-                    },
-                    fontFamily: {
-                        display: ['"DM Serif Display"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace']
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="description"
+    content="Rizu Zaman — Senior Software Engineer & Cyber Security Portfolio."
+  >
+
+  <meta
+    name="theme-color"
+    content="#0a0a0a"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rizu Zaman — Senior Software Engineer">
+  <meta
+    property="og:description"
+    content="Engineering, cloud infrastructure, distributed systems and cybersecurity."
+  >
+  <meta
+    property="og:image"
+    content="https://i.ibb.co.com/gLnFBLbL/IMG-20260810-124727.png"
+  >
+
+  <title>Rizu Zaman — Senior Software Engineer</title>
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Typography -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            obsidian: '#0a0a0a',
+            cyanx: '#00f0ff',
+            purplex: '#a855f7',
+            goldx: '#ffd700',
+            matrix: '#00ff41'
+          }
         }
-    </script>
-    <link rel="stylesheet" href="style.css">
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-surface font-sans text-primary antialiased">
-    
-    <!-- Loading Screen -->
-    <div id="loadingScreen" class="loading-screen fixed inset-0 bg-gradient-to-br from-primary via-primary to-primary-dark z-[100] flex items-center justify-center">
-        <div class="text-center px-4 relative z-10">
-            <div class="relative mb-6">
-                <div class="absolute inset-0 bg-gold/20 rounded-2xl blur-2xl animate-pulse"></div>
-                <div class="relative w-24 h-24 mx-auto bg-white rounded-2xl flex items-center justify-center shadow-2xl overflow-hidden">
-                    <img src="assets/logo/logo.png" alt="Logo" class="w-20 h-20 object-contain p-2" onerror="this.parentElement.innerHTML='<i class=\'fas fa-store text-4xl text-primary\'></i>'">
-                </div>
-            </div>
-            <h1 class="text-2xl font-display text-white mb-2">R2 Nusantara</h1>
-            <p class="text-white/70 text-sm mb-6">Distributor Grosir Resmi Malang</p>
-            <div class="w-48 h-1 bg-white/20 rounded-full overflow-hidden mx-auto">
-                <div class="loading-bar h-full bg-gradient-to-r from-gold to-gold-light rounded-full"></div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Header -->
-    <header class="header-fixed fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-border shadow-sm transition-all duration-300" id="mainHeader">
-        <div class="bg-gradient-to-r from-primary via-primary-light to-primary text-white py-1.5 text-[11px] font-medium">
-            <div class="container mx-auto px-4 text-center">
-                <span class="inline-flex items-center gap-1.5">
-                    <i class="fas fa-shield-alt text-gold text-[10px]"></i>
-                    Gudang Resmi Pakisaji · JNE, JNT, SiCepat, Indah Cargo
-                </span>
-            </div>
-        </div>
-        <div class="container mx-auto px-4 py-2.5">
-            <div class="flex items-center justify-between">
-                <a href="#" class="flex items-center gap-2.5 group">
-                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-light rounded-lg flex items-center justify-center shadow-md group-hover:scale-105 transition-transform overflow-hidden">
-                        <img src="assets/logo/logo.png" alt="Logo" class="w-8 h-8 object-contain p-1" onerror="this.parentElement.innerHTML='<i class=\'fas fa-store text-lg text-white\'></i>'">
-                    </div>
-                    <div class="hidden sm:block">
-                        <h1 class="text-base font-display text-primary leading-tight">R2 Nusantara</h1>
-                        <p class="text-[10px] text-secondary font-medium -mt-0.5">Wholesale Trading Partner</p>
-                    </div>
-                </a>
-                <div class="flex items-center gap-2">
-                    <button id="wishlistBtn" class="relative w-9 h-9 rounded-lg bg-white border border-border hover:border-gold hover:shadow-md transition-all flex items-center justify-center">
-                        <i class="far fa-heart text-base text-primary"></i>
-                        <span id="wishlistBadge" class="absolute -top-1.5 -right-1.5 w-4 h-4 bg-gradient-to-br from-gold to-gold-light text-white text-[9px] rounded-full flex items-center justify-center font-bold hidden">0</span>
-                    </button>
-                    <button id="cartBtn" class="relative w-9 h-9 rounded-lg bg-white border border-border hover:border-gold hover:shadow-md transition-all flex items-center justify-center">
-                        <i class="fas fa-shopping-cart text-base text-primary"></i>
-                        <span id="cartBadge" class="absolute -top-1.5 -right-1.5 w-4 h-4 bg-gradient-to-br from-gold to-gold-light text-white text-[9px] rounded-full flex items-center justify-center font-bold hidden">0</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
+<body>
 
-    <!-- Hero Section -->
-    <section class="hero-section pt-24 pb-10 bg-gradient-to-br from-primary via-primary-light to-primary-dark text-white relative overflow-hidden">
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute -top-20 -right-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-        </div>
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-3xl mx-auto text-center">
-                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 backdrop-blur-md rounded-full mb-5 border border-white/20">
-                    <i class="fas fa-check-circle text-gold text-xs"></i>
-                    <span class="text-xs font-semibold">Gudang Distributor Resmi · Pakisaji, Malang</span>
-                </div>
-                <h2 class="text-3xl md:text-5xl font-display mb-4 leading-tight">
-                    Distributor Rokok Grosir Resmi<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-gold-light">233 Merek Ready Stock</span>
-                </h2>
-                <p class="text-sm md:text-base text-white/90 mb-6 max-w-xl mx-auto leading-relaxed">
-                    Bayar setelah resi keluar. Gratis ongkir minimal 1 bal. Kirim ke seluruh Indonesia via JNE, JNT, SiCepat, dan Indah Cargo.
-                </p>
-                <div class="flex flex-wrap justify-center gap-3 mb-8">
-                    <a href="#katalog" class="px-6 py-2.5 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white font-semibold rounded-lg transition-all shadow-lg hover:-translate-y-0.5 inline-flex items-center gap-2 text-sm">
-                        <i class="fas fa-shopping-bag"></i>Lihat Katalog
-                    </a>
-                    <a href="https://wa.me/6285715905079" target="_blank" class="px-6 py-2.5 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/30 inline-flex items-center gap-2 text-sm">
-                        <i class="fab fa-whatsapp"></i>Chat Admin
-                    </a>
-                </div>
-                <div class="grid grid-cols-3 gap-3 max-w-md mx-auto">
-                    <div class="text-center p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                        <div class="text-xl md:text-2xl font-bold text-gold mb-0.5">233+</div>
-                        <div class="text-[10px] text-white/80">Merek</div>
-                    </div>
-                    <div class="text-center p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                        <div class="text-xl md:text-2xl font-bold text-gold mb-0.5">4.9★</div>
-                        <div class="text-[10px] text-white/80">Rating</div>
-                    </div>
-                    <div class="text-center p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                        <div class="text-xl md:text-2xl font-bold text-gold mb-0.5">24h</div>
-                        <div class="text-[10px] text-white/80">Proses Resi</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- =========================================================
+       GLOBAL UI
+  ========================================================== -->
 
-    <!-- Editor's Pick -->
-    <section class="py-10 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex items-end justify-between mb-6">
-                <div>
-                    <h2 class="text-2xl font-display text-primary mb-0.5">Editor's Pick</h2>
-                    <p class="text-xs text-secondary">Produk unggulan pilihan terbaik kami</p>
-                </div>
-                <a href="#katalog" class="text-gold font-semibold hover:text-gold-dark transition-colors inline-flex items-center gap-1 text-sm">
-                    Lihat Semua <i class="fas fa-arrow-right text-xs"></i>
-                </a>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="editorsPick"></div>
-        </div>
-    </section>
+  <div id="scroll-progress"></div>
 
-    <!-- Catalog Section -->
-    <section id="katalog" class="py-10 bg-surface">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-6">
-                <h2 class="text-2xl md:text-3xl font-display text-primary mb-1">Katalog Produk</h2>
-                <p class="text-sm text-secondary">233 Merek Rokok Grosir Ready Stock</p>
-            </div>
-            <div class="bg-white rounded-xl p-4 shadow-sm mb-6 border border-border">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <div class="relative">
-                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-muted text-sm"></i>
-                        <input type="text" id="searchInput" placeholder="Cari produk, merek..." class="w-full pl-9 pr-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-surface focus:bg-white text-sm">
-                        <div id="searchResults" class="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-lg border border-border hidden max-h-80 overflow-y-auto z-30"></div>
-                    </div>
-                    <select id="categoryFilter" class="px-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-surface focus:bg-white text-sm">
-                        <option value="">Semua Kategori</option>
-                        <option value="R2">R2</option>
-                        <option value="Resmi">Resmi</option>
-                    </select>
-                    <select id="sortFilter" class="px-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-surface focus:bg-white text-sm">
-                        <option value="name">Urutkan: Nama A-Z</option>
-                        <option value="price-asc">Harga: Rendah ke Tinggi</option>
-                        <option value="price-desc">Harga: Tinggi ke Rendah</option>
-                    </select>
-                </div>
-            </div>
-            <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"></div>
-            <div id="pagination" class="flex justify-center gap-1.5 mt-6"></div>
-            <div id="noResults" class="text-center py-12 hidden">
-                <div class="w-16 h-16 mx-auto mb-3 bg-white rounded-full flex items-center justify-center">
-                    <i class="fas fa-search text-3xl text-muted/30"></i>
-                </div>
-                <h3 class="text-lg font-display text-primary mb-1">Produk Tidak Ditemukan</h3>
-                <p class="text-sm text-secondary">Coba ubah filter atau kata kunci pencarian</p>
-                <button onclick="resetFilters()" class="mt-4 px-5 py-2 bg-gold hover:bg-gold-dark text-white font-semibold rounded-lg transition-all text-sm">Reset Filter</button>
-            </div>
-        </div>
-    </section>
+  <canvas
+    id="matrix-canvas"
+    aria-hidden="true"
+  ></canvas>
 
-    <!-- Why Section -->
-    <section class="py-10 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-display text-primary mb-1">Mengapa Memilih Kami?</h2>
-                <p class="text-sm text-secondary">Keunggulan berbelanja di R2 Nusantara</p>
-            </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                <div class="text-center p-4 rounded-xl bg-surface hover:shadow-md transition-all group border border-border hover:border-gold/30">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg flex items-center justify-center group-hover:from-primary group-hover:to-primary-light transition-all">
-                        <i class="fas fa-certificate text-xl text-primary group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="font-bold text-sm text-primary mb-1">100% Original</h3>
-                    <p class="text-[11px] text-secondary leading-snug">Produk resmi dari distributor terpercaya</p>
-                </div>
-                <div class="text-center p-4 rounded-xl bg-surface hover:shadow-md transition-all group border border-border hover:border-gold/30">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg flex items-center justify-center group-hover:from-primary group-hover:to-primary-light transition-all">
-                        <i class="fas fa-truck text-xl text-primary group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="font-bold text-sm text-primary mb-1">Multi Ekspedisi</h3>
-                    <p class="text-[11px] text-secondary leading-snug">JNE, JNT, SiCepat, Indah Cargo</p>
-                </div>
-                <div class="text-center p-4 rounded-xl bg-surface hover:shadow-md transition-all group border border-border hover:border-gold/30">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg flex items-center justify-center group-hover:from-primary group-hover:to-primary-light transition-all">
-                        <i class="fas fa-shield-alt text-xl text-primary group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="font-bold text-sm text-primary mb-1">Aman & Terpercaya</h3>
-                    <p class="text-[11px] text-secondary leading-snug">Bayar setelah resi keluar</p>
-                </div>
-                <div class="text-center p-4 rounded-xl bg-surface hover:shadow-md transition-all group border border-border hover:border-gold/30">
-                    <div class="w-12 h-12 mx-auto mb-2 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg flex items-center justify-center group-hover:from-primary group-hover:to-primary-light transition-all">
-                        <i class="fas fa-headset text-xl text-primary group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="font-bold text-sm text-primary mb-1">CS Responsif</h3>
-                    <p class="text-[11px] text-secondary leading-snug">Siap melayani via WhatsApp</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div
+    id="cursor"
+    class="custom-cursor"
+    aria-hidden="true"
+  ></div>
 
-    <!-- Testimonials Section -->
-    <section class="py-10 bg-gradient-to-br from-primary via-primary-light to-primary-dark text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-0 w-64 h-64 bg-gold rounded-full blur-3xl"></div>
-        </div>
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-display mb-1">Testimoni Pelanggan</h2>
-                <p class="text-sm text-white/80">Apa kata mitra toko tentang kami</p>
-                <div class="flex items-center justify-center gap-1 mt-2">
-                    <div class="flex text-gold text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <span class="text-xs text-white/80">4.9/5 dari <span id="reviewCount">6</span> ulasan</span>
-                </div>
-            </div>
-            <div class="relative max-w-4xl mx-auto">
-                <div class="overflow-hidden rounded-2xl">
-                    <div class="testimonial-slider-track flex transition-transform duration-500 ease-out" id="testimonialTrack"></div>
-                </div>
-                <div class="flex items-center justify-center gap-3 mt-5">
-                    <button id="testimonialPrev" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all hover:scale-110"><i class="fas fa-chevron-left text-sm"></i></button>
-                    <div class="flex gap-1.5" id="testimonialDots"></div>
-                    <button id="testimonialNext" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all hover:scale-110"><i class="fas fa-chevron-right text-sm"></i></button>
-                </div>
-            </div>
-            <div class="text-center mt-6">
-                <button onclick="openReviewModal()" class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-lg transition-all text-sm font-semibold">
-                    <i class="fas fa-pen text-gold"></i>Tulis Ulasan Anda
-                </button>
-            </div>
-        </div>
-    </section>
+  <div
+    id="cursor-ring"
+    class="cursor-ring"
+    aria-hidden="true"
+  ></div>
 
-    <!-- FAQ Section -->
-    <section class="py-10 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-display text-primary mb-1">Pertanyaan Umum</h2>
-                <p class="text-sm text-secondary">Informasi penting seputar pemesanan</p>
-            </div>
-            <div class="faq-container max-w-2xl mx-auto rounded-xl overflow-hidden shadow-sm border border-border">
-                <div class="faq-item bg-white border-b border-border">
-                    <div class="faq-question cursor-pointer px-4 py-3 flex items-center justify-between gap-3">
-                        <span class="font-semibold text-sm text-primary">Bagaimana sistem pembayarannya?</span>
-                        <div class="faq-icon w-7 h-7 rounded-full bg-surface flex items-center justify-center flex-shrink-0 transition-all"><i class="fas fa-chevron-down text-xs text-primary"></i></div>
-                    </div>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <div class="faq-answer-inner px-4 pb-3 text-xs text-secondary leading-relaxed">Kami menggunakan sistem aman: Anda transfer setelah nomor resi keluar. Menerima BCA, Mandiri, BNI.</div>
-                    </div>
-                </div>
-                <div class="faq-item bg-white border-b border-border">
-                    <div class="faq-question cursor-pointer px-4 py-3 flex items-center justify-between gap-3">
-                        <span class="font-semibold text-sm text-primary">Ekspedisi apa saja yang tersedia?</span>
-                        <div class="faq-icon w-7 h-7 rounded-full bg-surface flex items-center justify-center flex-shrink-0 transition-all"><i class="fas fa-chevron-down text-xs text-primary"></i></div>
-                    </div>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <div class="faq-answer-inner px-4 pb-3 text-xs text-secondary leading-relaxed">Kami bekerjasama dengan JNE, JNT, SiCepat Express, Indah Cargo, dan ekspedisi lainnya untuk pengiriman ke seluruh Indonesia.</div>
-                    </div>
-                </div>
-                <div class="faq-item bg-white border-b border-border">
-                    <div class="faq-question cursor-pointer px-4 py-3 flex items-center justify-between gap-3">
-                        <span class="font-semibold text-sm text-primary">Berapa minimal pemesanan?</span>
-                        <div class="faq-icon w-7 h-7 rounded-full bg-surface flex items-center justify-center flex-shrink-0 transition-all"><i class="fas fa-chevron-down text-xs text-primary"></i></div>
-                    </div>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <div class="faq-answer-inner px-4 pb-3 text-xs text-secondary leading-relaxed">Minimal 1 bal (10 slop/100 pak) untuk harga grosir. Gratis ongkir untuk area tertentu dengan minimal 1 bal.</div>
-                    </div>
-                </div>
-                <div class="faq-item bg-white">
-                    <div class="faq-question cursor-pointer px-4 py-3 flex items-center justify-between gap-3">
-                        <span class="font-semibold text-sm text-primary">Dimana lokasi gudang Anda?</span>
-                        <div class="faq-icon w-7 h-7 rounded-full bg-surface flex items-center justify-center flex-shrink-0 transition-all"><i class="fas fa-chevron-down text-xs text-primary"></i></div>
-                    </div>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                        <div class="faq-answer-inner px-4 pb-3 text-xs text-secondary leading-relaxed">Gudang kami berlokasi di WJMC+WG8, Karangduren, Kec. Pakisaji, Kabupaten Malang, Jawa Timur 65162.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Lokasi Section -->
-    <section id="lokasi" class="py-10 bg-surface">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-display text-primary mb-1">Lokasi Gudang</h2>
-                <p class="text-sm text-secondary">Kunjungi gudang kami di Pakisaji, Malang</p>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <div class="bg-white rounded-xl p-5 shadow-sm border border-border">
-                    <h3 class="text-lg font-display text-primary mb-4">Informasi Kontak</h3>
-                    <div class="space-y-2.5">
-                        <div class="flex items-start gap-3 p-3 bg-surface rounded-lg border border-border">
-                            <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-light rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-sm text-white"></i></div>
-                            <div>
-                                <h4 class="font-bold text-primary text-sm mb-0.5">Alamat Gudang</h4>
-                                <p class="text-xs text-secondary">WJMC+WG8, Karangduren, Kec. Pakisaji, Kabupaten Malang, Jawa Timur 65162</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-3 bg-surface rounded-lg border border-border">
-                            <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-light rounded-lg flex items-center justify-center flex-shrink-0"><i class="fab fa-whatsapp text-sm text-white"></i></div>
-                            <div>
-                                <h4 class="font-bold text-primary text-sm mb-0.5">WhatsApp Admin</h4>
-                                <p class="text-xs text-secondary font-medium">0857-1590-5079</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-3 bg-surface rounded-lg border border-border">
-                            <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-light rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-truck text-sm text-white"></i></div>
-                            <div>
-                                <h4 class="font-bold text-primary text-sm mb-0.5">Mitra Ekspedisi</h4>
-                                <p class="text-xs text-secondary">JNE, JNT, SiCepat Express, Indah Cargo, dan lain-lain</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-3 bg-surface rounded-lg border border-border">
-                            <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-light rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-clock text-sm text-white"></i></div>
-                            <div>
-                                <h4 class="font-bold text-primary text-sm mb-0.5">Jam Operasional</h4>
-                                <p class="text-xs text-secondary">Senin - Sabtu: 08.00 - 17.00 WIB</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2 mt-4">
-                        <a href="https://wa.me/6285715905079" target="_blank" class="flex-1 text-center py-2.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-lg transition-all shadow-md text-sm">
-                            <i class="fab fa-whatsapp mr-1"></i>Chat WA
-                        </a>
-                        <a href="https://maps.app.goo.gl/KP6jYrAdmqDQpANJ7?g_st=ac" target="_blank" class="flex-1 text-center py-2.5 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white font-semibold rounded-lg transition-all shadow-md text-sm">
-                            <i class="fas fa-map-marked-alt mr-1"></i>Buka Maps
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-border relative">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.0!2d112.705!3d-8.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMDMnMDAuMCJTIDExMsKwNDInMTguMCJF!5e0!3m2!1sen!2sid!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <a href="https://maps.app.goo.gl/KP6jYrAdmqDQpANJ7?g_st=ac" target="_blank" class="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg text-sm font-semibold text-primary hover:bg-gold hover:text-white transition-all">
-                        <i class="fas fa-external-link-alt mr-1"></i>Buka di Google Maps
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-br from-primary via-primary-dark to-primary text-white pt-10 pb-20 md:pb-10 relative overflow-hidden">
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="col-span-2 lg:col-span-1">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md overflow-hidden">
-                            <img src="assets/logo/logo.png" alt="Logo" class="w-8 h-8 object-contain p-1" onerror="this.parentElement.innerHTML='<i class=\'fas fa-store text-lg text-primary\'></i>'">
-                        </div>
-                        <h3 class="text-base font-display">R2 Nusantara</h3>
-                    </div>
-                    <p class="text-white/70 text-xs mb-3 leading-relaxed">Distributor Rokok Grosir Resmi Malang. Gudang di Pakisaji. Melayani pengiriman ke seluruh Indonesia.</p>
-                    <div class="flex gap-2">
-                        <a href="https://wa.me/6285715905079" class="w-8 h-8 bg-white/10 hover:bg-gold rounded-lg flex items-center justify-center transition-all"><i class="fab fa-whatsapp text-xs"></i></a>
-                        <a href="#" class="w-8 h-8 bg-white/10 hover:bg-gold rounded-lg flex items-center justify-center transition-all"><i class="fab fa-instagram text-xs"></i></a>
-                        <a href="#" class="w-8 h-8 bg-white/10 hover:bg-gold rounded-lg flex items-center justify-center transition-all"><i class="fab fa-facebook-f text-xs"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm mb-3">Tautan Cepat</h4>
-                    <ul class="space-y-1.5 text-white/70 text-xs">
-                        <li><a href="#katalog" class="hover:text-gold transition-colors">Katalog Produk</a></li>
-                        <li><a href="#lokasi" class="hover:text-gold transition-colors">Lokasi Gudang</a></li>
-                        <li><a href="#" onclick="openLegalModal('terms')" class="hover:text-gold transition-colors">Syarat & Ketentuan</a></li>
-                        <li><a href="#" onclick="openLegalModal('privacy')" class="hover:text-gold transition-colors">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm mb-3">Kategori</h4>
-                    <ul class="space-y-1.5 text-white/70 text-xs">
-                        <li><a href="#" onclick="filterByCategory('R2')" class="hover:text-gold transition-colors">Rokok R2</a></li>
-                        <li><a href="#" onclick="filterByCategory('Resmi')" class="hover:text-gold transition-colors">Rokok Resmi</a></li>
-                        <li><a href="#" class="hover:text-gold transition-colors">Aksesoris</a></li>
-                        <li><a href="#" class="hover:text-gold transition-colors">Perlengkapan</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm mb-3">Mitra Ekspedisi</h4>
-                    <div class="flex flex-wrap gap-2 text-white/70 text-[10px]">
-                        <span class="px-2 py-1 bg-white/10 rounded">JNE</span>
-                        <span class="px-2 py-1 bg-white/10 rounded">JNT</span>
-                        <span class="px-2 py-1 bg-white/10 rounded">SiCepat</span>
-                        <span class="px-2 py-1 bg-white/10 rounded">Indah Cargo</span>
-                        <span class="px-2 py-1 bg-white/10 rounded">AnterAja</span>
-                        <span class="px-2 py-1 bg-white/10 rounded">Ninja</span>
-                    </div>
-                    <h4 class="font-bold text-sm mb-2 mt-4">Newsletter</h4>
-                    <form id="newsletterForm" class="space-y-2">
-                        <input type="email" placeholder="Email Anda" required class="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:border-gold focus:outline-none transition-all text-xs">
-                        <button type="submit" class="w-full px-3 py-2 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white font-semibold rounded-lg transition-all text-xs">Berlangganan</button>
-                    </form>
-                </div>
-            </div>
-            <div class="border-t border-white/20 pt-4 text-center text-white/60 text-xs">
-                <p>&copy; 2024 R2 Nusantara - Cigarette Tobacco Shop. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+  <header class="site-header">
+    <nav
+      class="navbar"
+      aria-label="Navigasi utama"
+    >
 
-    <!-- Back to Top -->
-    <button id="backToTop" class="fixed bottom-24 md:bottom-8 right-4 md:right-8 w-11 h-11 bg-gradient-to-br from-gold to-gold-light hover:from-gold-light hover:to-gold text-white rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 pointer-events-none z-30 hover:scale-110">
-        <i class="fas fa-arrow-up text-sm"></i>
-    </button>
+      <a
+        href="#home"
+        class="brand"
+        aria-label="Rizu Zaman Home"
+      >
+        <span class="brand-symbol">RZ</span>
+        <span class="brand-text">
+          RIZU<span>.</span>
+        </span>
+      </a>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/6285715905079" target="_blank" class="fixed bottom-8 right-4 md:right-8 w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full shadow-xl flex items-center justify-center transition-all hover:scale-110 z-30">
-        <i class="fab fa-whatsapp text-2xl"></i>
-    </a>
+      <div
+        class="nav-links"
+        id="nav-links"
+      >
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
 
-    <!-- Cookie Banner -->
-    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-primary to-primary-dark text-white p-4 shadow-2xl z-50 hidden">
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
-            <div class="text-xs leading-relaxed">
-                <p>Kami menggunakan cookie untuk meningkatkan pengalaman. <a href="#" onclick="openLegalModal('cookie')" class="text-gold underline font-semibold">Pelajari lebih lanjut</a></p>
-            </div>
-            <div class="flex gap-2">
-                <button onclick="acceptCookies()" class="px-4 py-1.5 bg-gradient-to-r from-gold to-gold-light text-white font-semibold rounded-lg text-xs">Terima</button>
-                <button onclick="rejectCookies()" class="px-4 py-1.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg text-xs">Tolak</button>
-            </div>
-        </div>
-    </div>
+      <a
+        href="#contact"
+        class="nav-cta"
+      >
+        Let's Talk
+        <span>↗</span>
+      </a>
 
-    <!-- Toast Container -->
-    <div id="toastContainer" class="fixed top-20 right-4 z-[70] space-y-2"></div>
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-label="Buka menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <!-- Modals (Quick View, Cart, Wishlist, Checkout, Review, Legal) -->
-    <div id="quickViewModal" class="fixed inset-0 z-50 hidden">
-        <div class="modal-overlay absolute inset-0" onclick="closeQuickView()"></div>
-        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
-            <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto transform scale-95 opacity-0 transition-all duration-300" id="quickViewContent"></div>
-        </div>
-    </div>
-
-    <div id="cartSidebar" class="fixed inset-0 z-50 hidden">
-        <div class="modal-overlay absolute inset-0" onclick="closeCart()"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" id="cartContent">
-            <div class="p-4 border-b border-border flex items-center justify-between bg-surface">
-                <h3 class="text-base font-display text-primary">Keranjang Belanja</h3>
-                <button onclick="closeCart()" class="w-8 h-8 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center"><i class="fas fa-times text-primary text-sm"></i></button>
-            </div>
-            <div class="flex-1 overflow-y-auto p-4" id="cartItems"></div>
-            <div class="p-4 border-t border-border bg-surface">
-                <div class="flex justify-between mb-3">
-                    <span class="text-secondary text-sm font-medium">Total</span>
-                    <span class="text-xl font-bold text-primary font-mono" id="cartTotal">Rp 0</span>
-                </div>
-                <button onclick="openCheckout()" class="w-full py-3 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white font-semibold rounded-lg transition-all shadow-md text-sm">Checkout via WhatsApp</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="wishlistSidebar" class="fixed inset-0 z-50 hidden">
-        <div class="modal-overlay absolute inset-0" onclick="closeWishlist()"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" id="wishlistContent">
-            <div class="p-4 border-b border-border flex items-center justify-between bg-surface">
-                <h3 class="text-base font-display text-primary">Wishlist</h3>
-                <button onclick="closeWishlist()" class="w-8 h-8 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center"><i class="fas fa-times text-primary text-sm"></i></button>
-            </div>
-            <div class="flex-1 overflow-y-auto p-4" id="wishlistItems"></div>
-        </div>
-    </div>
-
-    <div id="checkoutModal" class="fixed inset-0 z-50 hidden">
-        <div class="modal-overlay absolute inset-0" onclick="closeCheckout()"></div>
-        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
-            <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto pointer-events-auto transform scale-95 opacity-0 transition-all duration-300 p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-display text-primary">Checkout</h3>
-                    <button onclick="closeCheckout()" class="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 flex items-center justify-center"><i class="fas fa-times text-primary text-sm"></i></button>
-                </div>
-                <form id="checkoutForm" class="space-y-3">
-                    <div><label class="block text-xs font-bold text-primary mb-1.5">Nama Lengkap *</label><input type="text" id="checkoutName" required class="w-full px-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-surface focus:bg-white text-sm"></div>
-                    <div><label class="block text-xs font-bold text-primary mb-1.5">Nomor WhatsApp *</label><input type="tel" id="checkoutPhone" required class="w-full px-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-surface focus:bg-white text-sm"></div>
-                    <div><label class="block text-xs font-bold text-primary mb-1.5">Alamat Lengkap *</label><textarea id="checkoutAddress" rows="2" required class="w-full px-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all resize-none bg-surface focus:bg-white text-sm"></textarea></div>
-                    <div><label class="block text-xs font-bold text-primary mb-1.5">Catatan Pesanan</label><textarea id="checkoutNotes" rows="2" class="w-full px-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all resize-none bg-surface focus:bg-white text-sm"></textarea></div>
-                    <div class="bg-surface p-4 rounded-lg border border-border mt-4">
-                        <h4 class="font-bold text-primary text-sm mb-3">Ringkasan Pesanan</h4>
-                        <div id="checkoutItems" class="space-y-2 mb-3"></div>
-                        <div class="border-t border-border pt-3 flex justify-between items-center">
-                            <span class="text-sm font-bold text-primary">Total</span>
-                            <span class="text-lg font-bold text-gold font-mono" id="checkoutTotal">Rp 0</span>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-full py-3 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white font-semibold rounded-lg transition-all shadow-md mt-4 text-sm"><i class="fab fa-whatsapp mr-2"></i>Kirim Pesanan via WhatsApp</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div id="reviewModal" class="fixed inset-0 z-50 hidden">
-        <div class="modal-overlay absolute inset-0" onclick="closeReviewModal()"></div>
-        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
-            <div class="bg-white rounded-xl shadow-2xl max-w-md w-full pointer-events-auto transform scale-95 opacity-0 transition-all duration-300 p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-display text-primary">Tulis Ulasan</h3>
-                    <button onclick="closeReviewModal()" class="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 flex items-center justify-center"><i class="fas fa-times text-primary text-sm"></i></button>
-                </div>
-                <form id="reviewForm" class="space-y-3">
-                    <div><label class="block text-xs font-bold text-primary mb-1.5">Nama Anda *</label><input type="text" id="reviewName" required class="w-full px-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-surface focus:bg-white text-sm"></div>
-                    <div><label class="block text-xs font-bold text-primary mb-1.5">Kota/Lokasi *</label><input type="text" id="reviewLocation" required placeholder="Contoh: Surabaya, Jawa Timur" class="w-full px-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-surface focus:bg-white text-sm"></div>
-                    <div>
-                        <label class="block text-xs font-bold text-primary mb-1.5">Rating *</label>
-                        <div class="flex gap-1" id="ratingStars">
-                            <button type="button" class="star-btn text-2xl text-gray-300 hover:text-gold transition-colors" data-rating="1"><i class="far fa-star"></i></button>
-                            <button type="button" class="star-btn text-2xl text-gray-300 hover:text-gold transition-colors" data-rating="2"><i class="far fa-star"></i></button>
-                            <button type="button" class="star-btn text-2xl text-gray-300 hover:text-gold transition-colors" data-rating="3"><i class="far fa-star"></i></button>
-                            <button type="button" class="star-btn text-2xl text-gray-300 hover:text-gold transition-colors" data-rating="4"><i class="far fa-star"></i></button>
-                            <button type="button" class="star-btn text-2xl text-gray-300 hover:text-gold transition-colors" data-rating="5"><i class="far fa-star"></i></button>
-                        </div>
-                        <input type="hidden" id="reviewRating" value="5" required>
-                    </div>
-                    <div><label class="block text-xs font-bold text-primary mb-1.5">Ulasan Anda *</label><textarea id="reviewText" rows="4" required placeholder="Ceritakan pengalaman Anda berbelanja di sini..." class="w-full px-3 py-2.5 rounded-lg border border-border focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all resize-none bg-surface focus:bg-white text-sm"></textarea></div>
-                    <button type="submit" class="w-full py-3 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white font-semibold rounded-lg transition-all shadow-md text-sm"><i class="fas fa-paper-plane mr-2"></i>Kirim Ulasan</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div id="legalModal" class="fixed inset-0 z-50 hidden">
-        <div class="modal-overlay absolute inset-0" onclick="closeLegalModal()"></div>
-        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
-            <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto pointer-events-auto transform scale-95 opacity-0 transition-all duration-300 p-6" id="legalContent"></div>
-        </div>
-    </div>
-
-    <!-- Mobile Bottom Navigation -->
-    <nav class="md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-40">
-        <div class="glass-capsule-dock">
-            <a href="#" class="nav-item active" data-page="home"><i class="fas fa-home"></i><span>Beranda</span></a>
-            <a href="#katalog" class="nav-item" data-page="catalog"><i class="fas fa-th-large"></i><span>Katalog</span></a>
-            <a href="#" id="mobileBottomCart" class="nav-item relative"><i class="fas fa-shopping-cart"></i><span>Keranjang</span><span id="mobileBottomCartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-gold to-gold-light text-white text-[9px] rounded-full flex items-center justify-center font-bold hidden">0</span></a>
-            <a href="#" id="mobileBottomWishlist" class="nav-item relative"><i class="far fa-heart"></i><span>Wishlist</span><span id="mobileBottomWishlistBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-gold to-gold-light text-white text-[9px] rounded-full flex items-center justify-center font-bold hidden">0</span></a>
-        </div>
     </nav>
+  </header>
 
-    <!-- Scripts -->
-    <script src="data.js"></script>
-    <script src="app.js"></script>
+
+  <main>
+
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+
+    <section
+      id="home"
+      class="hero section-shell"
+    >
+
+      <div class="hero-grid">
+
+        <div class="hero-copy reveal">
+
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            AVAILABLE FOR SELECT PROJECTS
+          </div>
+
+          <p class="eyebrow">
+            SOFTWARE ENGINEERING / SECURITY / CLOUD
+          </p>
+
+          <h1 class="hero-title">
+            Engineering
+            <span class="gradient-text">systems</span>
+            that scale.
+          </h1>
+
+          <p class="hero-description">
+            Saya <strong>Rizu Zaman</strong>, Senior Software Engineer
+            yang berfokus pada distributed systems, cloud infrastructure,
+            modern web engineering, dan security-minded architecture.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              href="#projects"
+              class="button button-primary"
+            >
+              Explore Work
+              <span>↗</span>
+            </a>
+
+            <a
+              href="#contact"
+              class="button button-ghost"
+            >
+              Contact Me
+            </a>
+
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <span>BASED IN</span>
+              <strong>Jakarta, Indonesia</strong>
+            </div>
+
+            <div>
+              <span>FOCUS</span>
+              <strong>Engineering + Security</strong>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- Profile Visual -->
+
+        <div class="hero-visual reveal">
+
+          <div class="profile-stage">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="orbit orbit-three"></div>
+
+            <!-- Spider web SVG -->
+
+            <svg
+              class="spider-web"
+              viewBox="0 0 400 400"
+              aria-hidden="true"
+            >
+              <circle cx="200" cy="200" r="180"></circle>
+              <circle cx="200" cy="200" r="145"></circle>
+              <circle cx="200" cy="200" r="110"></circle>
+              <circle cx="200" cy="200" r="75"></circle>
+
+              <path d="M200 20V380"></path>
+              <path d="M20 200H380"></path>
+              <path d="M73 73L327 327"></path>
+              <path d="M327 73L73 327"></path>
+              <path d="M122 35L278 365"></path>
+              <path d="M278 35L122 365"></path>
+              <path d="M35 122L365 278"></path>
+              <path d="M35 278L365 122"></path>
+            </svg>
+
+            <div class="profile-frame">
+
+              <img
+                src="https://i.ibb.co.com/gLnFBLbL/IMG-20260810-124727.png"
+                alt="Rizu Zaman"
+                loading="eager"
+                decoding="async"
+              >
+
+              <div class="profile-overlay"></div>
+
+            </div>
+
+
+            <!-- Floating Technology Tags -->
+
+            <span class="tech-tag tag-go">GO</span>
+            <span class="tech-tag tag-k8s">K8S</span>
+            <span class="tech-tag tag-react">REACT</span>
+            <span class="tech-tag tag-python">PYTHON</span>
+            <span class="tech-tag tag-cloud">CLOUD</span>
+
+
+            <!-- Terminal -->
+
+            <div class="terminal-card">
+
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+
+                <span>rz@system:~</span>
+
+                <span>● SECURE</span>
+              </div>
+
+              <div
+                id="terminal-output"
+                class="terminal-body"
+              ></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hero-scroll">
+        <span>SCROLL TO EXPLORE</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         SECURITY DASHBOARD
+    ======================================================== -->
+
+    <section
+      id="monitor"
+      class="section-shell dashboard-section"
+    >
+
+      <div class="section-heading reveal">
+
+        <div>
+          <p class="eyebrow">LIVE SYSTEM MONITOR</p>
+          <h2>Security <span class="gradient-text">Operations</span></h2>
+        </div>
+
+        <div class="live-indicator">
+          <span></span>
+          LIVE
+        </div>
+
+      </div>
+
+
+      <!-- Ticker -->
+
+      <div class="security-ticker">
+        <div id="ticker-track">
+
+          <span>● SYSTEM OPERATIONAL</span>
+          <span>● FIREWALL ACTIVE</span>
+          <span>● ENCRYPTION AES-256</span>
+          <span>● ZERO CRITICAL THREATS</span>
+          <span>● NETWORK MONITORING ACTIVE</span>
+          <span>● SYSTEM OPERATIONAL</span>
+
+        </div>
+      </div>
+
+
+      <div class="dashboard-grid">
+
+        <!-- Threat -->
+
+        <article class="glass-card threat-card reveal">
+
+          <div class="card-label">
+            THREAT LEVEL
+          </div>
+
+          <div
+            id="threat-level"
+            class="threat-value"
+          >
+            LOW
+          </div>
+
+          <div class="threat-meter">
+            <span id="threat-meter-bar"></span>
+          </div>
+
+          <p id="threat-description">
+            Systems operating within normal parameters.
+          </p>
+
+        </article>
+
+
+        <!-- Traffic -->
+
+        <article class="glass-card traffic-card reveal">
+
+          <div class="card-topline">
+            <div class="card-label">
+              NETWORK TRAFFIC
+            </div>
+
+            <span class="live-label">
+              LIVE
+            </span>
+          </div>
+
+          <div class="traffic-number">
+            <span id="traffic-value">2.84</span>
+            <small>GB/s</small>
+          </div>
+
+          <canvas
+            id="traffic-canvas"
+            aria-label="Live network traffic graph"
+          ></canvas>
+
+        </article>
+
+
+        <!-- Firewall -->
+
+        <article class="glass-card firewall-card reveal">
+
+          <div class="card-label">
+            FIREWALL STATUS
+          </div>
+
+          <div class="firewall-status">
+            <span class="firewall-icon">✓</span>
+            <div>
+              <strong>PROTECTED</strong>
+              <small>All systems nominal</small>
+            </div>
+          </div>
+
+          <ul class="protection-list">
+            <li>
+              <span>✓</span>
+              DDoS Protection
+            </li>
+            <li>
+              <span>✓</span>
+              Intrusion Detection
+            </li>
+            <li>
+              <span>✓</span>
+              API Rate Limiting
+            </li>
+            <li>
+              <span>✓</span>
+              TLS Encryption
+            </li>
+          </ul>
+
+        </article>
+
+
+        <!-- Event Log -->
+
+        <article class="glass-card event-card reveal">
+
+          <div class="card-topline">
+
+            <div class="card-label">
+              SECURITY EVENT LOG
+            </div>
+
+            <span class="live-label">
+              STREAMING
+            </span>
+
+          </div>
+
+          <div
+            id="security-log"
+            class="security-log"
+            aria-live="polite"
+          ></div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         ABOUT
+    ======================================================== -->
+
+    <section
+      id="about"
+      class="section-shell about-section"
+    >
+
+      <div class="section-heading reveal">
+
+        <div>
+          <p class="eyebrow">01 / ABOUT</p>
+          <h2>Built with <span class="gradient-text">intent.</span></h2>
+        </div>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div class="about-copy reveal">
+
+          <p class="large-copy">
+            Saya membangun software dengan pendekatan yang
+            mengutamakan <strong>performance, reliability,
+            security, dan maintainability.</strong>
+          </p>
+
+          <p>
+            Dari frontend interface hingga distributed backend,
+            saya tertarik pada sistem yang kompleks dan bagaimana
+            membuatnya tetap sederhana untuk digunakan.
+          </p>
+
+          <p>
+            Filosofi engineering saya sederhana:
+            <em>build less, build better, understand deeply.</em>
+          </p>
+
+        </div>
+
+
+        <div class="stats-grid reveal">
+
+          <div class="stat-card">
+            <strong>5+</strong>
+            <span>Years Experience</span>
+          </div>
+
+          <div class="stat-card">
+            <strong>40+</strong>
+            <span>Projects Delivered</span>
+          </div>
+
+          <div class="stat-card">
+            <strong>12M</strong>
+            <span>Monthly Requests</span>
+          </div>
+
+          <div class="stat-card">
+            <strong>8</strong>
+            <span>Core Technologies</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         EDUCATION
+    ======================================================== -->
+
+    <section
+      id="education"
+      class="section-shell"
+    >
+
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">02 / EDUCATION</p>
+          <h2>Technical <span class="gradient-text">Foundation.</span></h2>
+        </div>
+      </div>
+
+
+      <div class="education-grid">
+
+        <article class="education-card glass-card reveal">
+
+          <span class="education-number">01</span>
+
+          <div>
+            <p class="card-label">2019 — 2021</p>
+            <h3>Institut Teknologi Bandung</h3>
+            <p>M.S. Ilmu Komputer</p>
+            <strong>GPA 3.94</strong>
+          </div>
+
+        </article>
+
+
+        <article class="education-card glass-card reveal">
+
+          <span class="education-number">02</span>
+
+          <div>
+            <p class="card-label">2015 — 2019</p>
+            <h3>Universitas Indonesia</h3>
+            <p>B.S. Ilmu Komputer</p>
+            <strong>Cum Laude</strong>
+          </div>
+
+        </article>
+
+
+        <article class="education-card glass-card reveal">
+
+          <span class="education-number">03</span>
+
+          <div>
+            <p class="card-label">CERTIFICATIONS</p>
+            <h3>Professional Credentials</h3>
+
+            <div class="cert-list">
+              <span>AWS Pro</span>
+              <span>CKA</span>
+              <span>CEH</span>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         SKILLS
+    ======================================================== -->
+
+    <section
+      id="skills"
+      class="section-shell skills-section"
+    >
+
+      <div class="section-heading reveal">
+
+        <div>
+          <p class="eyebrow">03 / EXPERTISE</p>
+          <h2>Engineering <span class="gradient-text">Stack.</span></h2>
+        </div>
+
+      </div>
+
+
+      <div class="skills-grid">
+
+        <div class="skill-ring reveal">
+          <div class="ring" data-value="95">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
+            </svg>
+            <strong>95%</strong>
+          </div>
+          <span>React / Next.js</span>
+        </div>
+
+
+        <div class="skill-ring reveal">
+          <div class="ring" data-value="92">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
+            </svg>
+            <strong>92%</strong>
+          </div>
+          <span>TypeScript</span>
+        </div>
+
+
+        <div class="skill-ring reveal">
+          <div class="ring" data-value="90">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
+            </svg>
+            <strong>90%</strong>
+          </div>
+          <span>Tailwind</span>
+        </div>
+
+
+        <div class="skill-ring reveal">
+          <div class="ring" data-value="93">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
+            </svg>
+            <strong>93%</strong>
+          </div>
+          <span>Go</span>
+        </div>
+
+
+        <div class="skill-ring reveal">
+          <div class="ring" data-value="90">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
+            </svg>
+            <strong>90%</strong>
+          </div>
+          <span>Python</span>
+        </div>
+
+
+        <div class="skill-ring reveal">
+          <div class="ring" data-value="88">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
+            </svg>
+            <strong>88%</strong>
+          </div>
+          <span>Node.js</span>
+        </div>
+
+
+        <div class="skill-ring reveal">
+          <div class="ring" data-value="92">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
+            </svg>
+            <strong>92%</strong>
+          </div>
+          <span>AWS / GCP</span>
+        </div>
+
+
+        <div class="skill-ring reveal">
+          <div class="ring" data-value="90">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
+            </svg>
+            <strong>90%</strong>
+          </div>
+          <span>Kubernetes</span>
+        </div>
+
+
+        <div class="skill-ring reveal">
+          <div class="ring" data-value="88">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
+            </svg>
+            <strong>88%</strong>
+          </div>
+          <span>PostgreSQL</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         PROJECTS
+    ======================================================== -->
+
+    <section
+      id="projects"
+      class="section-shell"
+    >
+
+      <div class="section-heading reveal">
+
+        <div>
+          <p class="eyebrow">04 / SELECTED WORK</p>
+          <h2>Systems I've <span class="gradient-text">built.</span></h2>
+        </div>
+
+      </div>
+
+
+      <div class="projects-grid">
+
+
+        <article
+          class="project-card reveal tilt-card"
+          tabindex="0"
+        >
+
+          <div class="project-front">
+
+            <div class="project-number">01</div>
+
+            <div class="project-content">
+
+              <span class="project-type">
+                DATA INFRASTRUCTURE
+              </span>
+
+              <h3>Pulse Analytics</h3>
+
+              <p>
+                High-throughput analytics platform
+                untuk processing data secara real-time.
+              </p>
+
+              <div class="project-stack">
+                <span>GO</span>
+                <span>CLICKHOUSE</span>
+                <span>KAFKA</span>
+                <span>REACT</span>
+              </div>
+
+            </div>
+
+            <span class="project-year">2024</span>
+
+          </div>
+
+          <div class="project-back">
+
+            <span>ARCHITECTURE</span>
+
+            <h3>Real-time Analytics</h3>
+
+            <p>
+              Distributed ingestion pipeline dengan
+              streaming architecture dan low-latency analytics.
+            </p>
+
+            <span class="flip-hint">
+              CLICK TO FLIP
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="project-card reveal tilt-card"
+          tabindex="0"
+        >
+
+          <div class="project-front">
+
+            <div class="project-number">02</div>
+
+            <div class="project-content">
+
+              <span class="project-type">
+                FINTECH
+              </span>
+
+              <h3>Finly Budgeting</h3>
+
+              <p>
+                Personal finance application
+                dengan mobile-first architecture.
+              </p>
+
+              <div class="project-stack">
+                <span>REACT NATIVE</span>
+                <span>NODE.JS</span>
+                <span>POSTGRESQL</span>
+              </div>
+
+            </div>
+
+            <span class="project-year">2023</span>
+
+          </div>
+
+          <div class="project-back">
+
+            <span>PRODUCT ENGINEERING</span>
+
+            <h3>Financial Control</h3>
+
+            <p>
+              Modular financial tracking system
+              dengan backend yang scalable.
+            </p>
+
+            <span class="flip-hint">
+              CLICK TO FLIP
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="project-card reveal tilt-card"
+          tabindex="0"
+        >
+
+          <div class="project-front">
+
+            <div class="project-number">03</div>
+
+            <div class="project-content">
+
+              <span class="project-type">
+                CLOUD INFRASTRUCTURE
+              </span>
+
+              <h3>Nimbus Cloud</h3>
+
+              <p>
+                Kubernetes-based infrastructure
+                untuk workload cloud-native.
+              </p>
+
+              <div class="project-stack">
+                <span>KUBERNETES</span>
+                <span>TERRAFORM</span>
+                <span>GO</span>
+              </div>
+
+            </div>
+
+            <span class="project-year">2022</span>
+
+          </div>
+
+          <div class="project-back">
+
+            <span>PLATFORM ENGINEERING</span>
+
+            <h3>Cloud Automation</h3>
+
+            <p>
+              Infrastructure-as-code dengan
+              automated provisioning dan deployment.
+            </p>
+
+            <span class="flip-hint">
+              CLICK TO FLIP
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="project-card reveal tilt-card"
+          tabindex="0"
+        >
+
+          <div class="project-front">
+
+            <div class="project-number">04</div>
+
+            <div class="project-content">
+
+              <span class="project-type">
+                OPEN SOURCE
+              </span>
+
+              <h3>Open Source</h3>
+
+              <p>
+                Kontribusi dan eksperimen engineering
+                pada ecosystem modern development.
+              </p>
+
+              <div class="project-stack">
+                <span>GO</span>
+                <span>TYPESCRIPT</span>
+              </div>
+
+            </div>
+
+            <span class="project-year">ACTIVE</span>
+
+          </div>
+
+          <div class="project-back">
+
+            <span>COMMUNITY</span>
+
+            <h3>Build in Public</h3>
+
+            <p>
+              Eksplorasi tooling, developer experience,
+              dan engineering practices.
+            </p>
+
+            <span class="flip-hint">
+              CLICK TO FLIP
+            </span>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         EXPERIENCE
+    ======================================================== -->
+
+    <section
+      id="experience"
+      class="section-shell experience-section"
+    >
+
+      <div class="section-heading reveal">
+
+        <div>
+          <p class="eyebrow">05 / EXPERIENCE</p>
+          <h2>Professional <span class="gradient-text">journey.</span></h2>
+        </div>
+
+      </div>
+
+
+      <div class="timeline">
+
+        <article class="timeline-item reveal">
+
+          <div class="timeline-marker"></div>
+
+          <div class="timeline-date">
+            2023 — NOW
+          </div>
+
+          <div class="timeline-content">
+
+            <span>SENIOR SOFTWARE ENGINEER</span>
+            <h3>GoTo</h3>
+
+            <p>
+              Building scalable software systems,
+              platform capabilities and engineering infrastructure.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="timeline-item reveal">
+
+          <div class="timeline-marker"></div>
+
+          <div class="timeline-date">
+            2021 — 2023
+          </div>
+
+          <div class="timeline-content">
+
+            <span>SOFTWARE ENGINEER II</span>
+            <h3>Traveloka</h3>
+
+            <p>
+              Developed production-grade software
+              across high-scale digital services.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="timeline-item reveal">
+
+          <div class="timeline-marker"></div>
+
+          <div class="timeline-date">
+            2020
+          </div>
+
+          <div class="timeline-content">
+
+            <span>SOFTWARE ENGINEERING INTERN</span>
+            <h3>Tokopedia</h3>
+
+            <p>
+              Started professional software engineering
+              experience working within a large technology ecosystem.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CONTACT
+    ======================================================== -->
+
+    <section
+      id="contact"
+      class="section-shell contact-section"
+    >
+
+      <div class="contact-shell reveal">
+
+        <div class="contact-intro">
+
+          <p class="eyebrow">06 / CONTACT</p>
+
+          <h2>
+            Let's build
+            <span class="gradient-text">something exceptional.</span>
+          </h2>
+
+          <p>
+            Punya project, product, atau engineering challenge?
+            Mari diskusikan bagaimana teknologi dapat menyelesaikannya.
+          </p>
+
+          <div class="contact-links">
+
+            <a href="mailto:hello@rizuzaman.dev">
+              hello@rizuzaman.dev
+            </a>
+
+            <span>Jakarta, Indonesia</span>
+
+          </div>
+
+        </div>
+
+
+        <form
+          id="contact-form"
+          class="contact-form"
+        >
+
+          <div class="form-row">
+
+            <label>
+              <span>NAME</span>
+              <input
+                type="text"
+                name="name"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+              >
+            </label>
+
+            <label>
+              <span>EMAIL</span>
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              >
+            </label>
+
+          </div>
+
+
+          <label>
+            <span>SUBJECT</span>
+            <input
+              type="text"
+              name="subject"
+              placeholder="Project / Collaboration"
+              required
+            >
+          </label>
+
+
+          <label>
+            <span>MESSAGE</span>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Tell me about your project..."
+              required
+            ></textarea>
+          </label>
+
+
+          <button
+            type="submit"
+            class="button button-primary submit-button"
+          >
+
+            <span class="submit-text">
+              Send Message
+            </span>
+
+            <span
+              class="spinner"
+              aria-hidden="true"
+            ></span>
+
+            <span class="submit-arrow">
+              ↗
+            </span>
+
+          </button>
+
+
+          <p
+            id="form-status"
+            class="form-status"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        RIZU<span>.</span>
+      </div>
+
+      <p>
+        Designed & engineered with precision.
+      </p>
+
+      <div class="footer-meta">
+        © <span id="year"></span> Rizu Zaman
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================================================
+       THREE.JS IMPORTMAP
+  ========================================================== -->
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.180.0/build/three.module.js"
+    }
+  }
+  </script>
+
+  <script type="module" src="js/main.js"></script>
+
 </body>
 </html>
