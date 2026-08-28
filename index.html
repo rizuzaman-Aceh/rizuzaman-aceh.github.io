@@ -1,1261 +1,382 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-
-  <meta
-    name="description"
-    content="Rizu Zaman — Senior Software Engineer & Cyber Security Portfolio."
-  >
-
-  <meta
-    name="theme-color"
-    content="#0a0a0a"
-  >
-
-  <meta
-    name="robots"
-    content="index, follow"
-  >
-
-  <meta property="og:type" content="website">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Rizu Zaman — Senior Software Engineer. Portfolio profesional dengan fokus software engineering, distributed systems, cloud, dan application security.">
   <meta property="og:title" content="Rizu Zaman — Senior Software Engineer">
-  <meta
-    property="og:description"
-    content="Engineering, cloud infrastructure, distributed systems and cybersecurity."
-  >
-  <meta
-    property="og:image"
-    content="https://i.ibb.co.com/gLnFBLbL/IMG-20260810-124727.png"
-  >
-
+  <meta property="og:description" content="Ultra-luxury cyber-infused engineering portfolio.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://i.ibb.co.com/gLnFBLbL/IMG-20260810-124727.png">
   <title>Rizu Zaman — Senior Software Engineer</title>
 
-  <!-- Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Typography -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Space Grotesk', 'sans-serif'],
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace']
-          },
-          colors: {
-            obsidian: '#0a0a0a',
-            cyanx: '#00f0ff',
-            purplex: '#a855f7',
-            goldx: '#ffd700',
-            matrix: '#00ff41'
-          }
-        }
-      }
-    };
-  </script>
-
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+  <div id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- =========================================================
-       GLOBAL UI
-  ========================================================== -->
+  <div id="cursorDot" aria-hidden="true"></div>
+  <div id="cursorRing" aria-hidden="true"></div>
 
-  <div id="scroll-progress"></div>
-
-  <canvas
-    id="matrix-canvas"
-    aria-hidden="true"
-  ></canvas>
-
-  <div
-    id="cursor"
-    class="custom-cursor"
-    aria-hidden="true"
-  ></div>
-
-  <div
-    id="cursor-ring"
-    class="cursor-ring"
-    aria-hidden="true"
-  ></div>
-
-
-  <!-- =========================================================
-       NAVIGATION
-  ========================================================== -->
-
-  <header class="site-header">
-    <nav
-      class="navbar"
-      aria-label="Navigasi utama"
-    >
-
-      <a
-        href="#home"
-        class="brand"
-        aria-label="Rizu Zaman Home"
-      >
-        <span class="brand-symbol">RZ</span>
-        <span class="brand-text">
-          RIZU<span>.</span>
-        </span>
+  <header class="site-header" id="siteHeader">
+    <nav class="nav shell" aria-label="Navigasi utama">
+      <a class="brand" href="#home" aria-label="Rizu Zaman — beranda">
+        <span class="brand-mark">R</span><span>Rizu<span class="accent-cyan">.dev</span></span>
       </a>
 
-      <div
-        class="nav-links"
-        id="nav-links"
-      >
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#contact" class="nav-link">Contact</a>
+      <div class="nav-links" id="desktopNav">
+        <a href="#about">Tentang</a>
+        <a href="#cyber">Cyber</a>
+        <a href="#education">Pendidikan</a>
+        <a href="#skills">Skill</a>
+        <a href="#projects">Karya</a>
+        <a href="#experience">Pengalaman</a>
       </div>
 
-      <a
-        href="#contact"
-        class="nav-cta"
-      >
-        Let's Talk
-        <span>↗</span>
-      </a>
+      <a class="btn btn-primary nav-cta" href="#contact">Diskusi <span aria-hidden="true">↗</span></a>
 
-      <button
-        id="menu-toggle"
-        class="menu-toggle"
-        aria-label="Buka menu"
-        aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
       </button>
-
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="#about">Tentang</a>
+      <a href="#cyber">Cyber Monitor</a>
+      <a href="#education">Pendidikan</a>
+      <a href="#skills">Skill Teknis</a>
+      <a href="#projects">Karya</a>
+      <a href="#experience">Pengalaman</a>
+      <a href="#contact">Hubungi Saya</a>
+    </div>
   </header>
 
+  <main id="main">
+    <section class="hero section-shell" id="home">
+      <div class="hero-orb orb-a" aria-hidden="true"></div>
+      <div class="hero-orb orb-b" aria-hidden="true"></div>
 
-  <main>
-
-    <!-- =======================================================
-         HERO
-    ======================================================== -->
-
-    <section
-      id="home"
-      class="hero section-shell"
-    >
-
-      <div class="hero-grid">
-
+      <div class="hero-grid shell">
         <div class="hero-copy reveal">
-
-          <div class="status-badge">
-            <span class="status-dot"></span>
-            AVAILABLE FOR SELECT PROJECTS
-          </div>
-
-          <p class="eyebrow">
-            SOFTWARE ENGINEERING / SECURITY / CLOUD
-          </p>
-
-          <h1 class="hero-title">
-            Engineering
-            <span class="gradient-text">systems</span>
-            that scale.
-          </h1>
-
+          <div class="status-pill"><span class="status-dot"></span>Tersedia · Jakarta, Indonesia</div>
+          <p class="eyebrow">SENIOR SOFTWARE ENGINEER / SYSTEMS / SECURITY</p>
+          <h1>Engineering yang<br><span class="gradient-text">terukur.</span></h1>
+          <p class="hero-role">&lt;SeniorSoftwareEngineer /&gt;</p>
           <p class="hero-description">
-            Saya <strong>Rizu Zaman</strong>, Senior Software Engineer
-            yang berfokus pada distributed systems, cloud infrastructure,
-            modern web engineering, dan security-minded architecture.
+            Membangun software, platform terdistribusi, dan sistem cloud dengan pendekatan engineering yang presisi,
+            aman, dan berorientasi pada reliability.
           </p>
 
           <div class="hero-actions">
-
-            <a
-              href="#projects"
-              class="button button-primary"
-            >
-              Explore Work
-              <span>↗</span>
-            </a>
-
-            <a
-              href="#contact"
-              class="button button-ghost"
-            >
-              Contact Me
-            </a>
-
+            <a class="btn btn-primary" href="#projects">Lihat Karya <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#contact">Hubungi Saya</a>
           </div>
 
-          <div class="hero-meta">
-            <div>
-              <span>BASED IN</span>
-              <strong>Jakarta, Indonesia</strong>
-            </div>
-
-            <div>
-              <span>FOCUS</span>
-              <strong>Engineering + Security</strong>
-            </div>
+          <div class="social-row" aria-label="Profil sosial">
+            <a href="#" data-placeholder-link>GitHub</a><span>/</span>
+            <a href="#" data-placeholder-link>LinkedIn</a><span>/</span>
+            <a href="#" data-placeholder-link>Twitter/X</a>
           </div>
-
         </div>
 
-
-        <!-- Profile Visual -->
-
-        <div class="hero-visual reveal">
-
+        <div class="hero-visual reveal delay-1">
           <div class="profile-stage">
+            <div class="float-tag tag-go">Go</div>
+            <div class="float-tag tag-k8s">K8s</div>
+            <div class="float-tag tag-react">React</div>
+            <div class="float-tag tag-py">Python</div>
 
-            <div class="orbit orbit-one"></div>
-            <div class="orbit orbit-two"></div>
-            <div class="orbit orbit-three"></div>
+            <div class="spider-frame" aria-label="Foto profil Rizu Zaman">
+              <svg viewBox="0 0 300 300" aria-hidden="true">
+                <defs>
+                  <linearGradient id="webStroke" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#00f0ff"/>
+                    <stop offset=".5" stop-color="#a855f7"/>
+                    <stop offset="1" stop-color="#ffd700"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="150" cy="150" r="142"/>
+                <circle cx="150" cy="150" r="116"/>
+                <circle cx="150" cy="150" r="91"/>
+                <circle cx="150" cy="150" r="66"/>
+                <g class="web-rays">
+                  <line x1="150" y1="5" x2="150" y2="295"/>
+                  <line x1="5" y1="150" x2="295" y2="150"/>
+                  <line x1="47" y1="47" x2="253" y2="253"/>
+                  <line x1="253" y1="47" x2="47" y2="253"/>
+                  <line x1="20" y1="95" x2="280" y2="205"/>
+                  <line x1="20" y1="205" x2="280" y2="95"/>
+                  <line x1="95" y1="20" x2="205" y2="280"/>
+                  <line x1="205" y1="20" x2="95" y2="280"/>
+                </g>
+              </svg>
 
-            <!-- Spider web SVG -->
-
-            <svg
-              class="spider-web"
-              viewBox="0 0 400 400"
-              aria-hidden="true"
-            >
-              <circle cx="200" cy="200" r="180"></circle>
-              <circle cx="200" cy="200" r="145"></circle>
-              <circle cx="200" cy="200" r="110"></circle>
-              <circle cx="200" cy="200" r="75"></circle>
-
-              <path d="M200 20V380"></path>
-              <path d="M20 200H380"></path>
-              <path d="M73 73L327 327"></path>
-              <path d="M327 73L73 327"></path>
-              <path d="M122 35L278 365"></path>
-              <path d="M278 35L122 365"></path>
-              <path d="M35 122L365 278"></path>
-              <path d="M35 278L365 122"></path>
-            </svg>
-
-            <div class="profile-frame">
-
-              <img
-                src="https://i.ibb.co.com/gLnFBLbL/IMG-20260810-124727.png"
-                alt="Rizu Zaman"
-                loading="eager"
-                decoding="async"
-              >
-
-              <div class="profile-overlay"></div>
-
-            </div>
-
-
-            <!-- Floating Technology Tags -->
-
-            <span class="tech-tag tag-go">GO</span>
-            <span class="tech-tag tag-k8s">K8S</span>
-            <span class="tech-tag tag-react">REACT</span>
-            <span class="tech-tag tag-python">PYTHON</span>
-            <span class="tech-tag tag-cloud">CLOUD</span>
-
-
-            <!-- Terminal -->
-
-            <div class="terminal-card">
-
-              <div class="terminal-header">
-                <div class="terminal-dots">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-
-                <span>rz@system:~</span>
-
-                <span>● SECURE</span>
+              <div class="profile-photo">
+                <img src="https://i.ibb.co.com/gLnFBLbL/IMG-20260810-124727.png"
+                     alt="Foto profil Rizu Zaman"
+                     loading="eager"
+                     decoding="async"
+                     fetchpriority="high">
               </div>
-
-              <div
-                id="terminal-output"
-                class="terminal-body"
-              ></div>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
 
-      <div class="hero-scroll">
-        <span>SCROLL TO EXPLORE</span>
-        <div class="scroll-line"></div>
+      <div class="terminal shell reveal delay-2">
+        <div class="terminal-top">
+          <div class="terminal-lights"><i></i><i></i><i></i></div>
+          <span>rizu@prod-master · secure-shell</span>
+        </div>
+        <div class="terminal-body" id="terminalBody" aria-live="polite"></div>
       </div>
-
     </section>
 
-
-    <!-- =======================================================
-         SECURITY DASHBOARD
-    ======================================================== -->
-
-    <section
-      id="monitor"
-      class="section-shell dashboard-section"
-    >
-
-      <div class="section-heading reveal">
-
-        <div>
-          <p class="eyebrow">LIVE SYSTEM MONITOR</p>
-          <h2>Security <span class="gradient-text">Operations</span></h2>
+    <section class="section-shell" id="cyber">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="section-label">01 · LIVE SECURITY MONITOR</span>
+          <h2>Pusat <span class="gradient-text">monitoring</span> cyber.</h2>
+          <p>Simulasi visual untuk menunjukkan observability, security telemetry, dan operational awareness.</p>
         </div>
 
-        <div class="live-indicator">
-          <span></span>
-          LIVE
+        <div class="ticker glass reveal delay-1" aria-label="Security ticker">
+          <div class="ticker-track">
+            <span>[INFO] Firewall aktif</span><b>·</b><span>[OK] TLS 1.3 enforced</span><b>·</b>
+            <span>[OK] Certificate valid</span><b>·</b><span>[AUDIT] Log rotation complete</span><b>·</b>
+            <span>[WARN] Traffic spike monitored</span><b>·</b><span>[OK] Ruleset synchronized</span><b>·</b>
+            <span>[INFO] Monitoring 24/7</span><b>·</b>
+          </div>
         </div>
 
-      </div>
+        <div class="dashboard-grid">
+          <article class="dash-card glass reveal delay-1">
+            <div class="dash-head"><span>THREAT LEVEL</span><span class="live-dot"></span></div>
+            <strong id="threatValue" class="threat low">LOW</strong>
+            <div class="meter"><span id="threatBar"></span></div>
+            <small id="threatScore">Skor: 12/100 · Normal</small>
+          </article>
 
+          <article class="dash-card glass reveal delay-2">
+            <div class="dash-head"><span>NETWORK TRAFFIC</span><span class="cyan-text">LIVE</span></div>
+            <div class="traffic-value"><strong id="reqRate">2.4M</strong><small>req/s</small></div>
+            <canvas id="trafficCanvas" aria-label="Grafik traffic jaringan"></canvas>
+            <div class="traffic-meta"><span>Inbound</span><span>Peak 3.1M</span><span>Lat 42ms</span></div>
+          </article>
 
-      <!-- Ticker -->
+          <article class="dash-card glass reveal delay-3">
+            <div class="dash-head"><span>FIREWALL</span><span class="green-text">AKTIF</span></div>
+            <ul class="firewall-list">
+              <li><span>SSH Brute-force</span><b>BLOCK</b></li>
+              <li><span>SQL Injection</span><b>BLOCK</b></li>
+              <li><span>XSS Attempt</span><b>BLOCK</b></li>
+              <li><span>DDoS Filter</span><b>ACTIVE</b></li>
+              <li><span>Zero-Day</span><b class="warn">MONITOR</b></li>
+            </ul>
+          </article>
+        </div>
 
-      <div class="security-ticker">
-        <div id="ticker-track">
+        <article class="event-log glass reveal delay-2">
+          <div class="dash-head"><span>SECURITY EVENT LOG</span><small>STREAMING</small></div>
+          <div id="securityLog" class="log-lines" aria-live="polite">
+            <div class="log-ok">[02:41:07] ✓ Auth berhasil</div>
+            <div class="log-cyan">[02:41:08] ⚡ TLS 1.3 packet inspected</div>
+            <div class="log-warn">[02:41:09] ⚠ Port scan monitored</div>
+            <div class="log-ok">[02:41:10] ✓ Firewall rules synchronized</div>
+          </div>
+        </article>
 
-          <span>● SYSTEM OPERATIONAL</span>
-          <span>● FIREWALL ACTIVE</span>
-          <span>● ENCRYPTION AES-256</span>
-          <span>● ZERO CRITICAL THREATS</span>
-          <span>● NETWORK MONITORING ACTIVE</span>
-          <span>● SYSTEM OPERATIONAL</span>
-
+        <div class="globe-wrap glass reveal delay-3" id="globePanel">
+          <div class="globe-copy">
+            <span class="section-label">GLOBAL TELEMETRY</span>
+            <h3>Distributed by design.</h3>
+            <p>Visualisasi globe 3D aktif pada perangkat desktop yang mendukung WebGL. Mobile menggunakan fallback ringan.</p>
+          </div>
+          <div id="globe" class="globe" aria-label="Globe telemetry 3D"></div>
         </div>
       </div>
-
-
-      <div class="dashboard-grid">
-
-        <!-- Threat -->
-
-        <article class="glass-card threat-card reveal">
-
-          <div class="card-label">
-            THREAT LEVEL
-          </div>
-
-          <div
-            id="threat-level"
-            class="threat-value"
-          >
-            LOW
-          </div>
-
-          <div class="threat-meter">
-            <span id="threat-meter-bar"></span>
-          </div>
-
-          <p id="threat-description">
-            Systems operating within normal parameters.
-          </p>
-
-        </article>
-
-
-        <!-- Traffic -->
-
-        <article class="glass-card traffic-card reveal">
-
-          <div class="card-topline">
-            <div class="card-label">
-              NETWORK TRAFFIC
-            </div>
-
-            <span class="live-label">
-              LIVE
-            </span>
-          </div>
-
-          <div class="traffic-number">
-            <span id="traffic-value">2.84</span>
-            <small>GB/s</small>
-          </div>
-
-          <canvas
-            id="traffic-canvas"
-            aria-label="Live network traffic graph"
-          ></canvas>
-
-        </article>
-
-
-        <!-- Firewall -->
-
-        <article class="glass-card firewall-card reveal">
-
-          <div class="card-label">
-            FIREWALL STATUS
-          </div>
-
-          <div class="firewall-status">
-            <span class="firewall-icon">✓</span>
-            <div>
-              <strong>PROTECTED</strong>
-              <small>All systems nominal</small>
-            </div>
-          </div>
-
-          <ul class="protection-list">
-            <li>
-              <span>✓</span>
-              DDoS Protection
-            </li>
-            <li>
-              <span>✓</span>
-              Intrusion Detection
-            </li>
-            <li>
-              <span>✓</span>
-              API Rate Limiting
-            </li>
-            <li>
-              <span>✓</span>
-              TLS Encryption
-            </li>
-          </ul>
-
-        </article>
-
-
-        <!-- Event Log -->
-
-        <article class="glass-card event-card reveal">
-
-          <div class="card-topline">
-
-            <div class="card-label">
-              SECURITY EVENT LOG
-            </div>
-
-            <span class="live-label">
-              STREAMING
-            </span>
-
-          </div>
-
-          <div
-            id="security-log"
-            class="security-log"
-            aria-live="polite"
-          ></div>
-
-        </article>
-
-      </div>
-
     </section>
 
-
-    <!-- =======================================================
-         ABOUT
-    ======================================================== -->
-
-    <section
-      id="about"
-      class="section-shell about-section"
-    >
-
-      <div class="section-heading reveal">
-
-        <div>
-          <p class="eyebrow">01 / ABOUT</p>
-          <h2>Built with <span class="gradient-text">intent.</span></h2>
+    <section class="section-shell" id="about">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="section-label">02 · TENTANG</span>
+          <h2>Sistem yang <span class="gradient-text">tenang.</span><br>Antarmuka yang terukur.</h2>
         </div>
-
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>Senior Software Engineer dengan fokus pada software engineering, keamanan aplikasi, arsitektur terdistribusi, dan cloud infrastructure.</p>
+            <p>Portfolio ini menggunakan data profil yang diberikan dan efek monitoring yang bersifat <strong>simulasi visual</strong>, bukan telemetry production.</p>
+          </div>
+          <div class="stats-grid reveal delay-1">
+            <div class="stat glass"><strong>5+</strong><span>Tahun Exp.</span></div>
+            <div class="stat glass"><strong>40+</strong><span>Proyek</span></div>
+            <div class="stat glass"><strong>12M</strong><span>Pengguna</span></div>
+            <div class="stat glass"><strong>8</strong><span>Repo OS</span></div>
+          </div>
+        </div>
       </div>
-
-
-      <div class="about-grid">
-
-        <div class="about-copy reveal">
-
-          <p class="large-copy">
-            Saya membangun software dengan pendekatan yang
-            mengutamakan <strong>performance, reliability,
-            security, dan maintainability.</strong>
-          </p>
-
-          <p>
-            Dari frontend interface hingga distributed backend,
-            saya tertarik pada sistem yang kompleks dan bagaimana
-            membuatnya tetap sederhana untuk digunakan.
-          </p>
-
-          <p>
-            Filosofi engineering saya sederhana:
-            <em>build less, build better, understand deeply.</em>
-          </p>
-
-        </div>
-
-
-        <div class="stats-grid reveal">
-
-          <div class="stat-card">
-            <strong>5+</strong>
-            <span>Years Experience</span>
-          </div>
-
-          <div class="stat-card">
-            <strong>40+</strong>
-            <span>Projects Delivered</span>
-          </div>
-
-          <div class="stat-card">
-            <strong>12M</strong>
-            <span>Monthly Requests</span>
-          </div>
-
-          <div class="stat-card">
-            <strong>8</strong>
-            <span>Core Technologies</span>
-          </div>
-
-        </div>
-
-      </div>
-
     </section>
 
-
-    <!-- =======================================================
-         EDUCATION
-    ======================================================== -->
-
-    <section
-      id="education"
-      class="section-shell"
-    >
-
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow">02 / EDUCATION</p>
-          <h2>Technical <span class="gradient-text">Foundation.</span></h2>
+    <section class="section-shell" id="education">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="section-label">03 · PENDIDIKAN</span>
+          <h2>Perjalanan <span class="gradient-text">akademik.</span></h2>
+        </div>
+        <div class="card-grid three">
+          <article class="info-card glass reveal">
+            <div class="card-top"><span class="icon-box cyan">ITB</span><span class="year">2019–2021</span></div>
+            <h3>M.S. Ilmu Komputer</h3><p class="accent-cyan">Sistem Terdistribusi</p>
+            <p>Studi pascasarjana dengan fokus sistem terdistribusi.</p>
+            <div class="chips"><span>GPA 3.94</span><span>Cum Laude</span></div>
+          </article>
+          <article class="info-card glass reveal delay-1">
+            <div class="card-top"><span class="icon-box purple">UI</span><span class="year">2015–2019</span></div>
+            <h3>B.S. Ilmu Komputer</h3><p class="accent-purple">Computer Science</p>
+            <p>Fondasi computer science, software, dan sistem.</p>
+            <div class="chips"><span>Cum Laude</span><span>CS</span></div>
+          </article>
+          <article class="info-card glass reveal delay-2">
+            <div class="card-top"><span class="icon-box gold">CERT</span><span class="year">Aktif</span></div>
+            <h3>Sertifikasi</h3><p class="accent-gold">Cloud & Security</p>
+            <p>Kompetensi cloud dan security engineering.</p>
+            <div class="chips"><span>AWS Pro</span><span>CKA</span><span>CEH</span></div>
+          </article>
         </div>
       </div>
-
-
-      <div class="education-grid">
-
-        <article class="education-card glass-card reveal">
-
-          <span class="education-number">01</span>
-
-          <div>
-            <p class="card-label">2019 — 2021</p>
-            <h3>Institut Teknologi Bandung</h3>
-            <p>M.S. Ilmu Komputer</p>
-            <strong>GPA 3.94</strong>
-          </div>
-
-        </article>
-
-
-        <article class="education-card glass-card reveal">
-
-          <span class="education-number">02</span>
-
-          <div>
-            <p class="card-label">2015 — 2019</p>
-            <h3>Universitas Indonesia</h3>
-            <p>B.S. Ilmu Komputer</p>
-            <strong>Cum Laude</strong>
-          </div>
-
-        </article>
-
-
-        <article class="education-card glass-card reveal">
-
-          <span class="education-number">03</span>
-
-          <div>
-            <p class="card-label">CERTIFICATIONS</p>
-            <h3>Professional Credentials</h3>
-
-            <div class="cert-list">
-              <span>AWS Pro</span>
-              <span>CKA</span>
-              <span>CEH</span>
-            </div>
-
-          </div>
-
-        </article>
-
-      </div>
-
     </section>
 
-
-    <!-- =======================================================
-         SKILLS
-    ======================================================== -->
-
-    <section
-      id="skills"
-      class="section-shell skills-section"
-    >
-
-      <div class="section-heading reveal">
-
-        <div>
-          <p class="eyebrow">03 / EXPERTISE</p>
-          <h2>Engineering <span class="gradient-text">Stack.</span></h2>
+    <section class="section-shell" id="skills">
+      <div class="shell">
+        <div class="section-head centered reveal">
+          <span class="section-label">04 · SKILL TEKNIS</span>
+          <h2>Perangkat <span class="gradient-text">keahlian.</span></h2>
         </div>
-
+        <div class="skills-grid">
+          <article class="skill-group glass reveal">
+            <h3>Frontend</h3>
+            <div class="rings">
+              <div class="ring" data-value="95"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>95%</b><span>React</span></div>
+              <div class="ring" data-value="92"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>92%</b><span>TypeScript</span></div>
+              <div class="ring" data-value="90"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>90%</b><span>Tailwind</span></div>
+            </div>
+          </article>
+          <article class="skill-group glass reveal delay-1">
+            <h3>Backend</h3>
+            <div class="rings">
+              <div class="ring" data-value="93"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>93%</b><span>Go</span></div>
+              <div class="ring" data-value="90"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>90%</b><span>Python</span></div>
+              <div class="ring" data-value="88"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>88%</b><span>Node</span></div>
+            </div>
+          </article>
+          <article class="skill-group glass reveal delay-2">
+            <h3>Cloud & Data</h3>
+            <div class="rings">
+              <div class="ring" data-value="92"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>92%</b><span>AWS/GCP</span></div>
+              <div class="ring" data-value="90"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>90%</b><span>Kubernetes</span></div>
+              <div class="ring" data-value="88"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>88%</b><span>PostgreSQL</span></div>
+            </div>
+          </article>
+        </div>
       </div>
-
-
-      <div class="skills-grid">
-
-        <div class="skill-ring reveal">
-          <div class="ring" data-value="95">
-            <svg viewBox="0 0 100 100">
-              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
-              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
-            </svg>
-            <strong>95%</strong>
-          </div>
-          <span>React / Next.js</span>
-        </div>
-
-
-        <div class="skill-ring reveal">
-          <div class="ring" data-value="92">
-            <svg viewBox="0 0 100 100">
-              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
-              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
-            </svg>
-            <strong>92%</strong>
-          </div>
-          <span>TypeScript</span>
-        </div>
-
-
-        <div class="skill-ring reveal">
-          <div class="ring" data-value="90">
-            <svg viewBox="0 0 100 100">
-              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
-              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
-            </svg>
-            <strong>90%</strong>
-          </div>
-          <span>Tailwind</span>
-        </div>
-
-
-        <div class="skill-ring reveal">
-          <div class="ring" data-value="93">
-            <svg viewBox="0 0 100 100">
-              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
-              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
-            </svg>
-            <strong>93%</strong>
-          </div>
-          <span>Go</span>
-        </div>
-
-
-        <div class="skill-ring reveal">
-          <div class="ring" data-value="90">
-            <svg viewBox="0 0 100 100">
-              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
-              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
-            </svg>
-            <strong>90%</strong>
-          </div>
-          <span>Python</span>
-        </div>
-
-
-        <div class="skill-ring reveal">
-          <div class="ring" data-value="88">
-            <svg viewBox="0 0 100 100">
-              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
-              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
-            </svg>
-            <strong>88%</strong>
-          </div>
-          <span>Node.js</span>
-        </div>
-
-
-        <div class="skill-ring reveal">
-          <div class="ring" data-value="92">
-            <svg viewBox="0 0 100 100">
-              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
-              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
-            </svg>
-            <strong>92%</strong>
-          </div>
-          <span>AWS / GCP</span>
-        </div>
-
-
-        <div class="skill-ring reveal">
-          <div class="ring" data-value="90">
-            <svg viewBox="0 0 100 100">
-              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
-              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
-            </svg>
-            <strong>90%</strong>
-          </div>
-          <span>Kubernetes</span>
-        </div>
-
-
-        <div class="skill-ring reveal">
-          <div class="ring" data-value="88">
-            <svg viewBox="0 0 100 100">
-              <circle class="ring-bg" cx="50" cy="50" r="43"></circle>
-              <circle class="ring-progress" cx="50" cy="50" r="43"></circle>
-            </svg>
-            <strong>88%</strong>
-          </div>
-          <span>PostgreSQL</span>
-        </div>
-
-      </div>
-
     </section>
 
-
-    <!-- =======================================================
-         PROJECTS
-    ======================================================== -->
-
-    <section
-      id="projects"
-      class="section-shell"
-    >
-
-      <div class="section-heading reveal">
-
-        <div>
-          <p class="eyebrow">04 / SELECTED WORK</p>
-          <h2>Systems I've <span class="gradient-text">built.</span></h2>
+    <section class="section-shell" id="projects">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="section-label">05 · PROYEK</span>
+          <h2>Karya <span class="gradient-text">terpilih.</span></h2>
         </div>
-
+        <div class="project-grid">
+          <article class="flip-card reveal" tabindex="0" role="button" aria-label="Balik kartu Pulse Analytics">
+            <div class="flip-inner">
+              <div class="flip-front glass"><span class="project-index">01</span><div class="project-mark cyan">&lt;/&gt;</div><h3>Pulse Analytics</h3><p>Go · ClickHouse · Kafka · React</p><small>2024</small></div>
+              <div class="flip-back glass"><span class="project-index">PULSE</span><h3>Real-time analytics</h3><p>Platform analitik real-time untuk workload berintensitas tinggi.</p><b>Latensi P99 &lt; 100ms</b></div>
+            </div>
+          </article>
+          <article class="flip-card reveal delay-1" tabindex="0" role="button" aria-label="Balik kartu Finly">
+            <div class="flip-inner">
+              <div class="flip-front glass"><span class="project-index">02</span><div class="project-mark purple">₣</div><h3>Finly Budgeting</h3><p>React Native · Node.js · PostgreSQL</p><small>2023</small></div>
+              <div class="flip-back glass"><span class="project-index">FINLY</span><h3>Mobile finance</h3><p>Pengalaman budgeting lintas platform dengan backend terstruktur.</p><b>Secure by design</b></div>
+            </div>
+          </article>
+          <article class="flip-card reveal delay-2" tabindex="0" role="button" aria-label="Balik kartu Nimbus Cloud">
+            <div class="flip-inner">
+              <div class="flip-front glass"><span class="project-index">03</span><div class="project-mark gold">☁</div><h3>Nimbus Cloud</h3><p>Kubernetes · Terraform · Go</p><small>2022</small></div>
+              <div class="flip-back glass"><span class="project-index">NIMBUS</span><h3>Internal PaaS</h3><p>Self-service deployment workflow untuk platform engineering.</p><b>Deployment automation</b></div>
+            </div>
+          </article>
+          <article class="flip-card reveal delay-3" tabindex="0" role="button" aria-label="Balik kartu Open Source">
+            <div class="flip-inner">
+              <div class="flip-front glass"><span class="project-index">04</span><div class="project-mark neutral">★</div><h3>Open Source</h3><p>Go · TypeScript</p><small>Aktif</small></div>
+              <div class="flip-back glass"><span class="project-index">OSS</span><h3>Community driven</h3><p>Kontribusi dan eksperimen terbuka pada tooling developer.</p><b>Go · TypeScript</b></div>
+            </div>
+          </article>
+        </div>
+        <p class="tap-hint">Desktop: hover · Mobile: tap kartu untuk flip</p>
       </div>
-
-
-      <div class="projects-grid">
-
-
-        <article
-          class="project-card reveal tilt-card"
-          tabindex="0"
-        >
-
-          <div class="project-front">
-
-            <div class="project-number">01</div>
-
-            <div class="project-content">
-
-              <span class="project-type">
-                DATA INFRASTRUCTURE
-              </span>
-
-              <h3>Pulse Analytics</h3>
-
-              <p>
-                High-throughput analytics platform
-                untuk processing data secara real-time.
-              </p>
-
-              <div class="project-stack">
-                <span>GO</span>
-                <span>CLICKHOUSE</span>
-                <span>KAFKA</span>
-                <span>REACT</span>
-              </div>
-
-            </div>
-
-            <span class="project-year">2024</span>
-
-          </div>
-
-          <div class="project-back">
-
-            <span>ARCHITECTURE</span>
-
-            <h3>Real-time Analytics</h3>
-
-            <p>
-              Distributed ingestion pipeline dengan
-              streaming architecture dan low-latency analytics.
-            </p>
-
-            <span class="flip-hint">
-              CLICK TO FLIP
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <article
-          class="project-card reveal tilt-card"
-          tabindex="0"
-        >
-
-          <div class="project-front">
-
-            <div class="project-number">02</div>
-
-            <div class="project-content">
-
-              <span class="project-type">
-                FINTECH
-              </span>
-
-              <h3>Finly Budgeting</h3>
-
-              <p>
-                Personal finance application
-                dengan mobile-first architecture.
-              </p>
-
-              <div class="project-stack">
-                <span>REACT NATIVE</span>
-                <span>NODE.JS</span>
-                <span>POSTGRESQL</span>
-              </div>
-
-            </div>
-
-            <span class="project-year">2023</span>
-
-          </div>
-
-          <div class="project-back">
-
-            <span>PRODUCT ENGINEERING</span>
-
-            <h3>Financial Control</h3>
-
-            <p>
-              Modular financial tracking system
-              dengan backend yang scalable.
-            </p>
-
-            <span class="flip-hint">
-              CLICK TO FLIP
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <article
-          class="project-card reveal tilt-card"
-          tabindex="0"
-        >
-
-          <div class="project-front">
-
-            <div class="project-number">03</div>
-
-            <div class="project-content">
-
-              <span class="project-type">
-                CLOUD INFRASTRUCTURE
-              </span>
-
-              <h3>Nimbus Cloud</h3>
-
-              <p>
-                Kubernetes-based infrastructure
-                untuk workload cloud-native.
-              </p>
-
-              <div class="project-stack">
-                <span>KUBERNETES</span>
-                <span>TERRAFORM</span>
-                <span>GO</span>
-              </div>
-
-            </div>
-
-            <span class="project-year">2022</span>
-
-          </div>
-
-          <div class="project-back">
-
-            <span>PLATFORM ENGINEERING</span>
-
-            <h3>Cloud Automation</h3>
-
-            <p>
-              Infrastructure-as-code dengan
-              automated provisioning dan deployment.
-            </p>
-
-            <span class="flip-hint">
-              CLICK TO FLIP
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <article
-          class="project-card reveal tilt-card"
-          tabindex="0"
-        >
-
-          <div class="project-front">
-
-            <div class="project-number">04</div>
-
-            <div class="project-content">
-
-              <span class="project-type">
-                OPEN SOURCE
-              </span>
-
-              <h3>Open Source</h3>
-
-              <p>
-                Kontribusi dan eksperimen engineering
-                pada ecosystem modern development.
-              </p>
-
-              <div class="project-stack">
-                <span>GO</span>
-                <span>TYPESCRIPT</span>
-              </div>
-
-            </div>
-
-            <span class="project-year">ACTIVE</span>
-
-          </div>
-
-          <div class="project-back">
-
-            <span>COMMUNITY</span>
-
-            <h3>Build in Public</h3>
-
-            <p>
-              Eksplorasi tooling, developer experience,
-              dan engineering practices.
-            </p>
-
-            <span class="flip-hint">
-              CLICK TO FLIP
-            </span>
-
-          </div>
-
-        </article>
-
-      </div>
-
     </section>
 
-
-    <!-- =======================================================
-         EXPERIENCE
-    ======================================================== -->
-
-    <section
-      id="experience"
-      class="section-shell experience-section"
-    >
-
-      <div class="section-heading reveal">
-
-        <div>
-          <p class="eyebrow">05 / EXPERIENCE</p>
-          <h2>Professional <span class="gradient-text">journey.</span></h2>
+    <section class="section-shell" id="experience">
+      <div class="shell timeline-shell">
+        <div class="section-head centered reveal">
+          <span class="section-label">06 · PENGALAMAN</span>
+          <h2>Rekam jejak <span class="gradient-text">profesional.</span></h2>
         </div>
-
+        <div class="timeline">
+          <article class="timeline-item reveal"><span class="timeline-dot cyan"></span><div class="timeline-date">2023–Sekarang</div><div class="timeline-content glass"><h3>GoTo</h3><b>Senior SWE</b><p>Engineering pada lingkungan produk dan platform berskala besar.</p></div></article>
+          <article class="timeline-item reveal delay-1"><span class="timeline-dot purple"></span><div class="timeline-date">2021–2023</div><div class="timeline-content glass"><h3>Traveloka</h3><b>SWE II</b><p>Mengembangkan layanan dan sistem untuk pengalaman digital berskala besar.</p></div></article>
+          <article class="timeline-item reveal delay-2"><span class="timeline-dot gold"></span><div class="timeline-date">2020</div><div class="timeline-content glass"><h3>Tokopedia</h3><b>Intern</b><p>Fondasi engineering dan pengalaman production software.</p></div></article>
+        </div>
       </div>
-
-
-      <div class="timeline">
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-marker"></div>
-
-          <div class="timeline-date">
-            2023 — NOW
-          </div>
-
-          <div class="timeline-content">
-
-            <span>SENIOR SOFTWARE ENGINEER</span>
-            <h3>GoTo</h3>
-
-            <p>
-              Building scalable software systems,
-              platform capabilities and engineering infrastructure.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-marker"></div>
-
-          <div class="timeline-date">
-            2021 — 2023
-          </div>
-
-          <div class="timeline-content">
-
-            <span>SOFTWARE ENGINEER II</span>
-            <h3>Traveloka</h3>
-
-            <p>
-              Developed production-grade software
-              across high-scale digital services.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="timeline-item reveal">
-
-          <div class="timeline-marker"></div>
-
-          <div class="timeline-date">
-            2020
-          </div>
-
-          <div class="timeline-content">
-
-            <span>SOFTWARE ENGINEERING INTERN</span>
-            <h3>Tokopedia</h3>
-
-            <p>
-              Started professional software engineering
-              experience working within a large technology ecosystem.
-            </p>
-
-          </div>
-
-        </article>
-
-      </div>
-
     </section>
 
-
-    <!-- =======================================================
-         CONTACT
-    ======================================================== -->
-
-    <section
-      id="contact"
-      class="section-shell contact-section"
-    >
-
-      <div class="contact-shell reveal">
-
-        <div class="contact-intro">
-
-          <p class="eyebrow">06 / CONTACT</p>
-
-          <h2>
-            Let's build
-            <span class="gradient-text">something exceptional.</span>
-          </h2>
-
-          <p>
-            Punya project, product, atau engineering challenge?
-            Mari diskusikan bagaimana teknologi dapat menyelesaikannya.
-          </p>
-
-          <div class="contact-links">
-
-            <a href="mailto:hello@rizuzaman.dev">
-              hello@rizuzaman.dev
-            </a>
-
-            <span>Jakarta, Indonesia</span>
-
-          </div>
-
+    <section class="section-shell contact-section" id="contact">
+      <div class="shell contact-shell">
+        <div class="section-head centered reveal">
+          <span class="section-label">07 · KONTAK</span>
+          <h2>Mari ciptakan <span class="gradient-text">karya hebat.</span></h2>
+          <p>Punya visi proyek atau diskusi teknis? Kotak masuk terbuka.</p>
         </div>
 
-
-        <form
-          id="contact-form"
-          class="contact-form"
-        >
-
-          <div class="form-row">
-
-            <label>
-              <span>NAME</span>
-              <input
-                type="text"
-                name="name"
-                autocomplete="name"
-                placeholder="Your name"
-                required
-              >
-            </label>
-
-            <label>
-              <span>EMAIL</span>
-              <input
-                type="email"
-                name="email"
-                autocomplete="email"
-                placeholder="you@example.com"
-                required
-              >
-            </label>
-
+        <form id="contactForm" class="contact-form glass holo" novalidate>
+          <div class="form-grid">
+            <label>Nama<input name="name" type="text" autocomplete="name" maxlength="100" required placeholder="Nama Anda"></label>
+            <label>Email<input name="email" type="email" autocomplete="email" maxlength="160" required placeholder="email@contoh.com"></label>
           </div>
-
-
-          <label>
-            <span>SUBJECT</span>
-            <input
-              type="text"
-              name="subject"
-              placeholder="Project / Collaboration"
-              required
-            >
-          </label>
-
-
-          <label>
-            <span>MESSAGE</span>
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Tell me about your project..."
-              required
-            ></textarea>
-          </label>
-
-
-          <button
-            type="submit"
-            class="button button-primary submit-button"
-          >
-
-            <span class="submit-text">
-              Send Message
-            </span>
-
-            <span
-              class="spinner"
-              aria-hidden="true"
-            ></span>
-
-            <span class="submit-arrow">
-              ↗
-            </span>
-
-          </button>
-
-
-          <p
-            id="form-status"
-            class="form-status"
-            aria-live="polite"
-          ></p>
-
+          <label>Subjek<input name="subject" type="text" maxlength="180" required placeholder="Topik diskusi"></label>
+          <label>Pesan<textarea name="message" rows="5" maxlength="4000" required placeholder="Ceritakan kebutuhan atau proyek Anda..."></textarea></label>
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn-primary submit-btn" type="submit" id="submitBtn"><span>Kirim Pesan</span><span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
 
+        <div class="contact-links reveal delay-1">
+          <a href="mailto:hello@rizuzaman.dev">hello@rizuzaman.dev</a>
+          <span>·</span><a href="#" data-placeholder-link>github.com/rizuzaman</a>
+          <span>·</span><a href="#" data-placeholder-link>linkedin.com/in/rizuzaman</a>
+        </div>
       </div>
-
     </section>
-
   </main>
 
-
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
-
   <footer class="site-footer">
-
-    <div class="footer-inner">
-
-      <div class="footer-brand">
-        RIZU<span>.</span>
-      </div>
-
-      <p>
-        Designed & engineered with precision.
-      </p>
-
-      <div class="footer-meta">
-        © <span id="year"></span> Rizu Zaman
-      </div>
-
+    <div class="shell footer-inner">
+      <span>© 2026 Rizu Zaman</span>
+      <span>Secure Build · Portfolio v7.0</span>
     </div>
-
   </footer>
 
-
-  <!-- =========================================================
-       THREE.JS IMPORTMAP
-  ========================================================== -->
-
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://unpkg.com/three@0.180.0/build/three.module.js"
-    }
-  }
-  </script>
-
-  <script type="module" src="js/main.js"></script>
-
+  <script src="./js/app.js" defer></script>
 </body>
 </html>
