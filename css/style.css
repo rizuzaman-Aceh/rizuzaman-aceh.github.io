@@ -190,3 +190,85 @@ body::before{opacity:.07;background-image:radial-gradient(rgba(255,255,255,.18) 
 @media(prefers-reduced-motion:reduce){
   .depth-a,.depth-b,.map-scanline,.gradient-text{animation:none!important}.hero-terminal::after,.hero-skill-panel::after,.dash-card::after,.global-threat-panel::after,.globe-wrap::after{display:none}
 }
+
+/* =========================================================
+   V10.1 — ACCESSIBLE CONTRAST / PRODUCTION COLOR SYSTEM
+   ========================================================= */
+:root{
+  --bg:#0B0F14;
+  --bg-2:#11161D;
+  --panel:#111820;
+  --panel-strong:#0D1319;
+  --surface:rgba(255,255,255,.085);
+  --surface-2:rgba(255,255,255,.12);
+  --line:rgba(255,255,255,.24);
+  --text:#F7FAFB;
+  --muted:#C7D0D6;
+  --dim:#AAB6BE;
+  --cyan:#22D3EE;
+  --cyan-text:#8BEAF5;
+  --red:#E62429;
+  --red-text:#FF7478;
+  --green:#10B981;
+  --green-text:#52E0B2;
+  --amber:#F59E0B;
+  --amber-text:#FFD080;
+  --purple:var(--red);
+  --gold:var(--amber);
+}
+body{color:var(--text);background:
+  radial-gradient(circle at 72% 18%,rgba(34,211,238,.045),transparent 26%),
+  radial-gradient(circle at 28% 78%,rgba(230,36,41,.035),transparent 25%),
+  linear-gradient(180deg,#0B0F14,#080C11 72%,#0B0F14)}
+/* Never use low-contrast gray for primary reading content. */
+.hero-description,.section-head p,.global-threat-head p{color:var(--muted)}
+.eyebrow,.section-label,.accent-cyan,.cyan-text,.hero-role{color:var(--cyan-text)}
+.accent-purple,.accent-gold{color:var(--amber-text)}
+.green-text{color:var(--green-text)}
+.hero-meta-grid span,.ambient-card span,.ambient-card small,.map-label,.threat-stat-row span,.interaction-strip,.dash-head,.ticker-track,.social-row{color:var(--dim)}
+.hero-meta-grid b,.ambient-card strong,.threat-stat-row strong,.traffic-value strong,.mini-skill span,.mini-skill b{color:var(--text)}
+.hero-contact-row a,.social-row a{color:#DDE5E9}
+.hero-contact-row a:hover,.social-row a:hover{color:#FFFFFF}
+.status-pill{color:#D0D9DE;border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.055)}
+.nav-links a{color:#C0CBD1}.nav-links a:hover,.nav-links a.active{color:#FFFFFF}
+/* Solid headline: avoids transparent-gradient text becoming unreadable over the matrix. */
+.gradient-text{background:none!important;color:#F7FAFB!important;-webkit-text-fill-color:#F7FAFB!important;animation:none!important}
+.hero h1 .gradient-text::after{content:"";display:block;width:clamp(72px,18vw,150px);height:3px;margin-top:14px;background:linear-gradient(90deg,var(--red),var(--cyan));border-radius:999px;box-shadow:0 0 14px rgba(34,211,238,.18)}
+.btn-primary{color:#FFFFFF;background:linear-gradient(135deg,#B91920,#E62429 52%,#B91920);border-color:rgba(255,255,255,.18)}
+.btn-ghost{color:#F7FAFB;border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.055)}
+.btn-ghost:hover{border-color:rgba(34,211,238,.52);box-shadow:0 0 24px rgba(34,211,238,.09)}
+.brand-mark{color:#FFFFFF;background:linear-gradient(135deg,#B91920,#E62429);box-shadow:0 8px 24px rgba(230,36,41,.16)}
+.nav-links a::after{background:linear-gradient(90deg,var(--red),var(--cyan))}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.045));border-color:rgba(255,255,255,.24)}
+.terminal{background:rgba(4,8,11,.91);border-color:rgba(255,255,255,.18)}
+.terminal-top{color:#AAB6BE;border-bottom-color:rgba(255,255,255,.12)}
+.terminal-body{color:#72E6B9;text-shadow:0 0 7px rgba(16,185,129,.12)}
+.terminal-body .prompt{color:var(--cyan-text)}
+.dash-card small,.traffic-meta,.firewall-list li,.credential-card p,.tool-cloud span,.os-row span,.feed-line{color:#C0CBD1}
+.dash-head{color:#B5C1C8}
+.section-head p,.global-threat-head p{color:#C7D0D6}
+.source-badge{color:#B9F2DB}
+.map-label{color:#B8C4CA}
+.threat-stat-row span{color:#B4C0C7}
+.interaction-strip{color:#B8C4CA}
+.traffic-value small{color:var(--cyan-text)}
+.hero-role{color:var(--red-text)}
+.threat.low{color:#52E0B2}.threat.medium{color:var(--amber-text)}.threat.high{color:#FF7478}
+.firewall-list b{color:var(--green-text)}.firewall-list b.warn{color:var(--amber-text)}
+.attack-legend span{color:#C0CBD1}.attack-legend b{color:#F1F5F6}
+.network-label,.photo-caption,.float-tag{color:#D5DEE3;background:rgba(11,15,20,.78);border-color:rgba(255,255,255,.24)}
+.network-label svg,.network-label.label-b svg{color:var(--cyan-text)}
+.float-tag{color:#FFD0D2;border-color:rgba(230,36,41,.36)}
+.photo-caption span{color:var(--green-text)}.photo-caption b{color:#D5DEE3}
+.ambient-icon{color:var(--cyan-text)}.ambient-icon.red{color:var(--red-text)}
+/* Decorative red/cyan lines remain accents, not body copy. */
+.web-rings circle:first-child{stroke:rgba(230,36,41,.86)}
+.web-rays line{stroke:rgba(34,211,238,.34)}
+.web-nodes circle{fill:var(--red)}
+/* Keyboard focus must remain visible on the dark glass system. */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+@media(prefers-contrast:more){
+  .glass,.status-pill,.btn-ghost,.ambient-card,.terminal,.dash-card,.credential-card{border-color:rgba(255,255,255,.42)}
+  .hero-description,.section-head p,.global-threat-head p,.dash-card small,.traffic-meta,.firewall-list li,.credential-card p,.tool-cloud span,.os-row span,.feed-line{color:#E1E7EA}
+  #matrixCanvas,#spiderNetworkCanvas{opacity:.12}
+}
