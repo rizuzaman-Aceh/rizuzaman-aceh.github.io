@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a0a">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Rizu Zaman — Senior Software Engineer. Portfolio profesional dengan fokus software engineering, distributed systems, cloud, dan application security.">
-  <meta property="og:title" content="Rizu Zaman — Senior Software Engineer">
-  <meta property="og:description" content="Ultra-luxury cyber-infused engineering portfolio.">
+  <meta name="description" content="Rizu Zaman — Cyber Security & Web Design. Portfolio profesional dengan fokus software engineering, distributed systems, cloud, dan application security.">
+  <meta property="og:title" content="Rizu Zaman — Cyber Security & Web Design">
+  <meta property="og:description" content="Portfolio profesional Cyber Security & Web Design dengan antarmuka cyber-glass dan observability interaktif.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://i.ibb.co.com/gLnFBLbL/IMG-20260810-124727.png">
-  <title>Rizu Zaman — Senior Software Engineer</title>
+  <title>Rizu Zaman — Cyber Security & Web Design</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,7 @@
 <body>
   <a class="skip-link" href="#main">Lewati ke konten</a>
   <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+  <canvas id="spiderNetworkCanvas" aria-hidden="true"></canvas>
   <div id="scrollProgress" aria-hidden="true"></div>
 
   <div id="cursorDot" aria-hidden="true"></div>
@@ -64,6 +65,16 @@
     <section class="hero section-shell" id="home">
       <div class="hero-signal-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
       <div class="hero-orb orb-a" aria-hidden="true"></div><div class="hero-orb orb-b" aria-hidden="true"></div>
+      <div class="ambient-hud shell" aria-label="Informasi real-time lokasi">
+        <article class="ambient-card glass" id="weatherCard">
+          <div class="ambient-icon"><i data-lucide="cloud-sun"></i></div>
+          <div><span>JAKARTA · LIVE WEATHER</span><strong id="weatherValue">Memuat cuaca…</strong><small id="weatherMeta">Open-Meteo · UTC+7</small></div>
+        </article>
+        <article class="ambient-card glass clock-card">
+          <div class="ambient-icon red"><i data-lucide="clock-3"></i></div>
+          <div><span>LOCAL TIME · UTC+7</span><strong id="liveClock">--:--:--</strong><small id="liveDate">Memuat tanggal…</small></div>
+        </article>
+      </div>
       <div class="hero-grid shell">
         <div class="hero-copy reveal">
           <div class="status-pill"><span class="status-dot"></span>System Secure · Jakarta, Indonesia</div>
@@ -87,6 +98,8 @@
             <div class="network-label label-b"><i data-lucide="shield-check"></i> SECURE / ACTIVE</div>
             <div class="float-tag tag-go">SEC</div><div class="float-tag tag-k8s">NET</div><div class="float-tag tag-react">WEB</div><div class="float-tag tag-py">UI</div>
             <div class="spider-frame" aria-label="Foto profil Rizu Zaman">
+              <div class="spider-depth depth-a" aria-hidden="true"></div>
+              <div class="spider-depth depth-b" aria-hidden="true"></div>
               <svg class="spider-web" viewBox="0 0 420 420" aria-hidden="true">
                 <defs><filter id="webGlow"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
                 <g class="web-rings" filter="url(#webGlow)"><circle cx="210" cy="210" r="202"/><circle cx="210" cy="210" r="174"/><circle cx="210" cy="210" r="142"/><circle cx="210" cy="210" r="108"/><circle cx="210" cy="210" r="76"/></g>
@@ -132,6 +145,33 @@
             <span>[INFO] Monitoring 24/7</span><b>·</b>
           </div>
         </div>
+
+        <article class="global-threat-panel glass reveal delay-1" id="globalThreatPanel">
+          <div class="global-threat-head">
+            <div>
+              <span class="section-label">GLOBAL THREAT PULSE</span>
+              <h3>Cyber telemetry <span class="accent-red">worldwide.</span></h3>
+              <p id="threatSourceText">Feed gateway siap dihubungkan ke threat-intelligence API; tanpa kredensial, UI menggunakan simulasi yang diberi label jelas.</p>
+            </div>
+            <div class="source-badge" id="threatLiveBadge"><span class="status-dot"></span> DEMO TELEMETRY</div>
+          </div>
+          <div class="global-threat-grid">
+            <div class="threat-map-shell">
+              <canvas id="threatMapCanvas" aria-label="Visualisasi global threat pulse"></canvas>
+              <div class="map-scanline" aria-hidden="true"></div>
+              <div class="map-label map-a">AMERICAS</div><div class="map-label map-b">EUROPE</div><div class="map-label map-c">APAC</div>
+            </div>
+            <div class="threat-feed glass">
+              <div class="dash-head"><span>LIVE INDICATORS</span><span id="threatCount" class="cyan-text">SYNCING</span></div>
+              <div class="threat-stat-row"><strong id="iocCount">—</strong><span>IOCs / recent feed</span></div>
+              <div class="threat-stat-row"><strong id="malwareCount">—</strong><span>malware families</span></div>
+              <div class="threat-stat-row"><strong id="sourceAge">—</strong><span>feed freshness</span></div>
+              <div id="threatFeedList" class="threat-feed-list" aria-live="polite">
+                <div class="feed-line"><i></i><span>Menunggu sinkronisasi telemetry…</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
 
         <div class="dashboard-grid">
           <article class="dash-card glass reveal delay-1">
@@ -183,6 +223,13 @@
           </div>
           <div id="globe" class="globe" aria-label="Globe telemetry 3D"></div>
         </div>
+
+        <div class="interaction-strip glass reveal" aria-label="Interaksi 3D">
+          <span><i data-lucide="mouse-pointer-2"></i> Drag / move pointer untuk parallax</span>
+          <span><i data-lucide="scan"></i> 3D Web Matrix</span>
+          <span><i data-lucide="activity"></i> Telemetry animated</span>
+          <span><i data-lucide="smartphone"></i> Mobile-safe fallback</span>
+        </div>
       </div>
     </section>
 
@@ -194,14 +241,14 @@
         </div>
         <div class="about-grid">
           <div class="about-copy reveal">
-            <p>Senior Software Engineer dengan fokus pada software engineering, keamanan aplikasi, arsitektur terdistribusi, dan cloud infrastructure.</p>
+            <p>Profesional dengan fokus Cyber Security, Web Design, quality control perangkat, troubleshooting, networking, dan operasional transaksi digital.</p>
             <p>Portfolio ini menggunakan data profil yang diberikan dan efek monitoring yang bersifat <strong>simulasi visual</strong>, bukan telemetry production.</p>
           </div>
           <div class="stats-grid reveal delay-1">
-            <div class="stat glass"><strong>5+</strong><span>Tahun Exp.</span></div>
-            <div class="stat glass"><strong>40+</strong><span>Proyek</span></div>
-            <div class="stat glass"><strong>12M</strong><span>Pengguna</span></div>
-            <div class="stat glass"><strong>8</strong><span>Repo OS</span></div>
+            <div class="stat glass"><strong>2019+</strong><span>Aktif di bidang gadget &amp; QC</span></div>
+            <div class="stat glass"><strong>10+</strong><span>Tools &amp; platform kerja</span></div>
+            <div class="stat glass"><strong>3</strong><span>OS utama</span></div>
+            <div class="stat glass"><strong>1</strong><span>Sertifikat tercatat</span></div>
           </div>
         </div>
       </div>
@@ -311,9 +358,8 @@
           <h2>Rekam jejak <span class="gradient-text">profesional.</span></h2>
         </div>
         <div class="timeline">
-          <article class="timeline-item reveal"><span class="timeline-dot cyan"></span><div class="timeline-date">2023–Sekarang</div><div class="timeline-content glass"><h3>GoTo</h3><b>Senior SWE</b><p>Engineering pada lingkungan produk dan platform berskala besar.</p></div></article>
-          <article class="timeline-item reveal delay-1"><span class="timeline-dot purple"></span><div class="timeline-date">2021–2023</div><div class="timeline-content glass"><h3>Traveloka</h3><b>SWE II</b><p>Mengembangkan layanan dan sistem untuk pengalaman digital berskala besar.</p></div></article>
-          <article class="timeline-item reveal delay-2"><span class="timeline-dot gold"></span><div class="timeline-date">2020</div><div class="timeline-content glass"><h3>Tokopedia</h3><b>Intern</b><p>Fondasi engineering dan pengalaman production software.</p></div></article>
+          <article class="timeline-item reveal"><span class="timeline-dot cyan"></span><div class="timeline-date">2019–Sekarang</div><div class="timeline-content glass"><h3>Usaha Independen · Jual Beli Gadget</h3><b>Spesialis Quality Control Gadget &amp; Operasional COD</b><p>QC perangkat, pemeriksaan IMEI, autentikasi, pengecekan hardware/software, verifikasi transaksi, dan pengelolaan COD.</p></div></article>
+          <article class="timeline-item reveal delay-1"><span class="timeline-dot red"></span><div class="timeline-date">2018</div><div class="timeline-content glass"><h3>Praktik Kerja Lapangan</h3><b>Teknisi Jaringan</b><p>Pengalaman praktik pada instalasi dan troubleshooting jaringan sebagai fondasi teknis.</p></div></article>
         </div>
       </div>
     </section>
@@ -339,7 +385,7 @@
         </form>
 
         <div class="contact-links reveal delay-1">
-          <a href="mailto:hello@rizuzaman.dev">hello@rizuzaman.dev</a>
+          <a href="mailto:rizuzamantkj3@gmail.com">rizuzamantkj3@gmail.com</a>
           <span>·</span><a href="#" data-placeholder-link>github.com/rizuzaman</a>
           <span>·</span><a href="#" data-placeholder-link>linkedin.com/in/rizuzaman</a>
         </div>
@@ -350,11 +396,12 @@
   <footer class="site-footer">
     <div class="shell footer-inner">
       <span>© 2026 Rizu Zaman</span>
-      <span>Secure Build · Portfolio v8.0</span>
+      <span>Secure Build · Portfolio v10.0 · Cyber Glass / Spider Matrix</span>
     </div>
   </footer>
 
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script>window.RZ_CONFIG={weather:{lat:-6.2088,lon:106.8456,city:"Jakarta"},threatApi:"/api/threats"};</script>
   <script src="./js/app.js" defer></script>
 </body>
 </html>
