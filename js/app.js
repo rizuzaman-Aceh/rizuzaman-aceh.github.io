@@ -99,7 +99,7 @@
       ctx.font=`${font}px "JetBrains Mono",monospace`;
       for(let i=0;i<drops.length;i++){
         const y=drops[i]*font;
-        ctx.fillStyle = Math.random()>.96 ? "rgba(168,85,247,.28)" : "rgba(0,240,255,.20)";
+        ctx.fillStyle = Math.random()>.94 ? "rgba(230,36,41,.22)" : "rgba(34,211,238,.16)";
         ctx.fillText(chars[(Math.random()*chars.length)|0], i*font, y);
         drops[i] += .55;
         if(y>height && Math.random()>.985) drops[i]=Math.random()*-12;
@@ -234,7 +234,7 @@
       form.reset();status.textContent="✓ Pesan berhasil diterima.";
     }catch(err){
       // Static-host fallback: preserve a working user flow without falsely claiming DB delivery.
-      const mail=`mailto:hello@rizuzaman.dev?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nama: ${data.name}\nEmail: ${data.email}\n\n${data.message}`)}`;
+      const mail=`mailto:rizuzamantkj3@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nama: ${data.name}\nEmail: ${data.email}\n\n${data.message}`)}`;
       status.innerHTML="";
       const msg=document.createElement("span");msg.textContent="API kontak belum aktif. ";
       const link=document.createElement("a");link.href=mail;link.textContent="Kirim via email";link.style.color="var(--cyan)";
@@ -280,5 +280,117 @@
     globeEl.innerHTML='<div style="height:100%;display:grid;place-items:center;text-align:center;color:#4e4e57;font:9px JetBrains Mono,monospace">MOBILE FALLBACK<br>3D TELEMETRY DISABLED FOR PERFORMANCE</div>';
   }
 
-  console.log("%cRizu Zaman — Portfolio v7.0","color:#00f0ff;font-weight:700");
+
+
+  /* ---------- V10 live clock/date ---------- */
+  const clockEl = $("#liveClock"), dateEl = $("#liveDate");
+  const tickClock = () => {
+    const now = new Date();
+    const time = new Intl.DateTimeFormat("id-ID", { hour:"2-digit", minute:"2-digit", second:"2-digit", hour12:false, timeZone:"Asia/Jakarta" }).format(now);
+    const date = new Intl.DateTimeFormat("id-ID", { weekday:"long", day:"2-digit", month:"long", year:"numeric", timeZone:"Asia/Jakarta" }).format(now);
+    if (clockEl) clockEl.textContent = time;
+    if (dateEl) dateEl.textContent = date;
+  };
+  tickClock(); setInterval(tickClock,1000);
+
+  /* ---------- V10 weather: Open-Meteo, no key required ---------- */
+  const weatherValue=$("#weatherValue"), weatherMeta=$("#weatherMeta");
+  const weatherCode={0:"Cerah",1:"Cerah berawan",2:"Berawan sebagian",3:"Mendung",45:"Kabut",48:"Kabut beku",51:"Gerimis",53:"Gerimis",55:"Gerimis lebat",61:"Hujan ringan",63:"Hujan",65:"Hujan lebat",71:"Salju ringan",73:"Salju",75:"Salju lebat",80:"Hujan singkat",81:"Hujan",82:"Hujan deras",95:"Badai petir",96:"Badai + es",99:"Badai + es"};
+  const loadWeather = async()=>{
+    try{
+      const c=window.RZ_CONFIG?.weather||{lat:-6.2088,lon:106.8456,city:"Jakarta"};
+      const url=`https://api.open-meteo.com/v1/forecast?latitude=${c.lat}&longitude=${c.lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Asia%2FJakarta`;
+      const r=await fetch(url,{cache:"no-store"}); if(!r.ok) throw new Error("weather");
+      const d=await r.json(), cur=d.current||{};
+      if(weatherValue) weatherValue.textContent=`${Math.round(cur.temperature_2m ?? 0)}°C · ${weatherCode[cur.weather_code]||"Cuaca aktif"}`;
+      if(weatherMeta) weatherMeta.textContent=`${c.city} · RH ${Math.round(cur.relative_humidity_2m??0)}% · Angin ${Math.round(cur.wind_speed_10m??0)} km/j`;
+    }catch(e){
+      if(weatherValue) weatherValue.textContent="Cuaca sementara offline";
+      if(weatherMeta) weatherMeta.textContent="Waktu lokal tetap aktif · UTC+7";
+    }
+  };
+  loadWeather(); setInterval(loadWeather,10*60*1000);
+
+  /* ---------- V10 interactive spider/network background ---------- */
+  const spiderCanvas=$("#spiderNetworkCanvas");
+  if(spiderCanvas && !reduced){
+    const ctx=spiderCanvas.getContext("2d",{alpha:true});
+    let W=0,H=0,dpr=1,raf=0,running=true,nodes=[];
+    const resize=()=>{
+      dpr=Math.min(devicePixelRatio||1,1.5);W=innerWidth;H=innerHeight;
+      spiderCanvas.width=Math.floor(W*dpr);spiderCanvas.height=Math.floor(H*dpr);spiderCanvas.style.width=W+"px";spiderCanvas.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0);
+      const count=W<600?18:34; nodes=Array.from({length:count},(_,i)=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.12,r:Math.random()*1.4+.5,phase:Math.random()*Math.PI*2}));
+    };
+    const draw=(t=0)=>{
+      if(!running)return; ctx.clearRect(0,0,W,H);
+      // Parallel spider-web geometry centered near the hero portrait on desktop, centered on mobile.
+      const cx=W>=768?W*.67:W*.5, cy=W>=768?H*.47:H*.42, base=Math.min(W,H)*.22;
+      for(let ring=1;ring<=4;ring++){
+        const r=base*ring/2.2; ctx.beginPath();
+        for(let i=0;i<=32;i++){const a=(i/32)*Math.PI*2;const wob=Math.sin(a*4+t*.0004+ring)*1.5;const x=cx+Math.cos(a)*(r+wob),y=cy+Math.sin(a)*(r+wob);i?ctx.lineTo(x,y):ctx.moveTo(x,y)}
+        ctx.closePath();ctx.strokeStyle=ring%2?"rgba(34,211,238,.075)":"rgba(230,36,41,.055)";ctx.lineWidth=.7;ctx.stroke();
+      }
+      for(let i=0;i<12;i++){
+        const a=i/12*Math.PI*2, ex=cx+Math.cos(a)*base*1.82, ey=cy+Math.sin(a)*base*1.82;
+        ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(ex,ey);ctx.strokeStyle=i%3===0?"rgba(230,36,41,.075)":"rgba(34,211,238,.055)";ctx.stroke();
+      }
+      nodes.forEach((n,i)=>{
+        n.x+=n.vx;n.y+=n.vy;n.phase+=.02;if(n.x<-20)n.x=W+20;if(n.x>W+20)n.x=-20;if(n.y<-20)n.y=H+20;if(n.y>H+20)n.y=-20;
+        const near=Math.hypot(n.x-cx,n.y-cy), alpha=near<base*2.1?.28:.14;
+        ctx.beginPath();ctx.arc(n.x,n.y,n.r+Math.sin(n.phase)*.35,0,Math.PI*2);ctx.fillStyle=i%5===0?`rgba(230,36,41,${alpha})`:`rgba(34,211,238,${alpha})`;ctx.fill();
+        nodes.forEach((m,j)=>{if(j<=i)return;const dx=n.x-m.x,dy=n.y-m.y,dist=Math.hypot(dx,dy);if(dist<130){ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(m.x,m.y);ctx.strokeStyle=`rgba(34,211,238,${(1-dist/130)*.045})`;ctx.lineWidth=.55;ctx.stroke()}});
+      });
+      raf=requestAnimationFrame(draw);
+    };
+    resize();addEventListener("resize",resize,{passive:true});document.addEventListener("visibilitychange",()=>{running=!document.hidden;if(running)raf=requestAnimationFrame(draw)});raf=requestAnimationFrame(draw);
+  }
+
+  /* ---------- V10 3D profile parallax — pointer/touch safe ---------- */
+  const profileStage=$(".profile-stage"), spiderFrame=$(".spider-frame");
+  if(profileStage && spiderFrame && !reduced && !coarse){
+    let tx=0,ty=0,rx=0,ry=0;
+    profileStage.addEventListener("pointermove",e=>{
+      const r=profileStage.getBoundingClientRect(),nx=(e.clientX-r.left)/r.width-.5,ny=(e.clientY-r.top)/r.height-.5;tx=nx*7;ty=ny*6;
+    },{passive:true});
+    profileStage.addEventListener("pointerleave",()=>{tx=0;ty=0},{passive:true});
+    const loop=()=>{rx+=(tx-rx)*.08;ry+=(ty-ry)*.08;spiderFrame.style.transform=`rotateY(${rx}deg) rotateX(${-ry}deg)`;requestAnimationFrame(loop)};loop();
+  }
+
+  /* ---------- V10 global threat pulse map ---------- */
+  const threatMap=$("#threatMapCanvas"), threatBadge=$("#threatLiveBadge"), threatSource=$("#threatSourceText"), iocCount=$("#iocCount"), malwareCount=$("#malwareCount"), sourceAge=$("#sourceAge"), threatCount=$("#threatCount"), threatList=$("#threatFeedList");
+  const threatDemo=["TLS anomaly observed","Credential spray monitored","Botnet IOC indexed","Phishing infrastructure tagged","WAF policy synchronized","Malware family correlation updated"];
+  const renderThreatFeed=(items,live)=>{
+    if(!threatList)return;
+    threatList.textContent="";
+    const rows=(items&&items.length?items.slice(0,5).map(x=>`${x.malware||"Threat IOC"} · ${x.iocType||x.type||"indicator"}`):threatDemo);
+    rows.forEach((text,i)=>{const row=document.createElement("div");row.className="feed-line";const dot=document.createElement("i");const span=document.createElement("span");span.textContent=text;row.append(dot,span);threatList.appendChild(row)});
+    if(threatBadge){threatBadge.innerHTML="";const dot=document.createElement("span");dot.className="status-dot";const label=document.createElement("span");label.textContent=live?"LIVE THREATFOX":"DEMO TELEMETRY";threatBadge.append(dot,label)}
+  };
+  const loadThreats=async()=>{
+    if(!threatMap)return;
+    try{
+      const endpoint=window.RZ_CONFIG?.threatApi||"/api/threats";const r=await fetch(endpoint,{cache:"no-store"});if(!r.ok)throw new Error("threat");const d=await r.json();
+      if(d.live){
+        if(iocCount)iocCount.textContent=String(d.count??0);if(malwareCount)malwareCount.textContent=String(d.families??0);if(sourceAge)sourceAge.textContent="< 24h";if(threatCount)threatCount.textContent="LIVE";if(threatSource)threatSource.textContent="Verified threat-intelligence telemetry dari ThreatFox; visual map menunjukkan pulse volume, bukan lokasi serangan presisi.";renderThreatFeed(d.data,true);return;
+      }
+      throw new Error("demo");
+    }catch(e){
+      if(iocCount)iocCount.textContent="SIM";if(malwareCount)malwareCount.textContent="LIVE UI";if(sourceAge)sourceAge.textContent="NOW";if(threatCount)threatCount.textContent="DEMO";if(threatSource)threatSource.textContent="Mode DEMO: animasi telemetry untuk presentasi UI. Aktifkan THREATFOX_AUTH_KEY di Vercel untuk feed terverifikasi.";renderThreatFeed([],false);
+    }
+  };
+  loadThreats();setInterval(loadThreats,5*60*1000);
+
+  if(threatMap && !reduced){
+    const ctx=threatMap.getContext("2d",{alpha:true});let W=0,H=0,dpr=1,raf=0,points=[];
+    const hubs=[{x:.18,y:.43,c:"red"},{x:.37,y:.34,c:"cyan"},{x:.51,y:.29,c:"cyan"},{x:.67,y:.39,c:"red"},{x:.82,y:.50,c:"cyan"},{x:.71,y:.70,c:"amber"},{x:.44,y:.68,c:"green"}];
+    const resize=()=>{const r=threatMap.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,1.5);W=r.width;H=r.height;threatMap.width=Math.floor(W*dpr);threatMap.height=Math.floor(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);points=hubs.map((p,i)=>({...p,phase:i*.8}))};
+    const color=p=>p.c==="red"?"230,36,41":p.c==="amber"?"245,158,11":p.c==="green"?"16,185,129":"34,211,238";
+    const draw=(t=0)=>{const parent=threatMap.parentElement;if(!parent)return;ctx.clearRect(0,0,W,H);ctx.strokeStyle="rgba(255,255,255,.045)";ctx.lineWidth=.5;for(let x=0;x<W;x+=W/12){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}for(let y=0;y<H;y+=H/6){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+      points.forEach((p,i)=>{const x=p.x*W,y=p.y*H;p.phase+=.018;const pulse=(Math.sin(p.phase+t*.001)+1)/2;ctx.beginPath();ctx.arc(x,y,3+pulse*3,0,Math.PI*2);ctx.fillStyle=`rgba(${color(p)},${.22+pulse*.2})`;ctx.fill();ctx.beginPath();ctx.arc(x,y,8+pulse*10,0,Math.PI*2);ctx.strokeStyle=`rgba(${color(p)},${.05+pulse*.05})`;ctx.stroke();});
+      points.forEach((a,i)=>points.forEach((b,j)=>{if(j<=i)return;const ax=a.x*W,ay=a.y*H,bx=b.x*W,by=b.y*H;ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);ctx.strokeStyle="rgba(34,211,238,.055)";ctx.stroke()}));
+      raf=requestAnimationFrame(draw)};
+    resize();addEventListener("resize",resize,{passive:true});new IntersectionObserver(es=>{if(es[0].isIntersecting){cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)}},{threshold:.05}).observe(threatMap);raf=requestAnimationFrame(draw);
+  }
+
+  console.log("%cRizu Zaman — Portfolio v10.0","color:#00f0ff;font-weight:700");
 })();
