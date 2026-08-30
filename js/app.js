@@ -74,7 +74,7 @@
     cursorLoop();
     $$("a,button,.glass,.flip-card,input,textarea").forEach(el => {
       el.addEventListener("mouseenter", () => { if(dot) dot.style.width="13px"; if(dot) dot.style.height="13px"; if(ring){ring.style.width="42px";ring.style.height="42px";ring.style.borderColor="rgba(29,78,216,.45)";} });
-      el.addEventListener("mouseleave", () => { if(dot) dot.style.width="7px"; if(dot) dot.style.height="7px"; if(ring){ring.style.width="28px";ring.style.height="28px";ring.style.borderColor="rgba(15,23,42,.22)";} });
+      el.addEventListener("mouseleave", () => { if(dot) dot.style.width="7px"; if(dot) dot.style.height="7px"; if(ring){ring.style.width="28px";ring.style.height="28px";ring.style.borderColor="rgba(255,255,255,.25)";} });
     });
   }
 
@@ -99,7 +99,7 @@
       ctx.font=`${font}px "JetBrains Mono",monospace`;
       for(let i=0;i<drops.length;i++){
         const y=drops[i]*font;
-        ctx.fillStyle = Math.random()>.94 ? "rgba(230,36,41,.22)" : "rgba(34,211,238,.16)";
+        ctx.fillStyle = Math.random()>.94 ? "rgba(230,36,41,.22)" : "rgba(29,78,216,.12)";
         ctx.fillText(chars[(Math.random()*chars.length)|0], i*font, y);
         drops[i] += .55;
         if(y>height && Math.random()>.985) drops[i]=Math.random()*-12;
@@ -256,14 +256,14 @@
         globeEl.appendChild(renderer.domElement);
         const group=new THREE.Group();scene.add(group);
         const geo=new THREE.SphereGeometry(1,28,20);
-        const mat=new THREE.MeshBasicMaterial({color:0x1d4ed8,wireframe:true,transparent:true,opacity:.23});
+        const mat=new THREE.MeshBasicMaterial({color:0x00f0ff,wireframe:true,transparent:true,opacity:.23});
         group.add(new THREE.Mesh(geo,mat));
-        const ringMat=new THREE.MeshBasicMaterial({color:0x0ea5e9,transparent:true,opacity:.28});
+        const ringMat=new THREE.MeshBasicMaterial({color:0xa855f7,transparent:true,opacity:.28});
         const ring=new THREE.Mesh(new THREE.TorusGeometry(1.22,.008,8,80),ringMat);ring.rotation.x=.9;group.add(ring);
         const pointGeo=new THREE.SphereGeometry(.025,6,6);
         for(let i=0;i<22;i++){
           const phi=Math.acos(1-2*(i+.5)/22),theta=Math.PI*(1+Math.sqrt(5))*i;
-          const p=new THREE.Mesh(pointGeo,new THREE.MeshBasicMaterial({color:i%3===0?0xd97706:0x1d4ed8}));
+          const p=new THREE.Mesh(pointGeo,new THREE.MeshBasicMaterial({color:i%3===0?0xffd700:0x00f0ff}));
           p.position.set(Math.cos(theta)*Math.sin(phi),Math.cos(phi),Math.sin(theta)*Math.sin(phi));group.add(p);
         }
         const ro=new ResizeObserver(()=>{const w=globeEl.clientWidth,h=globeEl.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h)});
@@ -272,12 +272,12 @@
         new IntersectionObserver(es=>running=es[0].isIntersecting,{threshold:.05}).observe(globeEl);
         const animate=()=>{if(running){group.rotation.y+=.0022;ring.rotation.z+=.001;renderer.render(scene,camera)}requestAnimationFrame(animate)};animate();
       }catch(e){
-        globeEl.innerHTML='<div style="height:100%;display:grid;place-items:center;color:#334155;font:9px JetBrains Mono,monospace">WEBGL FALLBACK · TELEMETRY READY</div>';
+        globeEl.innerHTML='<div style="height:100%;display:grid;place-items:center;color:#4e4e57;font:9px JetBrains Mono,monospace">WEBGL FALLBACK · TELEMETRY READY</div>';
       }
     };
     if("requestIdleCallback" in window) requestIdleCallback(loadGlobe,{timeout:1800}); else setTimeout(loadGlobe,500);
   } else if(globeEl){
-    globeEl.innerHTML='<div style="height:100%;display:grid;place-items:center;text-align:center;color:#334155;font:9px JetBrains Mono,monospace">MOBILE FALLBACK<br>3D TELEMETRY DISABLED FOR PERFORMANCE</div>';
+    globeEl.innerHTML='<div style="height:100%;display:grid;place-items:center;text-align:center;color:#4e4e57;font:9px JetBrains Mono,monospace">MOBILE FALLBACK<br>3D TELEMETRY DISABLED FOR PERFORMANCE</div>';
   }
 
 
@@ -329,7 +329,7 @@
       ctx.fillStyle='rgba(9,13,18,.86)';ctx.strokeStyle='rgba(230,36,41,.55)';ctx.lineWidth=1;
       ctx.beginPath();ctx.arc(0,headY,12*scale,0,Math.PI*2);ctx.fill();ctx.stroke();
       // mask mesh
-      ctx.strokeStyle='rgba(34,211,238,.30)';ctx.lineWidth=.45;ctx.beginPath();ctx.moveTo(-8*scale,headY-3);ctx.lineTo(8*scale,headY+5);ctx.moveTo(8*scale,headY-3);ctx.lineTo(-8*scale,headY+5);ctx.moveTo(-10*scale,headY);ctx.lineTo(10*scale,headY);ctx.stroke();
+      ctx.strokeStyle='rgba(29,78,216,.22)';ctx.lineWidth=.45;ctx.beginPath();ctx.moveTo(-8*scale,headY-3);ctx.lineTo(8*scale,headY+5);ctx.moveTo(8*scale,headY-3);ctx.lineTo(-8*scale,headY+5);ctx.moveTo(-10*scale,headY);ctx.lineTo(10*scale,headY);ctx.stroke();
       // torso, arms, legs
       ctx.strokeStyle='rgba(220,230,235,.46)';ctx.lineWidth=5*scale;
       ctx.beginPath();ctx.moveTo(-7*scale,shoulderY);ctx.lineTo(-25*scale,shoulderY+34);ctx.lineTo(-42*scale,shoulderY+44);ctx.moveTo(7*scale,shoulderY);ctx.lineTo(25*scale,shoulderY+31);ctx.lineTo(42*scale,shoulderY+40);ctx.stroke();
@@ -342,7 +342,7 @@
     function frame(){
       t+=.012;ctx.clearRect(0,0,W,H);
       // parallel cyber lanes behind the hanging figure
-      ctx.save();ctx.globalAlpha=.28; for(let k=0;k<7;k++){const y=H*(.16+k*.105)+Math.sin(t+k)*10;ctx.beginPath();ctx.strokeStyle=k%2?'rgba(34,211,238,.16)':'rgba(230,36,41,.12)';ctx.lineWidth=.6;ctx.moveTo(W*.48,y);ctx.lineTo(W*.98,y-50);ctx.stroke();}ctx.restore();
+      ctx.save();ctx.globalAlpha=.28; for(let k=0;k<7;k++){const y=H*(.16+k*.105)+Math.sin(t+k)*10;ctx.beginPath();ctx.strokeStyle=k%2?'rgba(29,78,216,.12)':'rgba(230,36,41,.12)';ctx.lineWidth=.6;ctx.moveTo(W*.48,y);ctx.lineTo(W*.98,y-50);ctx.stroke();}ctx.restore();
       nodes.forEach(n=>{n.p+=n.v*.04; n.y+=n.v; if(n.y>H+10)n.y=-10; ctx.fillStyle=`rgba(34,211,238,${.12+.12*Math.sin(n.p)})`;ctx.fillRect(n.x,n.y,1.3,1.3)});
       // hanging silhouette is intentionally abstract/original to avoid a branded character asset
       drawFigure(W*.82,H*.075,.95,t);
@@ -368,7 +368,7 @@
       for(let ring=1;ring<=4;ring++){
         const r=base*ring/2.2; ctx.beginPath();
         for(let i=0;i<=32;i++){const a=(i/32)*Math.PI*2;const wob=Math.sin(a*4+t*.0004+ring)*1.5;const x=cx+Math.cos(a)*(r+wob),y=cy+Math.sin(a)*(r+wob);i?ctx.lineTo(x,y):ctx.moveTo(x,y)}
-        ctx.closePath();ctx.strokeStyle=ring%2?"rgba(34,211,238,.075)":"rgba(230,36,41,.055)";ctx.lineWidth=.7;ctx.stroke();
+        ctx.closePath();ctx.strokeStyle=ring%2?"rgba(29,78,216,.075)":"rgba(230,36,41,.055)";ctx.lineWidth=.7;ctx.stroke();
       }
       for(let i=0;i<12;i++){
         const a=i/12*Math.PI*2, ex=cx+Math.cos(a)*base*1.82, ey=cy+Math.sin(a)*base*1.82;
