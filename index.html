@@ -9,13 +9,37 @@
   <meta property="og:title" content="Rizu Zaman — Cyber Security & Web Design">
   <meta property="og:description" content="Portfolio profesional Cyber Security & Web Design dengan antarmuka cyber-glass dan observability interaktif.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./static/img/profile.webp">
+  <meta property="og:image" content="https://i.ibb.co.com/GmHYSLZ/Teuku-Rijul.webp">
+  <meta property="og:url" content="https://rizuzaman-aceh.github.io/">
+  <meta property="og:locale" content="id_ID">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rizu Zaman — Cyber Security & Web Design">
+  <meta name="twitter:description" content="Portfolio profesional Cyber Security & Web Design dengan antarmuka cyber-glass dan observability interaktif.">
+  <meta name="twitter:image" content="https://i.ibb.co.com/GmHYSLZ/Teuku-Rijul.webp">
+  <meta name="author" content="Rizu Zaman">
+  <link rel="canonical" href="https://rizuzaman-aceh.github.io/">
+  <link rel="me" href="https://github.com/rizuzaman-Aceh">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./favicon.svg">
   <title>Rizu Zaman — Cyber Security & Web Design</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://unpkg.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://api.github.com">
+  <link rel="preconnect" href="https://api.open-meteo.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rizu Zaman",
+    "url": "https://rizuzaman-aceh.github.io/",
+    "image": "https://i.ibb.co.com/GmHYSLZ/Teuku-Rijul.webp",
+    "jobTitle": "Cyber Security & Web Design",
+    "sameAs": ["https://github.com/rizuzaman-Aceh"]
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -77,6 +101,10 @@
           <div class="ambient-icon red"><i data-lucide="clock-3"></i></div>
           <div><span>LOCAL TIME · UTC+7</span><strong id="liveClock">--:--:--</strong><small id="liveDate">Memuat tanggal…</small></div>
         </article>
+        <article class="ambient-card glass">
+          <div class="ambient-icon"><i data-lucide="github"></i></div>
+          <div><span>GITHUB · LIVE</span><strong id="githubValue">Memuat data…</strong><small id="githubMeta">api.github.com</small></div>
+        </article>
       </div>
       <div class="hero-grid shell">
         <div class="hero-copy reveal">
@@ -93,14 +121,13 @@
             <span class="cyber-cursor" aria-hidden="true"></span>
           </div>
           <p class="hero-description">Membangun pengalaman web yang presisi dan sistem digital yang berorientasi keamanan, observability, serta usability.</p>
-
           <div class="hero-meta-grid" aria-label="Profil utama">
             <div><span>ASAL</span><b>Aceh</b></div><div><span>DOMISILI</span><b>Jakarta</b></div>
             <div><span>UMUR</span><b>26 tahun</b></div><div><span>FOKUS</span><b>Security + Design</b></div>
           </div>
           <div class="hero-actions"><a class="btn btn-primary" href="#projects">Lihat Karya <span aria-hidden="true">→</span></a><a class="btn btn-ghost" href="#contact">Hubungi Saya</a></div>
-          <div class="hero-contact-row"><a href="https://wa.me/62895328323138" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> +62 895-3283-23138</a><a href="mailto:rizuzamant[...]
-          <div class="social-row" aria-label="Profil sosial"><a href="#" data-placeholder-link>GitHub</a><span>/</span><a href="#" data-placeholder-link>LinkedIn</a><span>/</span><a href="#" data-placeholder-link>Twitter</a></div>
+          <div class="hero-contact-row"><a href="https://wa.me/62895328323138" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> +62 895-3283-23138</a><a href="mailto:rizuzamantkj3@gmail.com"><i data-lucide="mail"></i> rizuzamantkj3@gmail.com</a></div>
+          <div class="social-row" aria-label="Profil sosial"><a href="https://github.com/rizuzaman-Aceh" target="_blank" rel="noopener">GitHub</a><span>/</span><a href="https://id.linkedin.com/in/rizu-zaman-b7456220a" target="_blank" rel="noopener">LinkedIn</a></div>
         </div>
 
         <div class="hero-visual reveal delay-1">
@@ -113,12 +140,12 @@
               <div class="spider-depth depth-b" aria-hidden="true"></div>
               <svg class="spider-web" viewBox="0 0 420 420" aria-hidden="true">
                 <defs><filter id="webGlow"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-                <g class="web-rings" filter="url(#webGlow)"><circle cx="210" cy="210" r="202"/><circle cx="210" cy="210" r="174"/><circle cx="210" cy="210" r="142"/><circle cx="210" cy="210" r="116"/></g>
-                <g class="web-rays"><line x1="210" y1="8" x2="210" y2="412"/><line x1="8" y1="210" x2="412" y2="210"/><line x1="67" y1="67" x2="353" y2="353"/><line x1="353" y1="67" x2="67" y2="353"/></g>
+                <g class="web-rings" filter="url(#webGlow)"><circle cx="210" cy="210" r="202"/><circle cx="210" cy="210" r="174"/><circle cx="210" cy="210" r="142"/><circle cx="210" cy="210" r="108"/><circle cx="210" cy="210" r="76"/></g>
+                <g class="web-rays"><line x1="210" y1="8" x2="210" y2="412"/><line x1="8" y1="210" x2="412" y2="210"/><line x1="67" y1="67" x2="353" y2="353"/><line x1="353" y1="67" x2="67" y2="353"/><line x1="28" y1="132" x2="392" y2="288"/><line x1="28" y1="288" x2="392" y2="132"/><line x1="132" y1="28" x2="288" y2="392"/><line x1="288" y1="28" x2="132" y2="392"/></g>
                 <g class="web-nodes"><circle cx="210" cy="8" r="3"/><circle cx="412" cy="210" r="3"/><circle cx="210" cy="412" r="3"/><circle cx="8" cy="210" r="3"/></g>
               </svg>
               <div class="profile-glass"></div>
-              <div class="profile-photo"><img src="./static/img/profile.webp" alt="Foto profil Rizu Zaman" loading="eager" decoding="async" fetchpriority="high"></div>
+              <div class="profile-photo"><img src="https://i.ibb.co.com/5m9WX2k/dbab09eaaa692619c8e54bb0efffeb4b.webp" alt="Foto profil Rizu Zaman" loading="eager" decoding="async" fetchpriority="high"></div>
               <div class="photo-caption"><span>IDENTITY VERIFIED</span><b>RZ / 026</b></div>
             </div>
           </div>
@@ -127,7 +154,7 @@
 
       <div class="hero-lower shell">
         <div class="terminal hero-terminal glass reveal delay-2">
-          <div class="terminal-top"><div class="terminal-lights"><i></i><i></i><i></i></div><span>rizu@security-lab · interactive-shell</span><button id="terminalRun" type="button" aria-label="Jalankan terminal">Run</button></div>
+          <div class="terminal-top"><div class="terminal-lights"><i></i><i></i><i></i></div><span>rizu@security-lab · interactive-shell</span><button id="terminalRun" type="button" aria-label="Jalankan simulasi terminal">RUN</button></div>
           <div class="terminal-body" id="terminalBody" aria-live="polite"></div>
         </div>
         <div class="hero-skill-panel glass reveal delay-3">
@@ -141,20 +168,364 @@
     </section>
 
     <section class="section-shell" id="cyber">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="section-label" data-icon="cyber">01 · LIVE SECURITY MONITOR</span>
+          <h2>Pusat <span class="gradient-text">monitoring</span> cyber.</h2>
+          <p>Simulasi visual untuk menunjukkan observability, security telemetry, dan operational awareness.</p>
+        </div>
 
-    <!-- rest of page unchanged, truncated for brevity -->
+        <div class="ticker glass reveal delay-1" aria-label="Security ticker">
+          <div class="ticker-track">
+            <span>[INFO] Firewall aktif</span><b>·</b><span>[OK] TLS 1.3 enforced</span><b>·</b>
+            <span>[OK] Certificate valid</span><b>·</b><span>[AUDIT] Log rotation complete</span><b>·</b>
+            <span>[WARN] Traffic spike monitored</span><b>·</b><span>[OK] Ruleset synchronized</span><b>·</b>
+            <span>[INFO] Monitoring 24/7</span><b>·</b>
+          </div>
+        </div>
 
+        <article class="global-threat-panel glass reveal delay-1" id="globalThreatPanel">
+          <div class="global-threat-head">
+            <div>
+              <span class="section-label">GLOBAL THREAT PULSE</span>
+              <h3>Cyber telemetry <span class="accent-red">worldwide.</span></h3>
+              <p id="threatSourceText">Feed gateway siap dihubungkan ke threat-intelligence API; tanpa kredensial, UI menggunakan simulasi yang diberi label jelas.</p>
+            </div>
+            <div class="source-badge" id="threatLiveBadge"><span class="status-dot"></span> DEMO TELEMETRY</div>
+          </div>
+          <div class="global-threat-grid">
+            <div class="threat-map-shell">
+              <canvas id="threatMapCanvas" aria-label="Visualisasi global threat pulse"></canvas>
+              <div class="map-scanline" aria-hidden="true"></div>
+              <div class="map-label map-a">AMERICAS</div><div class="map-label map-b">EUROPE</div><div class="map-label map-c">APAC</div>
+            </div>
+            <div class="threat-feed glass">
+              <div class="dash-head"><span>LIVE INDICATORS</span><span id="threatCount" class="cyan-text">SYNCING</span></div>
+              <div class="threat-stat-row"><strong id="iocCount">—</strong><span>IOCs / recent feed</span></div>
+              <div class="threat-stat-row"><strong id="malwareCount">—</strong><span>malware families</span></div>
+              <div class="threat-stat-row"><strong id="sourceAge">—</strong><span>feed freshness</span></div>
+              <div id="threatFeedList" class="threat-feed-list" aria-live="polite">
+                <div class="feed-line"><i></i><span>Menunggu sinkronisasi telemetry…</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="dashboard-grid">
+          <article class="dash-card glass reveal delay-1">
+            <div class="dash-head"><span>THREAT LEVEL</span><span class="live-dot"></span></div>
+            <strong id="threatValue" class="threat low">LOW</strong>
+            <div class="meter"><span id="threatBar"></span></div>
+            <small id="threatScore">Skor: 12/100 · Normal</small>
+          </article>
+
+          <article class="dash-card glass reveal delay-2">
+            <div class="dash-head"><span>NETWORK TRAFFIC</span><span class="cyan-text">LIVE</span></div>
+            <div class="traffic-value"><strong id="reqRate">2.4M</strong><small>req/s</small></div>
+            <canvas id="trafficCanvas" aria-label="Grafik traffic jaringan"></canvas>
+            <div class="traffic-meta"><span>Inbound</span><span>Peak 3.1M</span><span>Lat 42ms</span></div>
+          </article>
+
+          <article class="dash-card glass reveal delay-3">
+            <div class="dash-head"><span>FIREWALL</span><span class="green-text">AKTIF</span></div>
+            <ul class="firewall-list">
+              <li><span>SSH Brute-force</span><b>BLOCK</b></li>
+              <li><span>SQL Injection</span><b>BLOCK</b></li>
+              <li><span>XSS Attempt</span><b>BLOCK</b></li>
+              <li><span>DDoS Filter</span><b>ACTIVE</b></li>
+              <li><span>Zero-Day</span><b class="warn">MONITOR</b></li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="attack-card glass reveal delay-2">
+          <div class="dash-head"><span>ATTACK DISTRIBUTION</span><span class="amber-text">LIVE</span></div>
+          <div class="attack-layout"><div class="attack-donut" id="attackDonut" aria-label="Distribusi serangan simulasi"><b id="attackTotal">100%</b></div><div class="attack-legend"><span><i></i>Malware <b>18%</b></span><span><i></i>Phishing <b>34%</b></span><span><i></i>DDoS <b>21%</b></span><span><i></i>Bruteforce <b>27%</b></span></div></div>
+        </article>
+
+        <article class="event-log glass reveal delay-2">
+          <div class="dash-head"><span>SECURITY EVENT LOG</span><small>STREAMING</small></div>
+          <div id="securityLog" class="log-lines" aria-live="polite">
+            <div class="log-ok">[02:41:07] ✓ Auth berhasil</div>
+            <div class="log-cyan">[02:41:08] ⚡ TLS 1.3 packet inspected</div>
+            <div class="log-warn">[02:41:09] ⚠ Port scan monitored</div>
+            <div class="log-ok">[02:41:10] ✓ Firewall rules synchronized</div>
+          </div>
+        </article>
+
+        <div class="globe-wrap glass reveal delay-3" id="globePanel">
+          <div class="globe-copy">
+            <span class="section-label">GLOBAL TELEMETRY</span>
+            <h3>Distributed by design.</h3>
+            <p>Visualisasi globe 3D aktif pada perangkat desktop yang mendukung WebGL. Mobile menggunakan fallback ringan.</p>
+          </div>
+          <div id="globe" class="globe" aria-label="Globe telemetry 3D"></div>
+        </div>
+
+        <div class="interaction-strip glass reveal" aria-label="Interaksi 3D">
+          <span><i data-lucide="mouse-pointer-2"></i> Drag / move pointer untuk parallax</span>
+          <span><i data-lucide="scan"></i> 3D Web Matrix</span>
+          <span><i data-lucide="activity"></i> Telemetry animated</span>
+          <span><i data-lucide="smartphone"></i> Mobile-safe fallback</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell" id="about">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="section-label" data-icon="profile">02 · TENTANG</span>
+          <h2>Sistem yang <span class="gradient-text">tenang.</span><br>Antarmuka yang terukur.</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>Ahli Keamanan Siber dengan fokus pada Offensive Security, Web Design, dan Quality Control perangkat. Berpengalaman dalam troubleshooting, networking, dan operasional transaksi digital.</p>
+          </div>
+          <div class="stats-grid reveal delay-1">
+            <div class="stat glass"><strong>2019+</strong><span>Aktif di bidang gadget &amp; QC</span></div>
+            <div class="stat glass"><strong>10+</strong><span>Tools &amp; platform kerja</span></div>
+            <div class="stat glass"><strong>3</strong><span>OS utama</span></div>
+            <div class="stat glass"><strong>1</strong><span>Sertifikat tercatat</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell profile-dossier" id="profile-data">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="section-label" data-icon="profile">02A · PROFIL PROFESIONAL</span>
+          <h2>Identitas &amp; <span class="gradient-text">kompetensi.</span></h2>
+          <p>Ringkasan profil profesional, kompetensi, sertifikasi, pendidikan, sistem operasi, dan toolchain Rizu Zaman.</p>
+        </div>
+        <div class="dossier-grid">
+          <article class="dossier-card glass reveal">
+            <div class="card-top"><span class="icon-box red"><i data-lucide="user-round-check"></i></span><span class="year">PROFILE</span></div>
+            <h3>Rizu Zaman</h3>
+            <p class="accent-red">Quality Control Gadget · Staff Operasional COD · Mobile Device Specialist</p>
+            <div class="data-list">
+              <div><span>WhatsApp</span><b><a href="https://wa.me/62895328323138" target="_blank" rel="noopener">0895-3283-23138</a></b></div>
+              <div><span>Email</span><b><a href="mailto:rizuzamantkj3@gmail.com">rizuzamantkj3@gmail.com</a></b></div>
+              <div><span>Asal</span><b>Aceh</b></div>
+              <div><span>Domisili</span><b>Bekasi, Jawa Barat</b></div>
+              <div><span>Umur</span><b>26 tahun</b></div>
+            </div>
+          </article>
+          <article class="dossier-card glass reveal delay-1">
+            <div class="card-top"><span class="icon-box cyan"><i data-lucide="scan-search"></i></span><span class="year">CORE</span></div>
+            <h3>Kompetensi Utama</h3>
+            <div class="tag-cloud competency-grid">
+              <span><i data-lucide="smartphone"></i> Quality Control Smartphone</span>
+              <span><i data-lucide="scan-line"></i> Verifikasi IMEI</span>
+              <span><i data-lucide="wrench"></i> Troubleshooting Hardware</span>
+              <span><i data-lucide="package"></i> Inventory Management</span>
+              <span><i data-lucide="file-spreadsheet"></i> Google Sheets</span>
+              <span><i data-lucide="file-spreadsheet"></i> Microsoft Excel</span>
+              <span><i data-lucide="users"></i> Customer Service</span>
+            </div>
+            <h4>Soft Skills</h4>
+            <div class="tag-cloud muted-tags">
+              <span><i data-lucide="eye"></i> Teliti &amp; Detail</span>
+              <span><i data-lucide="shield"></i> Integritas Tinggi</span>
+              <span><i data-lucide="lightbulb"></i> Problem Solving</span>
+              <span><i data-lucide="users"></i> Kerja Tim</span>
+              <span><i data-lucide="message-circle"></i> Komunikatif</span>
+            </div>
+          </article>
+          <article class="dossier-card glass reveal delay-2">
+            <div class="card-top"><span class="icon-box gold"><i data-lucide="badge-check"></i></span><span class="year">CREDENTIALS</span></div>
+            <h3>Sertifikasi</h3>
+            <ul class="credential-list">
+              <li class="obtained"><i data-lucide="certificate"></i><div><b>Sertifikat Hacking Android</b><span>UKM POLICY – Politeknik Negeri Lhokseumawe</span></div></li>
+              <li class="recommended"><i data-lucide="shield-check"></i><div><b>Certified Ethical Hacker (CEH)</b><span>EC-Council · direkomendasikan</span></div></li>
+              <li class="recommended"><i data-lucide="shield"></i><div><b>CompTIA Security+</b><span>direkomendasikan</span></div></li>
+              <li class="recommended"><i data-lucide="pen-tool"></i><div><b>Google UX Design Professional Certificate</b><span>direkomendasikan</span></div></li>
+              <li class="recommended"><i data-lucide="cloud"></i><div><b>AWS Certified Cloud Practitioner</b><span>direkomendasikan</span></div></li>
+              <li class="recommended"><i data-lucide="lock-keyhole"></i><div><b>CISSP Associate</b><span>direkomendasikan</span></div></li>
+            </ul>
+          </article>
+          <article class="dossier-card glass reveal">
+            <div class="card-top"><span class="icon-box red"><i data-lucide="graduation-cap"></i></span><span class="year">EDUCATION</span></div>
+            <h3>Riwayat Pendidikan</h3>
+            <div class="edu-row"><b>SMK Negeri 1 Nisam</b><span>Teknik Komputer dan Jaringan (TKJ)</span><small>Lulus 2019</small></div>
+            <div class="edu-row planned"><b>S1 Teknik Informatika — Universitas Indonesia (UI)</b><span>Pendidikan tinggi yang direkomendasikan</span><small>RENCANA · bukan gelar yang sudah diperoleh</small></div>
+          </article>
+          <article class="dossier-card glass reveal delay-1">
+            <div class="card-top"><span class="icon-box cyan"><i data-lucide="monitor-smartphone"></i></span><span class="year">ENVIRONMENT</span></div>
+            <h3>Sistem Operasi</h3>
+            <div class="os-list"><span><i data-lucide="terminal"></i> Linux · Kali Linux · Ubuntu</span><span><i data-lucide="monitor"></i> Windows</span><span><i data-lucide="apple"></i> macOS</span></div>
+          </article>
+          <article class="dossier-card glass reveal delay-2">
+            <div class="card-top"><span class="icon-box gold"><i data-lucide="wrench"></i></span><span class="year">TOOLCHAIN</span></div>
+            <h3>Tools</h3>
+            <div class="tag-cloud"><span>Wireshark</span><span>Metasploit</span><span>Burp Suite</span><span>Nmap</span><span>Docker</span><span>Git</span><span>Figma</span><span>Adobe XD</span><span>VS Code</span><span>Visual Studio</span></div>
+          </article>
+        </div>
+        <article class="profile-summary glass reveal">
+          <div class="summary-icon"><i data-lucide="file-user"></i></div>
+          <div><span class="section-label">PROFIL PROFESIONAL</span><p>Lebih dari 5 tahun pengalaman di Quality Control Smartphone dan Operasional COD. Ahli dalam inspeksi perangkat, verifikasi produk, dan pengelolaan transaksi.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell" id="education">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="section-label" data-icon="education">03 · PENDIDIKAN</span>
+          <h2>Perjalanan <span class="gradient-text">akademik.</span></h2>
+        </div>
+        <div class="card-grid three">
+          <article class="info-card glass reveal"><div class="card-top"><span class="icon-box red"><i data-lucide="graduation-cap"></i></span><span class="year">2019</span></div><h3>SMK Negeri 1 Nisam</h3><p class="accent-red">Teknik Komputer &amp; Jaringan (TKJ)</p><p>Pendidikan vokasi dengan fondasi jaringan komputer dan teknologi informasi.</p><div class="chips"><span>TKJ</span><span>Aceh</span></div></article>
+          <article class="info-card glass reveal delay-1"><div class="card-top"><span class="icon-box cyan"><i data-lucide="university"></i></span><span class="year">RENCANA</span></div><h3>S1 Teknik Informatika — UI</h3><p class="accent-cyan">Rekomendasi Pendidikan Tinggi</p><p>Target pendidikan tinggi yang direkomendasikan; belum ditampilkan sebagai gelar yang sudah diperoleh.</p><div class="chips"><span>UI</span><span>Informatika</span></div></article>
+          <article class="info-card glass reveal delay-2"><div class="card-top"><span class="icon-box gold"><i data-lucide="award"></i></span><span class="year">TRACK</span></div><h3>Sertifikasi Profesional</h3><p class="accent-gold">Security · Cloud · UX</p><p>Jalur sertifikasi yang relevan untuk pengembangan kompetensi profesional.</p><div class="chips"><span>CEH</span><span>Security+</span><span>AWS</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell" id="credentials">
+      <div class="shell">
+        <div class="section-head reveal"><span class="section-label" data-icon="tools">03B · CREDENTIALS &amp; TOOLCHAIN</span><h2>Stack <span class="gradient-text">profesional.</span></h2><p>Data kredensial dipisahkan antara yang tercatat dan yang direkomendasikan agar profil tetap faktual.</p></div>
+        <div class="credential-grid">
+          <article class="credential-card glass reveal"><div class="cred-head"><i data-lucide="badge-check"></i><span>TERCATAT</span></div><h3>Hacking Android</h3><p>Politeknik Negeri Lhokseumawe · 24 September 2016</p><div class="chips"><span>Security</span><span>Android</span></div></article>
+          <article class="credential-card glass reveal delay-1"><div class="cred-head"><i data-lucide="certificate"></i><span>DIREKOMENDASIKAN</span></div><h3>CEH · Security+ · UX · AWS · CISSP Associate</h3><p>Jalur sertifikasi pengembangan kompetensi; bukan klaim sertifikasi yang telah diperoleh.</p><div class="chips"><span>EC-Council</span><span>CompTIA</span><span>Google</span><span>AWS</span><span>(ISC)²</span></div></article>
+          <article class="credential-card glass reveal delay-2"><div class="cred-head"><i data-lucide="cpu"></i><span>ENVIRONMENT</span></div><h3>Operating Systems</h3><p>Linux (Kali Linux, Ubuntu), Windows, macOS</p><div class="os-row"><span><i data-lucide="terminal"></i> Linux</span><span><i data-lucide="monitor"></i> Windows</span><span><i data-lucide="apple"></i> macOS</span></div></article>
+        </div>
+        <div class="tool-cloud glass reveal"><span>Wireshark</span><span>Metasploit</span><span>Burp Suite</span><span>Nmap</span><span>Docker</span><span>Git</span><span>Figma</span><span>Adobe XD</span><span>VS Code</span><span>Visual Studio</span></div>
+      </div>
+    </section>
+
+    <section class="section-shell" id="skills">
+      <div class="shell">
+        <div class="section-head centered reveal">
+          <span class="section-label" data-icon="skills">04 · SKILL MATRIX</span>
+          <h2>Perangkat <span class="gradient-text">keahlian.</span></h2>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-group glass reveal">
+            <h3>Frontend</h3>
+            <div class="rings">
+              <div class="ring" data-value="95"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>95%</b><span>React</span></div>
+              <div class="ring" data-value="92"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>92%</b><span>TypeScript</span></div>
+              <div class="ring" data-value="90"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>90%</b><span>Tailwind</span></div>
+            </div>
+          </article>
+          <article class="skill-group glass reveal delay-1">
+            <h3>Backend</h3>
+            <div class="rings">
+              <div class="ring" data-value="93"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>93%</b><span>Go</span></div>
+              <div class="ring" data-value="90"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>90%</b><span>Python</span></div>
+              <div class="ring" data-value="88"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>88%</b><span>Node</span></div>
+            </div>
+          </article>
+          <article class="skill-group glass reveal delay-2">
+            <h3>Cloud & Data</h3>
+            <div class="rings">
+              <div class="ring" data-value="92"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>92%</b><span>AWS/GCP</span></div>
+              <div class="ring" data-value="90"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>90%</b><span>Kubernetes</span></div>
+              <div class="ring" data-value="88"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="43"/><circle class="ring-fg" cx="50" cy="50" r="43"/></svg><b>88%</b><span>PostgreSQL</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell" id="projects">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="section-label" data-icon="projects">05 · PROYEK</span>
+          <h2>Karya <span class="gradient-text">terpilih.</span></h2>
+        </div>
+        <div class="project-grid">
+          <article class="flip-card reveal" tabindex="0" role="button" aria-label="Balik kartu Pulse Analytics">
+            <div class="flip-inner">
+              <div class="flip-front glass"><span class="project-index">01</span><div class="project-mark cyan">&lt;/&gt;</div><h3>Pulse Analytics</h3><p>Go · ClickHouse · Kafka · React</p><small>2024</small></div>
+              <div class="flip-back glass"><span class="project-index">PULSE</span><h3>Real-time analytics</h3><p>Platform analitik real-time untuk workload berintensitas tinggi.</p><b>Latensi P99 &lt; 100ms</b></div>
+            </div>
+          </article>
+          <article class="flip-card reveal delay-1" tabindex="0" role="button" aria-label="Balik kartu Finly">
+            <div class="flip-inner">
+              <div class="flip-front glass"><span class="project-index">02</span><div class="project-mark purple">₣</div><h3>Finly Budgeting</h3><p>React Native · Node.js · PostgreSQL</p><small>2023</small></div>
+              <div class="flip-back glass"><span class="project-index">FINLY</span><h3>Mobile finance</h3><p>Pengalaman budgeting lintas platform dengan backend terstruktur.</p><b>Secure by design</b></div>
+            </div>
+          </article>
+          <article class="flip-card reveal delay-2" tabindex="0" role="button" aria-label="Balik kartu Nimbus Cloud">
+            <div class="flip-inner">
+              <div class="flip-front glass"><span class="project-index">03</span><div class="project-mark gold">☁</div><h3>Nimbus Cloud</h3><p>Kubernetes · Terraform · Go</p><small>2022</small></div>
+              <div class="flip-back glass"><span class="project-index">NIMBUS</span><h3>Internal PaaS</h3><p>Self-service deployment workflow untuk platform engineering.</p><b>Deployment automation</b></div>
+            </div>
+          </article>
+          <article class="flip-card reveal delay-3" tabindex="0" role="button" aria-label="Balik kartu Open Source">
+            <div class="flip-inner">
+              <div class="flip-front glass"><span class="project-index">04</span><div class="project-mark neutral">★</div><h3>Open Source</h3><p>Go · TypeScript</p><small>Aktif</small></div>
+              <div class="flip-back glass"><span class="project-index">OSS</span><h3>Community driven</h3><p>Kontribusi dan eksperimen terbuka pada tooling developer.</p><b>Go · TypeScript</b></div>
+            </div>
+          </article>
+        </div>
+        <p class="tap-hint">Desktop: hover · Mobile: tap kartu untuk flip</p>
+      </div>
+    </section>
+
+    <section class="section-shell" id="experience">
+      <div class="shell timeline-shell">
+        <div class="section-head centered reveal">
+          <span class="section-label" data-icon="experience">06 · PENGALAMAN</span>
+          <h2>Rekam jejak <span class="gradient-text">profesional.</span></h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item reveal"><span class="timeline-dot cyan"></span><div class="timeline-date">2019–Sekarang</div><div class="timeline-content glass"><h3>Usaha Independen · Jual Beli Smartphone &amp; Gadget</h3><b>Spesialis COD &amp; Quality Control Gadget · 2019–Sekarang</b><p>QC perangkat, pemeriksaan IMEI, autentikasi, pengecekan hardware/software, verifikasi transaksi, dan pengelolaan COD.</p><ul class="experience-bullets"><li>Melaksanakan pemeriksaan menyeluruh terhadap smartphone sebelum transaksi.</li><li>Verifikasi IMEI, kondisi fisik, baterai, layar, kamera, sensor, dan software.</li><li>Mengelola transaksi COD secara aman dan tepat waktu.</li><li>Mengelola pencatatan stok dan transaksi menggunakan Google Sheets.</li><li>Memberikan edukasi produk kepada pelanggan.</li></ul></div></article>
+          <article class="timeline-item reveal delay-1"><span class="timeline-dot red"></span><div class="timeline-date">2018</div><div class="timeline-content glass"><h3>Praktik Kerja Lapangan (PKL)</h3><b>Teknisi Jaringan · 2018</b><p>Pengalaman praktik pada instalasi dan troubleshooting jaringan sebagai fondasi teknis.</p><ul class="experience-bullets"><li>Instalasi dan konfigurasi jaringan LAN/WLAN.</li><li>Troubleshooting komputer dan perangkat jaringan.</li><li>Pemeliharaan perangkat operasional.</li></ul></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell" id="achievements">
+      <div class="shell">
+        <div class="section-head centered reveal"><span class="section-label" data-icon="achievements">06A · PENCAPAIAN</span><h2>Standar kerja <span class="gradient-text">terukur.</span></h2></div>
+        <div class="achievement-grid">
+          <article class="achievement glass reveal"><i data-lucide="badge-check"></i><strong>Ratusan transaksi</strong><span>Menangani ratusan transaksi COD dengan tingkat keberhasilan tinggi.</span></article>
+          <article class="achievement glass reveal delay-1"><i data-lucide="scan-line"></i><strong>100% akurasi</strong><span>Mempertahankan akurasi pengecekan perangkat hingga 100%.</span></article>
+          <article class="achievement glass reveal delay-2"><i data-lucide="shield-alert"></i><strong>QC Detail</strong><span>Meminimalkan risiko komplain pelanggan melalui proses QC yang detail.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell contact-section" id="contact">
+      <div class="shell contact-shell">
+        <div class="section-head centered reveal">
+          <span class="section-label" data-icon="contact">07 · KONTAK</span>
+          <h2>Mari ciptakan <span class="gradient-text">karya hebat.</span></h2>
+          <p>Punya visi proyek atau diskusi teknis? Kotak masuk terbuka.</p>
+        </div>
+
+        <form id="contactForm" class="contact-form glass holo" novalidate>
+          <div class="form-grid">
+            <label>Nama<input name="name" type="text" autocomplete="name" maxlength="100" required placeholder="Nama Anda"></label>
+            <label>Email<input name="email" type="email" autocomplete="email" maxlength="160" required placeholder="email@contoh.com"></label>
+          </div>
+          <label>Subjek<input name="subject" type="text" maxlength="180" required placeholder="Topik diskusi"></label>
+          <label>Pesan<textarea name="message" rows="5" maxlength="4000" required placeholder="Ceritakan kebutuhan atau proyek Anda..."></textarea></label>
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn-primary submit-btn" type="submit" id="submitBtn"><span>Kirim Pesan</span><span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact-links reveal delay-1">
+          <a href="mailto:rizuzamantkj3@gmail.com">rizuzamantkj3@gmail.com</a>
+          <span>·</span><a href="https://github.com/rizuzaman-Aceh" target="_blank" rel="noopener">github.com/rizuzaman-Aceh</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="shell footer-inner">
       <span>© 2026 Rizu Zaman</span>
-      <span>Secure Build · Portfolio v14.2 · White Blue / 3D Cyber Matrix</span>
+      <span>Secure Build · Portfolio v13.1 · Cyber Glass / Neo-Noir Typography</span>
     </div>
   </footer>
 
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
-  <script src="./js/config.js" defer></script>
+  <script>window.RZ_CONFIG={weather:{lat:-6.2088,lon:106.8456,city:"Jakarta"},threatApi:"/api/threats",githubUsername:"rizuzaman-Aceh"};</script>
   <script src="./js/app.js" defer></script>
 </body>
 </html>
