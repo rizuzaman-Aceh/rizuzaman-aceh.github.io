@@ -1,12 +1,25 @@
-:root{
-  --bg:#0a0a0a;--bg-2:#0d0d10;--surface:rgba(255,255,255,.035);--surface-2:rgba(255,255,255,.055);
-  --line:rgba(255,255,255,.095);--text:#f7f7f7;--muted:#a2a2aa;--dim:#666671;
-  --cyan:#00f0ff;--purple:#a855f7;--gold:#ffd700;--green:#00ff41;--red:#ff465c;
-  --radius:20px;--shell:min(1180px,calc(100% - 32px));--nav-h:70px;
+ :root {
+  --bg: #f8fafc;
+  --bg-2: #ffffff;
+  --surface: rgba(15, 23, 42, 0.04);
+  --surface-2: rgba(15, 23, 42, 0.08);
+  --line: rgba(15, 23, 42, 0.12);
+  --text: #0f172a;
+  --muted: #475569;
+  --dim: #94a3b8;
+  --cyan: #1d4ed8;
+  --purple: #0ea5e9;
+  --gold: #d97706;
+  --green: #059669;
+  --red: #dc2626;
+  --radius: 20px;
+  --shell: min(1180px, calc(100% - 32px));
+  --nav-h: 70px;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 18px);background:var(--bg)}
-body{margin:0;min-width:0;max-width:100%;overflow-x:hidden;background:radial-gradient(circle at 50% -10%,rgba(0,240,255,.045),transparent 35%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 18px); background: var(--bg); }
+body { margin: 0; min-width: 0; max-width: 100%; overflow-x: hidden; background: radial-gradient(circle at 50% -10%, rgba(29, 78, 216, 0.08), transparent 35%), var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; line-height: 1.65; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.12;background-image:radial-gradient(rgba(255,255,255,.18) .5px,transparent .5px);background-size:4px 4px;mix-blend-mode:soft-light}
 a{color:inherit;text-decoration:none}
 button,input,textarea{font:inherit}
@@ -310,7 +323,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 
 /* V13 — hanging arachnid cyber layer: original silhouette, not a character asset */
-#hangingArachnidCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.52;mix-blend-mode:screen}
+#hangingArachnidCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.40;
+    mix-blend-mode: multiply;
+}
 body:has(#hangingArachnidCanvas) .site-header,body:has(#hangingArachnidCanvas) main,body:has(#hangingArachnidCanvas) footer{position:relative;z-index:2}
 .arachnid-hud{position:absolute;right:4vw;top:18%;padding:8px 11px;border:1px solid rgba(34,211,238,.18);border-radius:8px;background:rgba(5,9,12,.48);backdrop-filter:blur(8px);font:600 8px/1.4 "JetBrains Mono",monospace;color:#9deff7;letter-spacing:.12em;pointer-events:none}
 @media(max-width:767px){#hangingArachnidCanvas{opacity:.24}.arachnid-hud{display:none}}
