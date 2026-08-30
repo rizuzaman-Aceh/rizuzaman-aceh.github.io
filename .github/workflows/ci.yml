@@ -1,0 +1,29 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install deps (if present)
+        run: |
+          if [ -f package.json ]; then npm ci; fi
+      - name: Run linter (if configured)
+        run: |
+          if [ -f package.json ]; then npm run lint || true; fi
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start static server
+        run: |
+          npm i -g http-server
+          nohup http-server -p 8080 . >/dev/null 2>&1 &
+      - name: Run LHCI autorun
+        run: |
+          npx -y @lhci/cli autorun --collect.url=http://localhost:8080
