@@ -311,6 +311,46 @@
   };
   loadWeather(); setInterval(loadWeather,10*60*1000);
 
+  /* ---------- V13 hanging arachnid + cyber parallel layer ---------- */
+  const arachnidCanvas = $("#hangingArachnidCanvas");
+  if (arachnidCanvas && !reduced) {
+    const ctx = arachnidCanvas.getContext("2d", { alpha:true });
+    let W=innerWidth,H=innerHeight,dpr=Math.min(devicePixelRatio||1,2),t=0,raf;
+    const nodes=[];
+    function resize(){ W=innerWidth; H=innerHeight; dpr=Math.min(devicePixelRatio||1,2); arachnidCanvas.width=W*dpr; arachnidCanvas.height=H*dpr; arachnidCanvas.style.width=W+'px'; arachnidCanvas.style.height=H+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); nodes.length=0; for(let i=0;i<34;i++) nodes.push({x:Math.random()*W,y:Math.random()*H,v:0.08+Math.random()*.18,p:Math.random()*Math.PI*2}); }
+    function line(x1,y1,x2,y2,a){ctx.strokeStyle=`rgba(34,211,238,${a})`;ctx.lineWidth=.55;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke()}
+    function drawFigure(cx,top,scale,phase){
+      const sway=Math.sin(phase)*6, headY=top+34+Math.sin(phase*.8)*2, shoulderY=top+58;
+      ctx.save();ctx.translate(cx+sway,0);ctx.lineCap='round';ctx.lineJoin='round';
+      // web tether
+      ctx.strokeStyle='rgba(220,235,240,.48)';ctx.lineWidth=1.15;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(0,headY-8);ctx.stroke();
+      for(let i=0;i<3;i++){ctx.strokeStyle=`rgba(34,211,238,${.10-i*.02})`;ctx.lineWidth=.55;ctx.beginPath();ctx.moveTo(i*3-3,0);ctx.lineTo(i*2-2,headY-10);ctx.stroke()}
+      // original masked vigilante silhouette
+      ctx.fillStyle='rgba(9,13,18,.86)';ctx.strokeStyle='rgba(230,36,41,.55)';ctx.lineWidth=1;
+      ctx.beginPath();ctx.arc(0,headY,12*scale,0,Math.PI*2);ctx.fill();ctx.stroke();
+      // mask mesh
+      ctx.strokeStyle='rgba(34,211,238,.30)';ctx.lineWidth=.45;ctx.beginPath();ctx.moveTo(-8*scale,headY-3);ctx.lineTo(8*scale,headY+5);ctx.moveTo(8*scale,headY-3);ctx.lineTo(-8*scale,headY+5);ctx.moveTo(-10*scale,headY);ctx.lineTo(10*scale,headY);ctx.stroke();
+      // torso, arms, legs
+      ctx.strokeStyle='rgba(220,230,235,.46)';ctx.lineWidth=5*scale;
+      ctx.beginPath();ctx.moveTo(-7*scale,shoulderY);ctx.lineTo(-25*scale,shoulderY+34);ctx.lineTo(-42*scale,shoulderY+44);ctx.moveTo(7*scale,shoulderY);ctx.lineTo(25*scale,shoulderY+31);ctx.lineTo(42*scale,shoulderY+40);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(0,shoulderY);ctx.lineTo(-4*scale,shoulderY+58);ctx.lineTo(-18*scale,shoulderY+94);ctx.moveTo(0,shoulderY);ctx.lineTo(4*scale,shoulderY+58);ctx.lineTo(20*scale,shoulderY+92);ctx.stroke();
+      ctx.strokeStyle='rgba(230,36,41,.32)';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(0,shoulderY+8);ctx.lineTo(0,shoulderY+50);ctx.moveTo(-5,shoulderY+24);ctx.lineTo(5,shoulderY+24);ctx.stroke();
+      // web strands from wrists
+      ctx.strokeStyle='rgba(230,230,235,.28)';ctx.lineWidth=.65;[[ -42,40,-82,16], [42,36,82,12],[-18,94,-52,118],[20,92,54,116]].forEach(a=>{ctx.beginPath();ctx.moveTo(a[0]*scale,a[1]*scale+shoulderY);ctx.lineTo(a[2]*scale,a[3]*scale+shoulderY);ctx.stroke()});
+      ctx.restore();
+    }
+    function frame(){
+      t+=.012;ctx.clearRect(0,0,W,H);
+      // parallel cyber lanes behind the hanging figure
+      ctx.save();ctx.globalAlpha=.28; for(let k=0;k<7;k++){const y=H*(.16+k*.105)+Math.sin(t+k)*10;ctx.beginPath();ctx.strokeStyle=k%2?'rgba(34,211,238,.16)':'rgba(230,36,41,.12)';ctx.lineWidth=.6;ctx.moveTo(W*.48,y);ctx.lineTo(W*.98,y-50);ctx.stroke();}ctx.restore();
+      nodes.forEach(n=>{n.p+=n.v*.04; n.y+=n.v; if(n.y>H+10)n.y=-10; ctx.fillStyle=`rgba(34,211,238,${.12+.12*Math.sin(n.p)})`;ctx.fillRect(n.x,n.y,1.3,1.3)});
+      // hanging silhouette is intentionally abstract/original to avoid a branded character asset
+      drawFigure(W*.82,H*.075,.95,t);
+      raf=requestAnimationFrame(frame);
+    }
+    resize();addEventListener('resize',resize,{passive:true});frame();
+  }
+
   /* ---------- V10 interactive spider/network background ---------- */
   const spiderCanvas=$("#spiderNetworkCanvas");
   if(spiderCanvas && !reduced){
