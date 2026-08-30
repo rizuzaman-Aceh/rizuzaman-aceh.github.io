@@ -74,7 +74,7 @@
     cursorLoop();
     $$("a,button,.glass,.flip-card,input,textarea").forEach(el => {
       el.addEventListener("mouseenter", () => { if(dot) dot.style.width="13px"; if(dot) dot.style.height="13px"; if(ring){ring.style.width="42px";ring.style.height="42px";ring.style.borderColor="rgba(29,78,216,.45)";} });
-      el.addEventListener("mouseleave", () => { if(dot) dot.style.width="7px"; if(dot) dot.style.height="7px"; if(ring){ring.style.width="28px";ring.style.height="28px";ring.style.borderColor="rgba(255,255,255,.25)";} });
+      el.addEventListener("mouseleave", () => { if(dot) dot.style.width="7px"; if(dot) dot.style.height="7px"; if(ring){ring.style.width="28px";ring.style.height="28px";ring.style.borderColor="rgba(15,23,42,.22)";} });
     });
   }
 
@@ -256,14 +256,14 @@
         globeEl.appendChild(renderer.domElement);
         const group=new THREE.Group();scene.add(group);
         const geo=new THREE.SphereGeometry(1,28,20);
-        const mat=new THREE.MeshBasicMaterial({color:0x00f0ff,wireframe:true,transparent:true,opacity:.23});
+        const mat=new THREE.MeshBasicMaterial({color:0x1d4ed8,wireframe:true,transparent:true,opacity:.23});
         group.add(new THREE.Mesh(geo,mat));
-        const ringMat=new THREE.MeshBasicMaterial({color:0xa855f7,transparent:true,opacity:.28});
+        const ringMat=new THREE.MeshBasicMaterial({color:0x0ea5e9,transparent:true,opacity:.28});
         const ring=new THREE.Mesh(new THREE.TorusGeometry(1.22,.008,8,80),ringMat);ring.rotation.x=.9;group.add(ring);
         const pointGeo=new THREE.SphereGeometry(.025,6,6);
         for(let i=0;i<22;i++){
           const phi=Math.acos(1-2*(i+.5)/22),theta=Math.PI*(1+Math.sqrt(5))*i;
-          const p=new THREE.Mesh(pointGeo,new THREE.MeshBasicMaterial({color:i%3===0?0xffd700:0x00f0ff}));
+          const p=new THREE.Mesh(pointGeo,new THREE.MeshBasicMaterial({color:i%3===0?0xd97706:0x1d4ed8}));
           p.position.set(Math.cos(theta)*Math.sin(phi),Math.cos(phi),Math.sin(theta)*Math.sin(phi));group.add(p);
         }
         const ro=new ResizeObserver(()=>{const w=globeEl.clientWidth,h=globeEl.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h)});
@@ -272,12 +272,12 @@
         new IntersectionObserver(es=>running=es[0].isIntersecting,{threshold:.05}).observe(globeEl);
         const animate=()=>{if(running){group.rotation.y+=.0022;ring.rotation.z+=.001;renderer.render(scene,camera)}requestAnimationFrame(animate)};animate();
       }catch(e){
-        globeEl.innerHTML='<div style="height:100%;display:grid;place-items:center;color:#4e4e57;font:9px JetBrains Mono,monospace">WEBGL FALLBACK · TELEMETRY READY</div>';
+        globeEl.innerHTML='<div style="height:100%;display:grid;place-items:center;color:#334155;font:9px JetBrains Mono,monospace">WEBGL FALLBACK · TELEMETRY READY</div>';
       }
     };
     if("requestIdleCallback" in window) requestIdleCallback(loadGlobe,{timeout:1800}); else setTimeout(loadGlobe,500);
   } else if(globeEl){
-    globeEl.innerHTML='<div style="height:100%;display:grid;place-items:center;text-align:center;color:#4e4e57;font:9px JetBrains Mono,monospace">MOBILE FALLBACK<br>3D TELEMETRY DISABLED FOR PERFORMANCE</div>';
+    globeEl.innerHTML='<div style="height:100%;display:grid;place-items:center;text-align:center;color:#334155;font:9px JetBrains Mono,monospace">MOBILE FALLBACK<br>3D TELEMETRY DISABLED FOR PERFORMANCE</div>';
   }
 
 
