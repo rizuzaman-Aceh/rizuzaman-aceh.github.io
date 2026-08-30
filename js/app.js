@@ -460,3 +460,49 @@
 
   console.log("%cRizu Zaman — Portfolio v12","color:#8BEAF5;font-weight:700");
 })();
+
+/* =========================================================
+   V14.2 — LIGHT 3D MICRO-PARALLAX / MOBILE-SAFE ENHANCEMENT
+   Additive: desktop pointer only, disabled for coarse pointers and reduced motion.
+   ========================================================= */
+(() => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = window.matchMedia('(pointer: coarse)').matches;
+  if (reduced || coarse || window.innerWidth < 1025) return;
+  const stage = document.querySelector('.profile-stage');
+  if (!stage) return;
+  let raf = 0, tx = 0, ty = 0;
+  const paint = () => {
+    raf = 0;
+    stage.style.transform = `perspective(1100px) rotateX(${ty}deg) rotateY(${tx}deg)`;
+  };
+  stage.addEventListener('pointermove', (e) => {
+    const r = stage.getBoundingClientRect();
+    tx = ((e.clientX - r.left) / r.width - .5) * 4.2;
+    ty = -((e.clientY - r.top) / r.height - .5) * 3.2;
+    if (!raf) raf = requestAnimationFrame(paint);
+  }, {passive:true});
+  stage.addEventListener('pointerleave', () => {
+    tx = ty = 0;
+    if (!raf) raf = requestAnimationFrame(paint);
+  }, {passive:true});
+})();
+
+/* Dense UI cards get a tiny tilt only on precise pointer devices. */
+(() => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = window.matchMedia('(pointer: coarse)').matches;
+  if (reduced || coarse || window.innerWidth < 1100) return;
+  const cards = document.querySelectorAll('.dossier-card,.info-card,.skill-group,.achievement');
+  cards.forEach(card => {
+    let raf = 0, rx = 0, ry = 0;
+    const draw = () => { raf = 0; card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`; };
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      ry = ((e.clientX-r.left)/r.width-.5)*1.8;
+      rx = -((e.clientY-r.top)/r.height-.5)*1.8;
+      if (!raf) raf = requestAnimationFrame(draw);
+    }, {passive:true});
+    card.addEventListener('pointerleave', () => {rx=ry=0;if(!raf)raf=requestAnimationFrame(draw)}, {passive:true});
+  });
+})();
