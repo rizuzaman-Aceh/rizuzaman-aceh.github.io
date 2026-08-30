@@ -272,3 +272,38 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .hero-description,.section-head p,.global-threat-head p,.dash-card small,.traffic-meta,.firewall-list li,.credential-card p,.tool-cloud span,.os-row span,.feed-line{color:#E1E7EA}
   #matrixCanvas,#spiderNetworkCanvas{opacity:.12}
 }
+
+/* V11 portfolio data layer — additive, existing UI preserved */
+.profile-dossier{padding-top:40px}.dossier-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.dossier-card{border-radius:18px;padding:20px;min-width:0}.dossier-card h3{font:700 22px/1.15 "Space Grotesk",sans-serif;margin:10px 0 8px;color:#f7fafb}.dossier-card h4{font:700 11px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#c7d0d6;margin:18px 0 10px}.data-list{display:grid;gap:9px;margin-top:16px}.data-list>div{display:flex;justify-content:space-between;gap:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.07)}.data-list span{color:#aab6be;font:500 10px "JetBrains Mono",monospace}.data-list b{font-size:12px;text-align:right;color:#f7fafb}.data-list a{color:#8beaf5}.tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.tag-cloud span{display:inline-flex;align-items:center;min-height:34px;padding:6px 10px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.045);color:#dce4e8;font-size:11px}.muted-tags span{color:#c7d0d6}.credential-list{list-style:none;padding:0;margin:13px 0 0;display:grid;gap:11px}.credential-list li{display:flex;gap:10px;align-items:flex-start}.credential-list svg{width:16px;height:16px;flex:0 0 16px;color:#ffd080;margin-top:2px}.credential-list b{display:block;color:#f7fafb;font-size:12px;line-height:1.35}.credential-list span{display:block;color:#aab6be;font-size:10px;margin-top:2px}.edu-row{display:grid;gap:4px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07)}.edu-row:last-child{border-bottom:0}.edu-row b{color:#f7fafb;font-size:14px}.edu-row span{color:#8beaf5;font-size:11px}.edu-row small{color:#aab6be;font:500 9px "JetBrains Mono",monospace}.edu-row.planned span{color:#ffd080}.os-list{display:grid;gap:10px;margin-top:14px}.os-list span{display:flex;align-items:center;gap:10px;color:#dce4e8;font-size:12px}.os-list svg{width:17px;height:17px;color:#8beaf5}.profile-summary{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:20px;margin-top:14px;border-radius:18px}.summary-icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;color:#ff7478;background:rgba(230,36,41,.1);border:1px solid rgba(230,36,41,.24)}.profile-summary p{color:#c7d0d6;font-size:14px;line-height:1.8;margin:7px 0 0;max-width:850px}.experience-bullets{margin:12px 0 0;padding-left:18px;color:#c7d0d6;font-size:12px;line-height:1.75}.experience-bullets li::marker{color:#8beaf5}.achievement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.achievement{padding:22px;border-radius:18px;display:grid;gap:8px}.achievement svg{width:20px;height:20px;color:#8beaf5}.achievement strong{font:700 28px/1 "Space Grotesk",sans-serif;color:#f7fafb}.achievement span{color:#c7d0d6;font-size:12px;line-height:1.6}
+@media(max-width:1024px){.dossier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.achievement-grid{grid-template-columns:1fr 1fr}.achievement:last-child{grid-column:1/-1}}
+@media(max-width:767px){.dossier-grid,.achievement-grid{grid-template-columns:1fr}.achievement:last-child{grid-column:auto}.profile-summary{grid-template-columns:1fr}.data-list>div{align-items:flex-start}.data-list b{max-width:60%;overflow-wrap:anywhere}.dossier-card{padding:18px}.tag-cloud span{font-size:12px}.profile-summary p{font-size:16px}.experience-bullets{font-size:13px}}
+
+
+/* =========================================================
+   V12 — NEO-NOIR CYBERPUNK TYPOGRAPHY SYSTEM
+   Cyberpunk-inspired, production-safe and accessibility-aware.
+   ========================================================= */
+.cyber-eyebrow{position:relative;display:inline-flex;align-items:center;gap:10px;color:#8BEAF5!important;isolation:isolate;overflow:hidden;text-shadow:0 0 14px rgba(34,211,238,.16)}
+.cyber-eyebrow::before{content:"//";color:#E62429;font-weight:800;letter-spacing:-.12em}
+.cyber-eyebrow::after{content:"";position:absolute;left:0;bottom:0;width:32px;height:1px;background:#E62429;box-shadow:28px 0 0 rgba(34,211,238,.7);animation:cyberLine 2.8s steps(1,end) infinite}
+.cyber-title{position:relative;display:flex;flex-wrap:wrap;gap:.16em;margin:10px 0 4px;font-size:clamp(3.25rem,9vw,7.8rem);line-height:.83;letter-spacing:-.075em;font-weight:900;text-transform:uppercase;filter:drop-shadow(0 18px 40px rgba(0,0,0,.3))}
+.cyber-word{position:relative;display:inline-block;color:#F7FAFB;isolation:isolate}
+.cyber-word::before,.cyber-word::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;opacity:0;z-index:-1}
+.cyber-word::before{color:#22D3EE;transform:translate(2px,0);clip-path:inset(0 0 58% 0);mix-blend-mode:screen}
+.cyber-word::after{color:#E62429;transform:translate(-2px,0);clip-path:inset(58% 0 0 0);mix-blend-mode:screen}
+.cyber-word-red{color:#FF7478}
+.cyber-title:hover .cyber-word::before,.cyber-title:hover .cyber-word::after{opacity:.9;animation:cyberGlitch .38s steps(2,end) both}
+.cyber-subline{display:flex;align-items:center;gap:10px;min-height:28px;margin:10px 0 16px;font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.2vw,.86rem);font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.cyber-index{color:#FFD080;font-variant-numeric:tabular-nums}
+.cyber-divider{width:26px;height:1px;background:linear-gradient(90deg,#E62429,#22D3EE);box-shadow:0 0 10px rgba(34,211,238,.16)}
+.cyber-subline .hero-role{margin:0;color:#F7FAFB;letter-spacing:.1em}
+.cyber-cursor{width:7px;height:16px;background:#10B981;box-shadow:0 0 12px rgba(16,185,129,.35);animation:terminalCaret .9s steps(1,end) infinite}
+@keyframes terminalCaret{50%{opacity:0}}
+@keyframes cyberLine{0%,100%{transform:translateX(0);opacity:.85}48%{transform:translateX(52px);opacity:.35}52%{transform:translateX(8px);opacity:1}}
+@keyframes cyberGlitch{0%{clip-path:inset(0 0 0 0);transform:translate(0)}25%{clip-path:inset(14% 0 62% 0);transform:translate(3px,-1px)}50%{clip-path:inset(67% 0 8% 0);transform:translate(-2px,1px)}75%{clip-path:inset(38% 0 35% 0);transform:translate(1px,0)}100%{clip-path:inset(0 0 0 0);transform:translate(0)}}
+.hero-copy .hero-description{max-width:680px}
+@media(max-width:767px){.cyber-title{font-size:clamp(3rem,16vw,5rem);line-height:.88}.cyber-subline{flex-wrap:wrap;row-gap:7px}.cyber-divider{width:18px}.cyber-subline .hero-role{font-size:.74rem}.cyber-cursor{height:14px}}
+@media(prefers-reduced-motion:reduce){.cyber-eyebrow::after,.cyber-cursor{animation:none}.cyber-title:hover .cyber-word::before,.cyber-title:hover .cyber-word::after{animation:none}}
+.cyber-word.micro-glitch::before,.cyber-word.micro-glitch::after{opacity:.86;animation:cyberGlitch .24s steps(2,end) both}
+.cyber-flicker{animation:cyberFlicker .28s steps(2,end)}
+@keyframes cyberFlicker{0%{opacity:1;transform:translateX(0)}25%{opacity:.62;transform:translateX(1px)}50%{opacity:1;transform:translateX(-1px)}100%{opacity:1;transform:translateX(0)}}
