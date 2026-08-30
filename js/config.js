@@ -1,0 +1,1 @@
+window.RZ_CONFIG = { weather: { lat: -6.2088, lon: 106.8456, city: "Jakarta" }, threatApi: "/api/threats" };
