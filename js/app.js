@@ -392,5 +392,31 @@
     resize();addEventListener("resize",resize,{passive:true});new IntersectionObserver(es=>{if(es[0].isIntersecting){cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)}},{threshold:.05}).observe(threatMap);raf=requestAnimationFrame(draw);
   }
 
-  console.log("%cRizu Zaman — Portfolio v10.0","color:#00f0ff;font-weight:700");
+
+  /* ---------- V12 cyberpunk-inspired text telemetry ---------- */
+  const cyberWords=[...document.querySelectorAll('.cyber-word')];
+  const cyberEyebrow=document.querySelector('.cyber-eyebrow');
+  const cyberReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!cyberReduced){
+    let glitchTimer;
+    const microGlitch=()=>{
+      cyberWords.forEach((el,i)=>{
+        el.style.setProperty('--glitch-seed',String(Math.random()));
+        el.classList.remove('micro-glitch');
+        void el.offsetWidth;
+        if(Math.random()<.72) el.classList.add('micro-glitch');
+        setTimeout(()=>el.classList.remove('micro-glitch'),260+i*35);
+      });
+      if(cyberEyebrow){
+        cyberEyebrow.classList.remove('cyber-flicker');
+        void cyberEyebrow.offsetWidth;
+        cyberEyebrow.classList.add('cyber-flicker');
+      }
+      glitchTimer=setTimeout(microGlitch,4200+Math.random()*3600);
+    };
+    glitchTimer=setTimeout(microGlitch,1800);
+    window.addEventListener('pagehide',()=>clearTimeout(glitchTimer),{once:true});
+  }
+
+  console.log("%cRizu Zaman — Portfolio v12","color:#8BEAF5;font-weight:700");
 })();
