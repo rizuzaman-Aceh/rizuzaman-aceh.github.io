@@ -1,0 +1,3 @@
+---
+- Update: fixed OG and profile image host; normalized threat score display; added deployment doc and OG fallback
+---
