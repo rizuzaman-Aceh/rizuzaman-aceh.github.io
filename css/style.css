@@ -307,3 +307,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .cyber-word.micro-glitch::before,.cyber-word.micro-glitch::after{opacity:.86;animation:cyberGlitch .24s steps(2,end) both}
 .cyber-flicker{animation:cyberFlicker .28s steps(2,end)}
 @keyframes cyberFlicker{0%{opacity:1;transform:translateX(0)}25%{opacity:.62;transform:translateX(1px)}50%{opacity:1;transform:translateX(-1px)}100%{opacity:1;transform:translateX(0)}}
+
+
+/* V13 — hanging arachnid cyber layer: original silhouette, not a character asset */
+#hangingArachnidCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.52;mix-blend-mode:screen}
+body:has(#hangingArachnidCanvas) .site-header,body:has(#hangingArachnidCanvas) main,body:has(#hangingArachnidCanvas) footer{position:relative;z-index:2}
+.arachnid-hud{position:absolute;right:4vw;top:18%;padding:8px 11px;border:1px solid rgba(34,211,238,.18);border-radius:8px;background:rgba(5,9,12,.48);backdrop-filter:blur(8px);font:600 8px/1.4 "JetBrains Mono",monospace;color:#9deff7;letter-spacing:.12em;pointer-events:none}
+@media(max-width:767px){#hangingArachnidCanvas{opacity:.24}.arachnid-hud{display:none}}
+@media(prefers-reduced-motion:reduce){#hangingArachnidCanvas{display:none}}
