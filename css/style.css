@@ -337,3 +337,62 @@ body:has(#hangingArachnidCanvas) .site-header,body:has(#hangingArachnidCanvas) m
 .arachnid-hud{position:absolute;right:4vw;top:18%;padding:8px 11px;border:1px solid rgba(34,211,238,.18);border-radius:8px;background:rgba(5,9,12,.48);backdrop-filter:blur(8px);font:600 8px/1.4 "JetBrains Mono",monospace;color:#9deff7;letter-spacing:.12em;pointer-events:none}
 @media(max-width:767px){#hangingArachnidCanvas{opacity:.24}.arachnid-hud{display:none}}
 @media(prefers-reduced-motion:reduce){#hangingArachnidCanvas{display:none}}
+
+
+/* =========================================================
+   V13.1 TRUE LIGHT — FINAL OVERRIDE LAYER
+   Purpose: force a production-grade light theme without removing
+   existing cyber, realtime, Spider-Matrix or 3D functionality.
+   ========================================================= */
+:root{
+  color-scheme:light;
+  --bg:#f8fafc;
+  --bg-2:#ffffff;
+  --surface:rgba(15,23,42,.035);
+  --surface-2:rgba(15,23,42,.065);
+  --line:rgba(15,23,42,.14);
+  --text:#0f172a;
+  --muted:#334155;
+  --dim:#64748b;
+  --cyan:#1d4ed8;
+  --purple:#0ea5e9;
+  --gold:#b45309;
+  --green:#047857;
+  --red:#dc2626;
+  --cyan-text:#1d4ed8;
+  --amber-text:#92400e;
+  --green-text:#047857;
+  --red-text:#b91c1c;
+}
+html,body{background:#f8fafc!important;color:#0f172a!important}
+body{background:
+  radial-gradient(circle at 78% -8%,rgba(29,78,216,.09),transparent 30%),
+  radial-gradient(circle at 8% 20%,rgba(14,165,233,.055),transparent 24%),
+  linear-gradient(180deg,#ffffff 0%,#f8fafc 56%,#eef4fb 100%)!important}
+body::before{background-image:linear-gradient(rgba(15,23,42,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.035) 1px,transparent 1px)!important;opacity:.5!important}
+.site-header{background:rgba(255,255,255,.82)!important;border-bottom:1px solid rgba(15,23,42,.10)!important;box-shadow:0 8px 28px rgba(15,23,42,.055)!important}
+.brand{color:#0f172a!important}.brand-mark{color:#fff!important;background:linear-gradient(135deg,#1d4ed8,#0ea5e9)!important;box-shadow:0 8px 22px rgba(29,78,216,.20)!important}
+.nav-links a{color:#475569!important}.nav-links a:hover,.nav-links a.active{color:#0f172a!important}.nav-links a::after{background:linear-gradient(90deg,#1d4ed8,#0ea5e9)!important}
+.menu-btn{background:#fff!important;border-color:rgba(15,23,42,.14)!important}.menu-btn span{background:#0f172a!important}
+.mobile-menu{background:rgba(255,255,255,.97)!important;border:1px solid rgba(15,23,42,.12)!important;box-shadow:0 20px 60px rgba(15,23,42,.12)!important}
+.hero,.section-shell{position:relative;z-index:2}
+.status-pill{color:#334155!important;background:rgba(255,255,255,.72)!important;border-color:rgba(15,23,42,.13)!important;box-shadow:0 8px 22px rgba(15,23,42,.045)!important}
+.status-dot,.live-dot{background:#059669!important;box-shadow:0 0 12px rgba(5,150,105,.30)!important}.status-dot::after,.live-dot::after{border-color:#059669!important}
+.eyebrow,.section-label,.accent-cyan,.cyan-text,.hero-role{color:#1d4ed8!important}.accent-purple{color:#0284c7!important}.accent-gold{color:#b45309!important}.green-text{color:#047857!important}
+.hero h1,.section-head h2,h1,h2,h3{color:#0f172a!important}.gradient-text{background:none!important;color:#0f172a!important;-webkit-text-fill-color:#0f172a!important;animation:none!important}.hero h1 .gradient-text::after{background:linear-gradient(90deg,#dc2626,#1d4ed8)!important;box-shadow:none!important}
+.hero-description,.section-head p,.global-threat-head p{color:#334155!important}.hero-meta-grid span,.ambient-card span,.ambient-card small,.map-label,.threat-stat-row span,.interaction-strip,.dash-head,.ticker-track,.social-row{color:#64748b!important}.hero-meta-grid b,.ambient-card strong,.threat-stat-row strong,.traffic-value strong,.mini-skill span,.mini-skill b{color:#0f172a!important}.hero-contact-row a,.social-row a{color:#334155!important}.hero-contact-row a:hover,.social-row a:hover{color:#1d4ed8!important}
+.btn-primary{color:#fff!important;background:linear-gradient(135deg,#1e40af,#1d4ed8 55%,#0ea5e9)!important;box-shadow:0 10px 26px rgba(29,78,216,.20)!important}.btn-ghost{color:#0f172a!important;background:#fff!important;border-color:rgba(15,23,42,.16)!important}.btn-ghost:hover{border-color:#1d4ed8!important;box-shadow:0 10px 28px rgba(29,78,216,.10)!important}
+.glass,.ambient-card,.float-tag,.network-label,.photo-caption{background:linear-gradient(135deg,rgba(255,255,255,.84),rgba(255,255,255,.62))!important;border-color:rgba(15,23,42,.14)!important;box-shadow:0 18px 55px rgba(15,23,42,.09),inset 0 1px 0 rgba(255,255,255,.95)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;color:#0f172a!important}
+.ambient-icon{color:#1d4ed8!important;background:rgba(29,78,216,.08)!important;border-color:rgba(29,78,216,.16)!important}.ambient-icon.red{color:#dc2626!important;background:rgba(220,38,38,.07)!important;border-color:rgba(220,38,38,.14)!important}
+.profile-stage{filter:drop-shadow(0 24px 50px rgba(15,23,42,.12))}.profile-glass{background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.48))!important;border-color:rgba(15,23,42,.15)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 28px 70px rgba(15,23,42,.14)!important}.profile-photo{background:#eef4fb!important;border-color:rgba(15,23,42,.14)!important;box-shadow:0 0 0 7px rgba(255,255,255,.70),0 0 0 8px rgba(29,78,216,.12),0 25px 60px rgba(15,23,42,.18)!important}.profile-photo img{background:#eef4fb!important}.photo-caption{color:#0f172a!important}
+.hero-terminal,.terminal{background:rgba(248,250,252,.94)!important;border-color:rgba(15,23,42,.14)!important;box-shadow:0 20px 55px rgba(15,23,42,.10)!important}.terminal-top{color:#64748b!important;border-bottom-color:rgba(15,23,42,.10)!important}.terminal-body{color:#047857!important;text-shadow:none!important}.terminal-body .prompt{color:#1d4ed8!important}.terminal-cursor{background:#047857!important}
+.dashboard-grid .dash-card,.event-log,.globe-wrap,.global-threat-panel,.credential-card,.profile-summary{background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(248,250,252,.82))!important;border-color:rgba(15,23,42,.12)!important;box-shadow:0 18px 50px rgba(15,23,42,.075)!important;color:#0f172a!important}.dash-head{color:#475569!important}.dash-card small,.traffic-meta,.firewall-list li,.credential-card p,.tool-cloud span,.os-row span,.feed-line{color:#475569!important}.traffic-value strong,.threat-stat-row strong,.attack-legend b{color:#0f172a!important}.traffic-value small{color:#1d4ed8!important}.firewall-list b{color:#047857!important}.firewall-list b.warn{color:#b45309!important}.threat.low{color:#047857!important;text-shadow:none!important}.threat.medium{color:#b45309!important}.threat.high{color:#b91c1c!important}.meter{background:rgba(15,23,42,.08)!important}
+.threat-map-shell{background:radial-gradient(circle at 50% 50%,rgba(29,78,216,.08),transparent 52%),#eef4fb!important;border-color:rgba(15,23,42,.10)!important}.map-scanline{background:linear-gradient(180deg,transparent,rgba(29,78,216,.06),transparent)!important}.map-label{background:rgba(255,255,255,.86)!important;border-color:rgba(29,78,216,.16)!important;color:#475569!important}.source-badge{color:#047857!important;background:rgba(5,150,105,.07)!important;border-color:rgba(5,150,105,.18)!important}.interaction-strip{background:rgba(255,255,255,.74)!important;border:1px solid rgba(15,23,42,.10)!important;color:#475569!important}
+.attack-donut::after{background:#fff!important}.attack-legend span{color:#475569!important}.ticker{background:rgba(255,255,255,.75)!important;border:1px solid rgba(15,23,42,.09)!important}.ticker-track{color:#64748b!important}.ticker b{color:#334155!important}
+.float-tag{color:#1d4ed8!important}.tag-k8s{color:#0284c7!important}.tag-py{color:#b45309!important}
+.hero-orb.orb-a{background:rgba(29,78,216,.07)!important}.hero-orb.orb-b{background:rgba(14,165,233,.055)!important}
+#spiderNetworkCanvas,#hangingArachnidCanvas{z-index:1!important;mix-blend-mode:multiply!important;opacity:.34!important;filter:saturate(.9) contrast(1.05)!important}
+footer{background:#eef4fb!important;color:#475569!important;border-top:1px solid rgba(15,23,42,.10)!important}footer a{color:#334155!important}footer a:hover{color:#1d4ed8!important}
+@media (max-width:767px){.site-header{background:rgba(255,255,255,.94)!important}.hero-grid{gap:28px}.profile-stage{max-width:430px;margin-inline:auto}.glass{backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important}}
+@media (prefers-contrast:more){body{background:#fff!important}.glass,.dash-card,.terminal,.site-header{border-color:#334155!important}.hero-description,.section-head p,.global-threat-head p,.dash-card small,.traffic-meta,.firewall-list li{color:#1e293b!important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}
