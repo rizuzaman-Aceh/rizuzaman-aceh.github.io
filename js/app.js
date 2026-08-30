@@ -99,7 +99,7 @@
       ctx.font=`${font}px "JetBrains Mono",monospace`;
       for(let i=0;i<drops.length;i++){
         const y=drops[i]*font;
-        ctx.fillStyle = Math.random()>.94 ? "rgba(230,36,41,.22)" : "rgba(34,211,238,.16)";
+        ctx.fillStyle = Math.random()>.94 ? "rgba(230,36,41,.22)" : "rgba(29,78,216,.12)";
         ctx.fillText(chars[(Math.random()*chars.length)|0], i*font, y);
         drops[i] += .55;
         if(y>height && Math.random()>.985) drops[i]=Math.random()*-12;
@@ -329,7 +329,7 @@
       ctx.fillStyle='rgba(9,13,18,.86)';ctx.strokeStyle='rgba(230,36,41,.55)';ctx.lineWidth=1;
       ctx.beginPath();ctx.arc(0,headY,12*scale,0,Math.PI*2);ctx.fill();ctx.stroke();
       // mask mesh
-      ctx.strokeStyle='rgba(34,211,238,.30)';ctx.lineWidth=.45;ctx.beginPath();ctx.moveTo(-8*scale,headY-3);ctx.lineTo(8*scale,headY+5);ctx.moveTo(8*scale,headY-3);ctx.lineTo(-8*scale,headY+5);ctx.moveTo(-10*scale,headY);ctx.lineTo(10*scale,headY);ctx.stroke();
+      ctx.strokeStyle='rgba(29,78,216,.22)';ctx.lineWidth=.45;ctx.beginPath();ctx.moveTo(-8*scale,headY-3);ctx.lineTo(8*scale,headY+5);ctx.moveTo(8*scale,headY-3);ctx.lineTo(-8*scale,headY+5);ctx.moveTo(-10*scale,headY);ctx.lineTo(10*scale,headY);ctx.stroke();
       // torso, arms, legs
       ctx.strokeStyle='rgba(220,230,235,.46)';ctx.lineWidth=5*scale;
       ctx.beginPath();ctx.moveTo(-7*scale,shoulderY);ctx.lineTo(-25*scale,shoulderY+34);ctx.lineTo(-42*scale,shoulderY+44);ctx.moveTo(7*scale,shoulderY);ctx.lineTo(25*scale,shoulderY+31);ctx.lineTo(42*scale,shoulderY+40);ctx.stroke();
@@ -342,7 +342,7 @@
     function frame(){
       t+=.012;ctx.clearRect(0,0,W,H);
       // parallel cyber lanes behind the hanging figure
-      ctx.save();ctx.globalAlpha=.28; for(let k=0;k<7;k++){const y=H*(.16+k*.105)+Math.sin(t+k)*10;ctx.beginPath();ctx.strokeStyle=k%2?'rgba(34,211,238,.16)':'rgba(230,36,41,.12)';ctx.lineWidth=.6;ctx.moveTo(W*.48,y);ctx.lineTo(W*.98,y-50);ctx.stroke();}ctx.restore();
+      ctx.save();ctx.globalAlpha=.28; for(let k=0;k<7;k++){const y=H*(.16+k*.105)+Math.sin(t+k)*10;ctx.beginPath();ctx.strokeStyle=k%2?'rgba(29,78,216,.12)':'rgba(230,36,41,.12)';ctx.lineWidth=.6;ctx.moveTo(W*.48,y);ctx.lineTo(W*.98,y-50);ctx.stroke();}ctx.restore();
       nodes.forEach(n=>{n.p+=n.v*.04; n.y+=n.v; if(n.y>H+10)n.y=-10; ctx.fillStyle=`rgba(34,211,238,${.12+.12*Math.sin(n.p)})`;ctx.fillRect(n.x,n.y,1.3,1.3)});
       // hanging silhouette is intentionally abstract/original to avoid a branded character asset
       drawFigure(W*.82,H*.075,.95,t);
@@ -368,7 +368,7 @@
       for(let ring=1;ring<=4;ring++){
         const r=base*ring/2.2; ctx.beginPath();
         for(let i=0;i<=32;i++){const a=(i/32)*Math.PI*2;const wob=Math.sin(a*4+t*.0004+ring)*1.5;const x=cx+Math.cos(a)*(r+wob),y=cy+Math.sin(a)*(r+wob);i?ctx.lineTo(x,y):ctx.moveTo(x,y)}
-        ctx.closePath();ctx.strokeStyle=ring%2?"rgba(34,211,238,.075)":"rgba(230,36,41,.055)";ctx.lineWidth=.7;ctx.stroke();
+        ctx.closePath();ctx.strokeStyle=ring%2?"rgba(29,78,216,.075)":"rgba(230,36,41,.055)";ctx.lineWidth=.7;ctx.stroke();
       }
       for(let i=0;i<12;i++){
         const a=i/12*Math.PI*2, ex=cx+Math.cos(a)*base*1.82, ey=cy+Math.sin(a)*base*1.82;
