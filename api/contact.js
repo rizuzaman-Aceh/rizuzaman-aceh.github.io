@@ -47,7 +47,8 @@ export default async function handler(req) {
         email: String(email).trim().toLowerCase(),
         subject: String(subject).trim(),
         message: String(message).trim()
-      })
+      }),
+      signal: AbortSignal.timeout(8000)
     });
 
     if (!response.ok) {
@@ -58,6 +59,7 @@ export default async function handler(req) {
     return json(201, { ok: true });
   } catch (error) {
     console.error(error);
-    return json(500, { error: "Terjadi kesalahan server." });
+    const timedOut = error?.name === "TimeoutError" || error?.name === "AbortError";
+    return json(timedOut ? 504 : 500, { error: timedOut ? "Server database tidak merespons, coba lagi." : "Terjadi kesalahan server." });
   }
 }

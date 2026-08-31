@@ -25,7 +25,8 @@ export default async function handler(req) {
     const response = await fetch("https://threatfox-api.abuse.ch/api/v1/", {
       method: "POST",
       headers: { "Content-Type": "application/json", "Auth-Key": key },
-      body: JSON.stringify({ query: "get_iocs", days: 1 })
+      body: JSON.stringify({ query: "get_iocs", days: 1 }),
+      signal: AbortSignal.timeout(8000)
     });
     if (!response.ok) return json(502, { live: false, error: "Threat intelligence upstream unavailable." });
 
@@ -54,6 +55,7 @@ export default async function handler(req) {
     });
   } catch (error) {
     console.error("ThreatFox proxy error:", error);
-    return json(500, { live: false, error: "Threat telemetry request failed." });
+    const timedOut = error?.name === "TimeoutError" || error?.name === "AbortError";
+    return json(timedOut ? 504 : 500, { live: false, error: timedOut ? "Threat intelligence upstream timed out." : "Threat telemetry request failed." });
   }
 }
