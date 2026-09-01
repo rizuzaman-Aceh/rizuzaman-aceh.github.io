@@ -46,7 +46,6 @@ export default async function handler(req, res) {
     }
 
     const insertUrl = `${url.replace(/\/$/, "")}/rest/v1/portfolio_messages`;
-    console.error("DEBUG insertUrl:", insertUrl, "keyLength:", key.length, "keyPrefix:", key.slice(0, 6));
 
     const response = await fetch(insertUrl, {
       method: "POST",
