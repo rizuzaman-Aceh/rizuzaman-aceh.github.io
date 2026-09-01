@@ -45,7 +45,10 @@ export default async function handler(req, res) {
       return;
     }
 
-    const response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/portfolio_messages`, {
+    const insertUrl = `${url.replace(/\/$/, "")}/rest/v1/portfolio_messages`;
+    console.error("DEBUG insertUrl:", insertUrl, "keyLength:", key.length, "keyPrefix:", key.slice(0, 6));
+
+    const response = await fetch(insertUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
