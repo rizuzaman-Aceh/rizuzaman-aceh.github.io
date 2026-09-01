@@ -16,6 +16,7 @@ export default async function handler(req, res) {
   const origin = req.headers.origin;
   const allowedOrigin = process.env.ALLOWED_ORIGIN;
   if (allowedOrigin && origin && origin !== allowedOrigin) {
+    console.error("Origin mismatch:", JSON.stringify({ origin, allowedOrigin }));
     res.status(403).json({ error: "Origin not allowed" });
     return;
   }
