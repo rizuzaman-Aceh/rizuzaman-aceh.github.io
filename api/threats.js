@@ -2,23 +2,23 @@
 // Set THREATFOX_AUTH_KEY in Vercel Project Settings to enable live ThreatFox data.
 // Without the key, the frontend stays in clearly labelled DEMO TELEMETRY mode.
 
-const json = (status, body) => ({
-  status,
-  headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
-  body: JSON.stringify(body)
-});
+export default async function handler(req, res) {
+  res.setHeader("Cache-Control", "no-store");
 
-export default async function handler(req) {
-  if (req.method !== "GET") return json(405, { error: "Method not allowed" });
+  if (req.method !== "GET") {
+    res.status(405).json({ error: "Method not allowed" });
+    return;
+  }
 
   const key = process.env.THREATFOX_AUTH_KEY;
   if (!key) {
-    return json(200, {
+    res.status(200).json({
       live: false,
       source: "ThreatFox",
       message: "THREATFOX_AUTH_KEY belum dikonfigurasi; gunakan DEMO TELEMETRY.",
       data: []
     });
+    return;
   }
 
   try {
@@ -28,11 +28,15 @@ export default async function handler(req) {
       body: JSON.stringify({ query: "get_iocs", days: 1 }),
       signal: AbortSignal.timeout(8000)
     });
-    if (!response.ok) return json(502, { live: false, error: "Threat intelligence upstream unavailable." });
+    if (!response.ok) {
+      res.status(502).json({ live: false, error: "Threat intelligence upstream unavailable." });
+      return;
+    }
 
     const payload = await response.json();
     if (payload.query_status !== "ok" || !Array.isArray(payload.data)) {
-      return json(502, { live: false, error: "Threat intelligence response invalid." });
+      res.status(502).json({ live: false, error: "Threat intelligence response invalid." });
+      return;
     }
 
     const items = payload.data.slice(0, 60).map(item => ({
@@ -45,7 +49,7 @@ export default async function handler(req) {
       country: item.country || null
     }));
     const families = new Set(items.map(x => x.malware).filter(Boolean));
-    return json(200, {
+    res.status(200).json({
       live: true,
       source: "ThreatFox",
       fetchedAt: new Date().toISOString(),
@@ -56,6 +60,6 @@ export default async function handler(req) {
   } catch (error) {
     console.error("ThreatFox proxy error:", error);
     const timedOut = error?.name === "TimeoutError" || error?.name === "AbortError";
-    return json(timedOut ? 504 : 500, { live: false, error: timedOut ? "Threat intelligence upstream timed out." : "Threat telemetry request failed." });
+    res.status(timedOut ? 504 : 500).json({ live: false, error: timedOut ? "Threat intelligence upstream timed out." : "Threat telemetry request failed." });
   }
 }

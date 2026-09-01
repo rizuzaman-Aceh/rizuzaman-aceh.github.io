@@ -5,34 +5,44 @@
 //
 // Never expose SUPABASE_SERVICE_ROLE_KEY in browser JavaScript.
 
-const json = (status, body) => ({
-  status,
-  headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
-  body: JSON.stringify(body)
-});
+export default async function handler(req, res) {
+  res.setHeader("Cache-Control", "no-store");
 
-export default async function handler(req) {
-  if (req.method !== "POST") return json(405, { error: "Method not allowed" });
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "Method not allowed" });
+    return;
+  }
 
   const origin = req.headers.origin;
   const allowedOrigin = process.env.ALLOWED_ORIGIN;
   if (allowedOrigin && origin && origin !== allowedOrigin) {
-    return json(403, { error: "Origin not allowed" });
+    res.status(403).json({ error: "Origin not allowed" });
+    return;
   }
 
   try {
     const { name, email, subject, message, website } = req.body || {};
-    if (website) return json(200, { ok: true });
-    if (!name || !email || !subject || !message) return json(400, { error: "Semua field wajib diisi." });
+    if (website) { res.status(200).json({ ok: true }); return; }
+    if (!name || !email || !subject || !message) {
+      res.status(400).json({ error: "Semua field wajib diisi." });
+      return;
+    }
     if (String(name).length > 100 || String(email).length > 160 || String(subject).length > 180 || String(message).length > 4000) {
-      return json(400, { error: "Input terlalu panjang." });
+      res.status(400).json({ error: "Input terlalu panjang." });
+      return;
     }
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email));
-    if (!emailOk) return json(400, { error: "Format email tidak valid." });
+    if (!emailOk) {
+      res.status(400).json({ error: "Format email tidak valid." });
+      return;
+    }
 
     const url = process.env.SUPABASE_URL;
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-    if (!url || !key) return json(503, { error: "Contact API belum dikonfigurasi." });
+    if (!url || !key) {
+      res.status(503).json({ error: "Contact API belum dikonfigurasi." });
+      return;
+    }
 
     const response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/portfolio_messages`, {
       method: "POST",
@@ -54,12 +64,13 @@ export default async function handler(req) {
     if (!response.ok) {
       const text = await response.text();
       console.error("Supabase insert failed:", response.status, text);
-      return json(502, { error: "Pesan tidak dapat disimpan saat ini." });
+      res.status(502).json({ error: "Pesan tidak dapat disimpan saat ini." });
+      return;
     }
-    return json(201, { ok: true });
+    res.status(201).json({ ok: true });
   } catch (error) {
     console.error(error);
     const timedOut = error?.name === "TimeoutError" || error?.name === "AbortError";
-    return json(timedOut ? 504 : 500, { error: timedOut ? "Server database tidak merespons, coba lagi." : "Terjadi kesalahan server." });
+    res.status(timedOut ? 504 : 500).json({ error: timedOut ? "Server database tidak merespons, coba lagi." : "Terjadi kesalahan server." });
   }
 }
