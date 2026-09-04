@@ -1,9 +1,9 @@
 // Vercel Serverless Function — /api/contact
-// Required environment variables:
+// Required environment variables (SUPABASE_URL + one secret key, from the SAME project):
 // SUPABASE_URL=https://<project-ref>.supabase.co
-// SUPABASE_SERVICE_ROLE_KEY=<server-only secret>
+// One of: SUPABASE_SERVICE_ROLE_KEY | SUPABASE_ROLE_KEY | SUPABASE_SECRET_KEY
 //
-// Never expose SUPABASE_SERVICE_ROLE_KEY in browser JavaScript.
+// Never expose the service-role/secret key in browser JavaScript.
 
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
@@ -39,14 +39,20 @@ export default async function handler(req, res) {
     }
 
     const url = process.env.SUPABASE_URL;
-    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    // Accept whichever server-only secret name is configured. The Vercel Supabase
+    // integration provides SUPABASE_ROLE_KEY / SUPABASE_SECRET_KEY, while a manual
+    // setup typically uses SUPABASE_SERVICE_ROLE_KEY. IMPORTANT: this key MUST belong
+    // to the same Supabase project as SUPABASE_URL.
+    const key =
+      process.env.SUPABASE_SERVICE_ROLE_KEY ||
+      process.env.SUPABASE_ROLE_KEY ||
+      process.env.SUPABASE_SECRET_KEY;
     if (!url || !key) {
       res.status(503).json({ error: "Contact API belum dikonfigurasi." });
       return;
     }
 
     const insertUrl = `${url.replace(/\/$/, "")}/rest/v1/portfolio_messages`;
-    console.error("DEBUG insertUrl:", insertUrl, "keyLength:", key.length, "keyPrefix:", key.slice(0, 6));
 
     const response = await fetch(insertUrl, {
       method: "POST",
