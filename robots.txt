@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rizuzaman-aceh.github.io/sitemap.xml
+Sitemap: https://rizuzaman-aceh-github-io.vercel.app/sitemap.xml
