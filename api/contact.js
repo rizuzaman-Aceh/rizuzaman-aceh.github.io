@@ -1,9 +1,9 @@
 // Vercel Serverless Function — /api/contact
-// Required environment variables (SUPABASE_URL + one secret key, from the SAME project):
+// Required environment variables:
 // SUPABASE_URL=https://<project-ref>.supabase.co
-// One of: SUPABASE_SERVICE_ROLE_KEY | SUPABASE_ROLE_KEY | SUPABASE_SECRET_KEY
+// SUPABASE_SERVICE_ROLE_KEY=<server-only secret>
 //
-// Never expose the service-role/secret key in browser JavaScript.
+// Never expose SUPABASE_SERVICE_ROLE_KEY in browser JavaScript.
 
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
@@ -16,7 +16,6 @@ export default async function handler(req, res) {
   const origin = req.headers.origin;
   const allowedOrigin = process.env.ALLOWED_ORIGIN;
   if (allowedOrigin && origin && origin !== allowedOrigin) {
-    console.error("Origin mismatch:", JSON.stringify({ origin, allowedOrigin }));
     res.status(403).json({ error: "Origin not allowed" });
     return;
   }
@@ -39,14 +38,7 @@ export default async function handler(req, res) {
     }
 
     const url = process.env.SUPABASE_URL;
-    // Accept whichever server-only secret name is configured. The Vercel Supabase
-    // integration provides SUPABASE_ROLE_KEY / SUPABASE_SECRET_KEY, while a manual
-    // setup typically uses SUPABASE_SERVICE_ROLE_KEY. IMPORTANT: this key MUST belong
-    // to the same Supabase project as SUPABASE_URL.
-    const key =
-      process.env.SUPABASE_SERVICE_ROLE_KEY ||
-      process.env.SUPABASE_ROLE_KEY ||
-      process.env.SUPABASE_SECRET_KEY;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
     if (!url || !key) {
       res.status(503).json({ error: "Contact API belum dikonfigurasi." });
       return;
