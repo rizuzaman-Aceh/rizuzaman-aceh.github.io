@@ -282,7 +282,7 @@
       form.reset();
       status.textContent = "✓ Pesan berhasil diterima.";
     } catch (err) {
-      const mail = `mailto:rizuzamantkj3@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nama: ${data.name}\nEmail: ${data.email}\n\n${data.message}`)}`;
+      const mail = `mailto:rizuzaman@proton.me?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nama: ${data.name}\nEmail: ${data.email}\n\n${data.message}`)}`;
       status.innerHTML = "";
       const msg = document.createElement("span");
       msg.textContent = "API kontak belum aktif. ";
@@ -600,7 +600,7 @@
     const draw = (t = 0) => {
       if (!threatMap.parentElement) return;
       ctx.clearRect(0, 0, W, H);
-      ctx.strokeStyle = "rgba(15,23,42,.045)";
+      ctx.strokeStyle = "rgba(255,255,255,.06)";
       ctx.lineWidth = .5;
       for (let x = 0; x < W; x += W / 12) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
       for (let y = 0; y < H; y += H / 6) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
