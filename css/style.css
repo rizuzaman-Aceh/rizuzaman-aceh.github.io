@@ -591,3 +591,122 @@ p { line-height: 1.6; }
   .ring-fg { transition: none; }
   .profile-photo::after { display: none; }
 }
+/* =========================================================
+   DARK CYBER THEME OVERRIDE — V14
+   Konversi ke tema gelap + animasi visualisasi jaringan menyala
+   ========================================================= */
+:root{
+  --bg:#05070d;
+  --bg-2:#0a0e18;
+  --surface: rgba(255,255,255,.045);
+  --surface-2: rgba(255,255,255,.08);
+  --line: rgba(255,255,255,.12);
+  --text:#e7ebf3;
+  --muted:#aab3c5;
+  --dim:#8089a0;
+  --cyan:#38bdf8;
+  --purple:#22d3ee;
+  --gold:#f59e0b;
+  --green:#34d399;
+  --red:#ff3b3b;
+  --cyan-text:#38bdf8;
+  --amber-text:#f59e0b;
+  --green-text:#34d399;
+  --red-text:#ff5c5c;
+  color-scheme: dark;
+}
+html{ background: var(--bg); }
+body{
+  background:
+    radial-gradient(circle at 80% -6%, rgba(220,38,38,.18), transparent 34%),
+    radial-gradient(circle at 4% 12%, rgba(29,78,216,.18), transparent 30%),
+    radial-gradient(circle at 60% 100%, rgba(14,165,233,.10), transparent 40%),
+    linear-gradient(180deg,#03040a 0%,#05070d 45%,#070a14 100%);
+  color: var(--text);
+}
+body::before{ background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); opacity:.6; }
+body::after{ background: radial-gradient(circle at 50% 25%, transparent 0 38%, rgba(0,0,0,.55) 78%); }
+
+/* ---- Canvas visualisasi (spider web / network) — dibuat menyala di atas gelap ---- */
+#spiderNetworkCanvas, #hangingArachnidCanvas{
+  mix-blend-mode: screen;
+  opacity: .9;
+  filter: saturate(1.3) contrast(1.05) brightness(1.35) drop-shadow(0 0 6px rgba(220,38,38,.25));
+}
+#matrixCanvas{ opacity:.3; }
+
+/* ---- Header & nav ---- */
+.site-header{ background: rgba(5,7,13,.72); border-bottom-color: rgba(255,255,255,.08); box-shadow:0 8px 28px rgba(0,0,0,.45); }
+.brand, .menu-btn span, .nav-links a:hover, .nav-links a.active{ color:#f1f5fb; }
+.nav-links a{ color:#9aa4b8; }
+.btn-ghost{ color:#f1f5fb; background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); }
+.btn-ghost:hover{ border-color:#38bdf8; box-shadow:0 10px 28px rgba(56,189,248,.16); }
+.menu-btn{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); }
+.mobile-menu{ background: rgba(6,9,16,.97); border-color: rgba(255,255,255,.10); box-shadow:0 20px 60px rgba(0,0,0,.5); }
+.mobile-menu a{ color:#c3cadb !important; border-bottom-color: rgba(255,255,255,.06) !important; }
+
+/* ---- Kartu kaca gelap (glassmorphism cyber) ---- */
+.glass,
+.dash-card, .event-log, .globe-wrap, .global-threat-panel, .credential-card, .profile-summary,
+.dossier-card, .info-card, .skill-group, .timeline-content, .achievement, .contact-form, .stat,
+.terminal, .threat-feed, .flip-front, .flip-back, .ticker, .status-pill, .interaction-strip,
+.network-label, .float-tag, .map-label, .photo-caption{
+  background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+  border-color: rgba(255,255,255,.12);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color:#e7ebf3;
+}
+.flip-back{ background: linear-gradient(135deg, rgba(29,78,216,.16), rgba(14,165,233,.12)); border-color: rgba(56,189,248,.28); }
+.hero-meta-grid > div{ background: rgba(255,255,255,.045); border-left-color: rgba(255,255,255,.14); }
+.terminal{ box-shadow:0 20px 55px rgba(0,0,0,.5); }
+.terminal-top{ border-bottom-color: rgba(255,255,255,.08); color:#8089a0; }
+
+/* ---- Teks: kelompok warna gelap -> terang ---- */
+.brand, .hero h1, .section-head h2, .gradient-text, .hero-meta-grid b, .ambient-card strong,
+.mini-skill b, .traffic-value strong, .attack-donut b, .attack-legend b, .threat-stat-row strong,
+.dossier-card h3, .data-list b, .competency-grid span, .tag-cloud span, .tool-cloud span,
+.credential-list b, .stat strong, .edu-row b, .os-list span, .os-row span, .achievement strong,
+.contact-form input, .contact-form textarea, .cyber-subline .hero-role, .photo-caption,
+.info-card h3, .timeline-content h3, .global-threat-head h3, .globe-copy h3,
+.skill-group h3, .flip-front h3, .flip-back h3, .cyber-word{
+  color:#f1f5fb;
+}
+.status-pill, .eyebrow, .hero-description, .hero-contact-row a, .mini-skill span,
+.section-head p, .global-threat-head p, .feed-line, .about-copy p, .profile-summary p,
+.info-card > p, .chips span, .experience-bullets, .achievement span, .flip-front p, .flip-back p,
+.contact-form label, .muted-tags span, .dossier-card h4, .timeline-content b, .timeline-content p,
+.dash-head, .dash-card small, .traffic-meta, .firewall-list li, .event-log small,
+.interaction-strip, .threat-stat-row span, .project-index, .tap-hint, .flip-front small,
+.data-list span, .credential-list span, .os-row, .stat span,
+.contact-links, .form-status, .footer-inner, .globe-copy p, .cred-head, .year,
+.map-label, .network-label, .social-row{
+  color:#aab3c5;
+}
+.hero-contact-row a:hover{ color:#38bdf8; }
+.credential-list li.recommended::after{ color:#7c8aa0; }
+.data-list a, .edu-row span, .flip-back b{ color:#38bdf8; }
+
+/* ---- Border gelap -> terang tipis ---- */
+.hero-meta-grid > div, .edu-row, .data-list > div, .threat-stat-row, .icon-box, .chips span,
+.competency-grid span, .tag-cloud span, .tool-cloud span, .project-mark{
+  border-color: rgba(255,255,255,.12);
+}
+.ring-bg{ stroke: rgba(255,255,255,.10); }
+.meter, .mini-skill em{ background: rgba(255,255,255,.08); }
+.icon-box, .chips span, .project-mark, .competency-grid span, .tag-cloud span, .tool-cloud span{
+  background: rgba(255,255,255,.055);
+}
+.site-footer{ background:#03040a; border-top-color: rgba(255,255,255,.08); }
+
+/* ---- Komponen spesifik ---- */
+.attack-donut::before{ background:#05070d; box-shadow: inset 0 2px 8px rgba(0,0,0,.4); }
+.threat-map-shell{ background: radial-gradient(circle at 50% 50%, rgba(29,78,216,.14), transparent 55%), #03050a; border-color: rgba(255,255,255,.08); }
+.contact-form input, .contact-form textarea{ background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.14); }
+.contact-form input:focus, .contact-form textarea:focus{ background: rgba(255,255,255,.08); box-shadow:0 0 22px rgba(56,189,248,.16); }
+.profile-glass{ background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03)); border-color: rgba(255,255,255,.16); box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 28px 70px rgba(0,0,0,.5); }
+.profile-photo{ background:#0a0e18; border-color: rgba(255,255,255,.14); box-shadow: 0 0 0 7px rgba(255,255,255,.05), 0 0 0 8px rgba(220,38,38,.18), 0 25px 60px rgba(0,0,0,.55); }
+.photo-caption{ background: rgba(6,9,16,.86); }
+.ambient-icon{ background: rgba(56,189,248,.14); color:#38bdf8; }
+.ambient-icon.red{ background: rgba(255,59,59,.16); color:#ff5c5c; }
